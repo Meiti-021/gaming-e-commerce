@@ -66,7 +66,7 @@ const Header = () => {
   const [menu, setMenu] = useState(false);
   const [sidenav, setSideNav] = useState(false);
   return (
-    <div className="h-auto z-40 fixed w-full ">
+    <div className="h-auto z-50 fixed w-full ">
       <div className="absolute w-full h-full -z-10"></div>
       <div className="md:hidden w-full h-14 p-3 flex items-center justify-between bg-black ">
         <img src={logo} alt="logo" className="h-7 object-contain" />

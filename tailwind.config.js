@@ -14,6 +14,7 @@ export default {
         "second-color": "#7b35c8",
         "border-color": "#cccccc",
         blue: "#0098ff",
+        "dark-blue": "#12103E",
       },
       screens: {
         xs: "575px",
