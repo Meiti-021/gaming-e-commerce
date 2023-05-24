@@ -4,6 +4,42 @@
   box-sizing: border-box;
 }
 
+.nav-arrow {
+  transition: transform 0.3s;
+}
+
+.nav-item:hover .nav-arrow {
+  transform: rotateX(180deg);
+}
+.nav-indicator {
+  transition: 0.5s width;
+}
+
+.nav-item:hover .nav-indicator {
+  width: 100%;
+}
+
+.nav-menu {
+  transform: rotateX(90deg);
+  opacity: 0;
+  transition: 0.5s transform, 0.1s opacity;
+  transform-origin: 0% 0%;
+}
+
+.nav-item:hover .nav-menu {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+.nav-menu-on {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+.search-bar {
+  border-radius: 0 20px 0 20px;
+}
+
 @font-face {
   font-family: Outfit;
   src: url(./assets/fonts/Outfit.ttf);
