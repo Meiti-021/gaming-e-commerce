@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: "alien-ware-monitor-t-46",
     brand: "samsung",

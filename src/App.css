@@ -37,12 +37,12 @@
 }
 
 .search-bar {
-  border-radius: 0 20px 0 20px;
+  border-radius: 0 15px 0 15px;
 }
 .swiper-pagination-bullet {
   width: 30px !important;
-  height: 2px !important;
-  background: linear-gradient(to right, #0098ff, #7b35c8) !important;
+  height: 3px !important;
+  background: #0098ff !important;
   border-radius: 0 !important;
 }
 
