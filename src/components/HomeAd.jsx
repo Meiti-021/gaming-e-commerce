@@ -1,44 +1,22 @@
-import SectionHeader from "./SectionHeader";
-import cpu from "../assets/images/product-cpu.webp";
-import cpu2 from "../assets/images/double.cpu.png";
-import circle1 from "../assets/images/design-circle-3.png";
-import circle2 from "../assets/images/gaming-products.png";
-import circle3 from "../assets/images/gaming-products-1.png";
+import headset from "../assets/images/full-width-bluthhoth.png";
+import doubleHeadset from "../assets/images/double-bluthoth.png";
+
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
 import { useState } from "react";
-const HomeBestProducts = () => {
+const HomeAd = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [option, setOption] = useState(0);
   return (
-    <div className="h-auto  py-5 bg-black relative mt-10">
-      <div className="absolute w-full h-full ">
+    <div className="h-auto  py-5  relative mt-10  ">
+      <div className="w-full -mt-10 lg:-mt-40   z-10 p-3 h-[60rem] flex flex-col  md:flex-row md:items-center md:justify-center gap-6">
         <img
-          src={circle1}
+          src={doubleHeadset}
           alt=""
-          className="absolute  right-0 left-0 top-0 bottom-0 m-auto"
+          className="block object-contain   lg:h-full  md:w-1/2 h-[20rem] p-3 sm:h-[30rem] xl:w-[35rem] object-right"
         />
-        <img
-          src={circle2}
-          alt=""
-          className="absolute hidden md:block left-44 -top-14"
-        />
-        <img
-          src={circle3}
-          alt=""
-          className="absolute hidden md:block -top-12 right-44"
-        />
-      </div>
-
-      <SectionHeader title="Best Pro Gaming Products" address="" />
-      <div className="w-full -mt-10 lg:-mt-40 relative z-10 p-3 h-[60rem] flex flex-col gap-5 md:flex-row md:items-center justify-between">
-        <img
-          src={cpu}
-          alt=""
-          className="block object-contain lg:h-full  md:w-1/2 h-1/2 sm:h-[30rem] xl:w-1/3 object-left"
-        />
-        <div className="h-auto w-full relative z-10  max-w-md mx-auto bg-gradient-to-r from-blue to-second-color p-[1px] search-bar">
+        <div className="h-auto w-full  max-w-md mx-auto bg-gradient-to-r from-blue to-second-color p-[1px] search-bar">
           <div
-            className={`w-full search-bar bg-black h-full 
+            className={`w-full search-bar bg-white h-full 
              "scale-110" 
              transition-all p-4 font-first-font `}
           >
@@ -50,7 +28,7 @@ const HomeBestProducts = () => {
                 <FavoriteBorderOutlined style={{ color: "white" }} />
               </button>
             </div>
-            <p className="text-[1.35rem] text-white font-semibold my-4">
+            <p className="text-[1.35rem] text-black font-semibold my-4">
               KD DMTR Gaming Desktop PC
             </p>
             <p className="text-sm font-semibold text-gray-500 -my-2">
@@ -62,7 +40,7 @@ const HomeBestProducts = () => {
               Connect to the internet wirelessly with ease. Preloaded with
               Windows 10 64-bit OS for enhanced productivity and multitasking.
             </p>
-            <p className="text-xs capitalize text-white">Size :</p>
+            <p className="text-xs capitalize text-black">Size :</p>
             <div
               className="h-10 w-full cursor-pointer flex relative justify-between px-4 items-center search-bar border-[1px] border-gray-500 mt-2"
               onMouseLeave={() => {
@@ -100,15 +78,12 @@ const HomeBestProducts = () => {
 
             <div className="h-14 mt-3 flex justify-between p-3 items-center">
               <div className="flex flex-col gap-1">
-                <p className="text-3xl text-white font-semibold">
+                <p className="text-3xl text-black font-semibold">
                   865.00 <sup className="text-xs">USD</sup>
                 </p>
               </div>
               <button
-                className={`search-bar text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font 
-                 
-                    "cursor-pointer text-white"
-                `}
+                className={`search-bar text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font cursor-pointer text-white`}
               >
                 Add To Cart
               </button>
@@ -116,13 +91,13 @@ const HomeBestProducts = () => {
           </div>
         </div>
         <img
-          src={cpu2}
+          src={headset}
           alt=""
-          className=" object-contain hidden relative z-10  h-1/2 sm:h-2/3 w-1/3 xl:block object-left"
+          className=" object-contain hidden absolute -right-36 z-10  h-1/2 sm:h-2/3 w-1/3 xl:block "
         />
       </div>
     </div>
   );
 };
 
-export default HomeBestProducts;
+export default HomeAd;
