@@ -24,67 +24,88 @@ const HomeBrandSwiper = () => {
           loop={true}
           className="w-full py-10 h-full "
         >
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full p-7 h-full object-contain object-center"
+              className="w-full p-8 h-full object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72  h-full ">
+          <SwiperSlide className="w-52  h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full  h-full p-7 object-contain object-center"
+              className="w-full  h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full h-full p-7 object-contain object-center"
+              className="w-full h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full h-full p-7 object-contain object-center"
+              className="w-full h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full h-full p-7 object-contain object-center"
+              className="w-full h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full h-full p-7 object-contain object-center"
+              className="w-full h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full h-full p-7 object-contain object-center"
+              className="w-full h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full h-full p-7 object-contain object-center"
+              className="w-full h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
-          <SwiperSlide className="w-72 h-full ">
+          <SwiperSlide className="w-52 h-full ">
             <img
               src={logo}
               alt=""
-              className="w-full h-full p-7 object-contain object-center"
+              className="w-full h-full p-8 object-contain object-center"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="w-52  h-full ">
+            <img
+              src={logo}
+              alt=""
+              className="w-full h-full p-8 object-contain object-center"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="w-52 h-full ">
+            <img
+              src={logo}
+              alt=""
+              className="w-full h-full p-8 object-contain object-center"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="w-52 h-full ">
+            <img
+              src={logo}
+              alt=""
+              className="w-full h-full p-8 object-contain object-center"
             />
           </SwiperSlide>
         </Swiper>

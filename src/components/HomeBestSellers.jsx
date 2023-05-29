@@ -1,6 +1,6 @@
 import circle6 from "../assets/images/design-circle-3.png";
 import SectionHeader from "../components/SectionHeader";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useSelector } from "react-redux";
@@ -9,7 +9,6 @@ import { useEffect, useRef } from "react";
 import BestSellerSlider from "./BestSellerSlider";
 const HomeBestSellers = () => {
   const { products } = useSelector((store) => store.cart);
-  const swiper = useSwiper();
   const swiperRef = useRef(null);
   useEffect(() => {
     swiperRef.current.swiper.slideTo(3);
@@ -41,9 +40,12 @@ const HomeBestSellers = () => {
             {products
               .slice(0, 8)
               .sort((a, b) => a.seller - b.seller)
-              .map((product, index) => {
+              .map((product) => {
                 return (
-                  <SwiperSlide key={product.id} className="h-[35.5rem] p-4">
+                  <SwiperSlide
+                    key={`home-best-seller-${product.id}`}
+                    className="h-[35.5rem] p-4"
+                  >
                     {({ isActive }) => (
                       <BestSellerSlider {...product} isActive={isActive} />
                     )}
