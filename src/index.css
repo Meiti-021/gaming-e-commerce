@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply overflow-x-hidden w-screen;
+  }
   body {
-    @apply scrollbar-none;
+    @apply scrollbar-none w-full overflow-x-hidden;
   }
 }
