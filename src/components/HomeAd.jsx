@@ -8,13 +8,13 @@ const HomeAd = () => {
   const [option, setOption] = useState(0);
   return (
     <div className="h-auto  py-5  relative mt-10  ">
-      <div className="w-full -mt-10 lg:-mt-40   z-10 p-3 h-[60rem] flex flex-col  md:flex-row md:items-center md:justify-center gap-6">
+      <div className="w-full -mt-10 lg:-mt-40  p-3 h-[60rem] flex flex-col md:flex-row md:items-center gap-6">
         <img
           src={doubleHeadset}
           alt=""
-          className="block object-contain   lg:h-full  md:w-1/2 h-[20rem] p-3 sm:h-[30rem] xl:w-[35rem] object-right"
+          className="object-contain lg:h-full md:w-[25rem]  h-[20rem] p-3 sm:h-[30rem] xl:w-[35rem] object-right"
         />
-        <div className="h-auto w-full  max-w-md mx-auto bg-gradient-to-r from-blue to-second-color p-[1px] search-bar">
+        <div className="h-auto   max-w-md mx-auto bg-gradient-to-r from-blue to-second-color p-[1px] search-bar">
           <div
             className={`w-full search-bar bg-white h-full 
              "scale-110" 
