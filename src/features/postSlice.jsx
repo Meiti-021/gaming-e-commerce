@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { blogs } from "./Blogs";
 const initialState = {
-  products: blogs,
+  blogs: blogs,
 };
 
 const postSlice = createSlice({

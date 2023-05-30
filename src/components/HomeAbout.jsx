@@ -18,9 +18,9 @@ const aboutOptions = [
 ];
 const HomeAbout = () => {
   return (
-    <div className="w-full  mx-auto max-w-7xl font-first-font p-3">
-      <h2 className="text-5xl font-semibold">About our shop</h2>
-      <p className="my-5">
+    <div className="w-full -mt-28  mx-auto max-w-7xl font-first-font p-3">
+      <h2 className="text-5xl ">About our shop</h2>
+      <p className="my-5 text-gray-400">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos
         iste vitae, aspernatur, aliquam eveniet veritatis cum debitis qui nisi
         laborum reiciendis ipsa consectetur totam dicta corrupti amet modi odit.

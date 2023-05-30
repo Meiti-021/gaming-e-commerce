@@ -6,6 +6,7 @@ import HomeNewsLetter from "../components/HomeNewsLetter";
 import HomeBestProducts from "../components/HomeBestProducts";
 import HomeAd from "../components/HomeAd";
 import HomeAbout from "../components/HomeAbout";
+import HomeBlogs from "../components/HomeBlogs";
 const Home = () => {
   return (
     <div className="flex flex-col">
@@ -17,6 +18,7 @@ const Home = () => {
       <HomeBestProducts />
       <HomeAd />
       <HomeAbout />
+      <HomeBlogs />
     </div>
   );
 };

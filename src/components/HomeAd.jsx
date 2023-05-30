@@ -7,7 +7,7 @@ const HomeAd = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [option, setOption] = useState(0);
   return (
-    <div className="h-auto  py-5  relative mt-10  ">
+    <div className="h-auto  py-5  relative mt-10">
       <div className="w-full -mt-10 lg:-mt-40  p-3 h-[60rem] flex flex-col md:flex-row md:items-center gap-6">
         <img
           src={doubleHeadset}
