@@ -8,18 +8,29 @@ const HomeCategoriesProduct = ({
   id,
   price,
   stock,
+  light,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [option, setOption] = useState(0);
   return (
-    <div className="w-full h-full ">
+    <div
+      className={`h-full w-full ${
+        light
+          ? "bg-gradient-to-br from-sky-200 p-4 search-bar border-[1px] border-blue to-white"
+          : undefined
+      }`}
+    >
       <div className="w-full h-12  flex justify-between items-center">
         <div className="w-auto h-6 bg-gradient-to-r from-blue to-white text-xs p-2 px-3 font-first-font rounded-[0.25rem] text-white pt-[0.3rem]">
           {type}
         </div>
         <FavoriteBorderOutlined />
       </div>
-      <p className="text-2xl h-14 xs:h-20 md:text-white font-first-font font-semibold">
+      <p
+        className={`text-2xl h-14 xs:h-20 ${
+          light ? undefined : "md:text-white"
+        } font-first-font font-semibold`}
+      >
         {name}
       </p>
       <p className="text-xs font-first-font font-semibold text-gray-500">

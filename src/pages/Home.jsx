@@ -7,6 +7,8 @@ import HomeBestProducts from "../components/HomeBestProducts";
 import HomeAd from "../components/HomeAd";
 import HomeAbout from "../components/HomeAbout";
 import HomeBlogs from "../components/HomeBlogs";
+import HomeBestProGamingProducts from "../components/HomeBestProGamingProducts";
+import HomeTestimonials from "../components/HomeTestimonials";
 const Home = () => {
   return (
     <div className="flex flex-col">
@@ -19,6 +21,8 @@ const Home = () => {
       <HomeAd />
       <HomeAbout />
       <HomeBlogs />
+      <HomeBestProGamingProducts />
+      <HomeTestimonials />
     </div>
   );
 };
