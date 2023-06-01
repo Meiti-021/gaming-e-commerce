@@ -22,8 +22,10 @@ const Footer = () => {
             master a new skill.
           </p>
         </div>
-        <div className="flex flex-col gap-5">
-          <p className="text-base mt-6 uppercase font-semibold">Navigation::</p>
+        <div className="flex flex-col gap-3">
+          <p className="text-base mt-10  uppercase font-semibold">
+            Navigation::
+          </p>
           <ul className="text-sm flex flex-col gap-2">
             <li>
               <Link>Search</Link>
@@ -42,8 +44,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-5">
-          <p className="text-base mt-6 uppercase font-semibold">About Us::</p>
+        <div className="flex flex-col gap-3">
+          <p className="text-base mt-10  uppercase font-semibold">About Us::</p>
           <ul className="text-sm flex flex-col gap-2">
             <li>
               <Link>About Us</Link>
@@ -52,7 +54,7 @@ const Footer = () => {
               <Link>Contact With Us</Link>
             </li>
             <li>
-              <Link>FAQ &#39 s</Link>
+              <Link>FAQ&#39;s</Link>
             </li>
             <li>
               <Link>Privacy & Policy</Link>
@@ -62,8 +64,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-5">
-          <p className="text-base mt-6 uppercase font-semibold">Share::</p>
+        <div className="flex flex-col gap-3">
+          <p className="text-base mt-10  uppercase font-semibold">Share::</p>
           <ul className="text-sm flex  gap-2">
             <button className="bg-white w-8 h-8 rounded-lg text-black ">
               <FacebookIcon style={{ fontSize: "20px" }} />
@@ -80,8 +82,8 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <p className="text-base mt-10 mx-auto max-w-7xl w-full">
-        © 2023, Gaming Store, Developed By @Meiti
+      <p className="text-base mt-10 mx-auto max-w-7xl w-ful3">
+        © 2023, Gaming Store, Developed By @Meit-021
       </p>
       <img src={circle3} alt="" className="absolute -top-32 -right-32 z-10" />
     </div>

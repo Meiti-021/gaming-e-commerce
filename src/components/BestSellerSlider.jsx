@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
 import { useState } from "react";
+import PropTypes from "prop-types";
 const BestSellerSlider = ({
   isActive,
   type,
   name,
   images,
   options,
-  id,
   price,
   stock,
 }) => {
@@ -92,6 +93,16 @@ const BestSellerSlider = ({
       </div>
     </div>
   );
+};
+
+BestSellerSlider.propTypes = {
+  isActive: PropTypes.bool,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  images: PropTypes.object,
+  options: PropTypes.object,
+  price: PropTypes.number,
+  stock: PropTypes.bool,
 };
 
 export default BestSellerSlider;

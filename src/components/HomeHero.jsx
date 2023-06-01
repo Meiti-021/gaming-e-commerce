@@ -11,7 +11,7 @@ import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined
 const HomeHero = () => {
   return (
     <div className="relative">
-      <div className="absolute w-full h-[27rem] xs:h-[31rem] md:h-[35rem] lg:h-[36rem]  bg-black">
+      <div className="absolute w-full h-[27rem] xs:h-[31rem] md:h-[35rem] lg:h-[36rem]  bg-black ">
         <div className="absolute w-full full bg-black">
           <img
             src={heroBgLeft}
@@ -56,10 +56,10 @@ const HomeHero = () => {
           />
           <img src={circle2} alt="" className="absolute right-0 top-0" />
         </div>
-        <div className="absolute w-full h-full  z-40 pt-14">
+        <div className="absolute w-full h-full  z-40 pt-14 backdrop-brightness-75">
           <div className="w-full h-full mx-auto max-w-7xl ">
-            <div className=" h-full md:mt-14 p-5 flex flex-col justify-center gap-5 w-[30rem] xl:w-[34rem]">
-              <div className="h-11 w-96 xs:h-12 transition-all bg-dark-blue rounded-full flex items-center p-2 gap-1 ">
+            <div className=" h-full md:mt-14 p-5 flex flex-col justify-center gap-5 w-full xl:w-[34rem] ">
+              <div className="h-11 w-full max-w-sm xs:h-12 transition-all bg-dark-blue rounded-full flex items-center p-2 gap-1 ">
                 <div className="h-full rounded-s-full w-20 bg-gradient-to-r from-blue  to-dark-blue font-first-font text-white text-xs flex items-center px-2 pt-[0.1rem]">
                   Featured
                 </div>
@@ -74,7 +74,7 @@ const HomeHero = () => {
                 </span>
                 <br /> Accessories
               </h1>
-              <p className="text-white md:text-gray-500 text-sm font-first-font ">
+              <p className="text-white md:text-gray-500 text-sm font-first-font w-full ">
                 Gaming accessories include gear such as headsets, extra
                 controllers, charging stations, memory devices, carrying cases
                 and much more.

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const BlogPostItem = ({ title, categorie, image, author, date }) => {
   return (
     <div className="font-first-font h-auto">
@@ -27,4 +27,11 @@ const BlogPostItem = ({ title, categorie, image, author, date }) => {
   );
 };
 
+BlogPostItem.propTypes = {
+  title: PropTypes.string,
+  categorie: PropTypes.string,
+  image: PropTypes.string,
+  author: PropTypes.string,
+  date: PropTypes.string,
+};
 export default BlogPostItem;

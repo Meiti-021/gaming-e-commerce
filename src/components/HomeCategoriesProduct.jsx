@@ -1,5 +1,6 @@
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
 import { useState } from "react";
+import PropTypes from "prop-types";
 const HomeCategoriesProduct = ({
   type,
   name,
@@ -27,9 +28,9 @@ const HomeCategoriesProduct = ({
         <FavoriteBorderOutlined />
       </div>
       <p
-        className={`text-2xl h-14 xs:h-20 ${
+        className={`text-2xl h-14 xs:h-10 ${
           light ? undefined : "md:text-white"
-        } font-first-font font-semibold`}
+        } font-first-font font-semibold whitespace-nowrap overflow-hidden text-ellipsis`}
       >
         {name}
       </p>
@@ -99,6 +100,17 @@ const HomeCategoriesProduct = ({
       </div>
     </div>
   );
+};
+
+HomeCategoriesProduct.propTypes = {
+  id: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  images: PropTypes.object,
+  options: PropTypes.object,
+  price: PropTypes.number,
+  stock: PropTypes.bool,
+  light: PropTypes.bool,
 };
 
 export default HomeCategoriesProduct;

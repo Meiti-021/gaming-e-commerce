@@ -6,14 +6,19 @@ import { FreeMode, Navigation } from "swiper";
 import logo from "../assets/images/client-logo.png";
 import ArrowCircleRightRoundedIcon from "@mui/icons-material/ArrowCircleRightRounded";
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
+import { useMediaQuery } from "@mui/material";
 import { useRef } from "react";
+
 const HomeBrandSwiper = () => {
   const swiperRef = useRef(null);
+  const xs = useMediaQuery("(min-width:575px)");
+  const md = useMediaQuery("(min-width:768px)");
+  const lg = useMediaQuery("(min-width:1024px)");
   return (
     <div className="w-full h-44 bg-black flex justify-center items-center">
       <div className="h-full w-full max-w-7xl relative">
         <Swiper
-          slidesPerView={"auto"}
+          slidesPerView={lg ? "4" : md ? "3" : xs ? "2" : "1"}
           spaceBetween={30}
           freeMode={true}
           ref={swiperRef}

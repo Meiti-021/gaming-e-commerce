@@ -4,7 +4,7 @@ import SpeakerRoundedIcon from "@mui/icons-material/SpeakerRounded";
 import BoltRoundedIcon from "@mui/icons-material/BoltRounded";
 import SportsEsportsRoundedIcon from "@mui/icons-material/SportsEsportsRounded";
 import { Link } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
@@ -117,7 +117,7 @@ const HomeBestGaming = () => {
             {ctgProduct.map((item) => {
               return (
                 <SwiperSlide
-                  className="w-full h-full p-3 border-[1px] bg-gradient-to-tl md:bg-none from-sky-300 to-white border-blue search-bar"
+                  className="w-full h-full p-3 border-[1px] bg-gradient-to-br md:bg-none from-sky-200 to-white border-blue search-bar"
                   key={`categorie-product${item.id}`}
                 >
                   <HomeCategoriesProduct {...item} />

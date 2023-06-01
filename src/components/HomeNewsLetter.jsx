@@ -17,11 +17,11 @@ const HomeNewsLetter = () => {
             get -20% off
           </span>
         </h2>
-        <p className="text-sm lg:text-base font-semibold text-gray-600 font-first-font">
+        <p className="text-sm lg:text-base  text-gray-500 font-first-font">
           Almost three-quarters of dedicated PC gamers say their main motivation
           to upgrade is improving gaming experiences.
         </p>
-        <div className="w-full  h-[3rem] items-center overflow-hidden search-bar border-[1px] border-black flex">
+        <div className="w-full  h-[2.9rem] items-center overflow-hidden search-bar border-[1px] border-black flex">
           <input
             type="email"
             name=""
@@ -29,7 +29,7 @@ const HomeNewsLetter = () => {
             placeholder="Enter enail address.."
             className="w-5/6 h-2/4 lg:w-4/6  text-xs p-4 font-first-font border-none focus:outline-none "
           />
-          <button className="w-1/4 lg:w-2/6 h-full text-white font-semibold font-first-font text-sm bg-gradient-to-r from-blue to-second-color">
+          <button className="w-1/4 lg:w-2/6 h-full text-white font-semibold font-first-font text-sm bg-gradient-to-r from-blue to-second-color ">
             Subscribe
           </button>
         </div>

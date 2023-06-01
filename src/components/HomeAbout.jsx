@@ -18,7 +18,7 @@ const aboutOptions = [
 ];
 const HomeAbout = () => {
   return (
-    <div className="w-full -mt-28  mx-auto max-w-7xl font-first-font p-3">
+    <div className="w-full md:-mt-28 mx-auto max-w-7xl font-first-font p-3">
       <h2 className="text-5xl ">About our shop</h2>
       <p className="my-5 text-gray-400">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos
@@ -29,11 +29,8 @@ const HomeAbout = () => {
       <div className="w-full h-auto grid grid-cols-1 xs:grid-cols-2 xs:grid-rows-2 grid-rows-4 gap-5 md:grid-cols-4 md:grid-rows-1 mt-11">
         {aboutOptions.map((item, index) => {
           return (
-            <div
-              className="p-[1px] bg-gradient-to-r search-bar overflow-hidden from-blue  to-second-color w-full h-auto "
-              key={item.title}
-            >
-              <div className="w-full h-full bg-white flex flex-col gap-2 p-4">
+            <div key={item.title}>
+              <div className="w-full h-full bg-white bg-gradient-to-br search-bar from-sky-200 to-white flex flex-col gap-2 p-4">
                 <p className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-t from-blue to-second-color">
                   0{index + 1}
                 </p>

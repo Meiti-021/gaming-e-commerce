@@ -1,6 +1,6 @@
 import { SportsEsportsOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const SectionHeader = ({ title, address }) => {
   return (
     <div className="max-w-7xl w-full mx-auto flex flex-col xs:flex-row xs:justify-between xs:items-center gap-4 mb-7 p-4 ">
@@ -16,6 +16,11 @@ const SectionHeader = ({ title, address }) => {
       </Link>
     </div>
   );
+};
+
+SectionHeader.propTypes = {
+  title: PropTypes.string,
+  address: PropTypes.string,
 };
 
 export default SectionHeader;

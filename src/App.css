@@ -8,6 +8,11 @@
   transition: transform 0.3s;
 }
 
+.header-sc {
+  transform: rotateX(90deg);
+  transform-origin: 0% 0%;
+}
+
 .nav-item:hover .nav-arrow {
   transform: rotateX(180deg);
 }

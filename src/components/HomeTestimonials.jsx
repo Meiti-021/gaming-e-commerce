@@ -8,11 +8,8 @@ import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRound
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "@mui/material";
 import star from "../assets/images/star.png";
-import HomeCategoriesProduct from "./HomeCategoriesProduct";
 const HomeTestimonials = () => {
   const swiperRef = useRef(null);
-  const xs = useMediaQuery("(max-width:575px)");
-  const md = useMediaQuery("(min-width:768px)");
   const lg = useMediaQuery("(min-width:1024px)");
   const { users } = useSelector((store) => store.user);
   return (
@@ -44,10 +41,12 @@ const HomeTestimonials = () => {
             loop={true}
             className="w-full py-10 h-full "
           >
-            {users.map((item) => {
+            {users.map((item, index) => {
               return (
-                <SwiperSlide key={`testimonal-comments-${item.comment.id}`}>
-                  <div className="border-[1px] flex flex-col xs:flex-row xs:items-center xs:h-64 px-10 border-second-color search-bar p-5 h-[26rem] bg-gradient-to-br from-sky-200 via-white to-white">
+                <SwiperSlide
+                  key={`testimonal-comments-${item.comment.id}-${index}`}
+                >
+                  <div className="border-[1px] flex flex-col xs:flex-row xs:items-center xs:h-64 px-10 border-second-color search-bar p-5 h-[26.5rem] bg-gradient-to-br from-sky-200 via-white to-white">
                     <img
                       src={`./assets/products/${item.comment.productImage}`}
                       alt=""
@@ -57,8 +56,8 @@ const HomeTestimonials = () => {
                       <p className="text-2xl font-semibold">
                         {item.comment.title}
                       </p>
-                      <p className="text-sm">{item.comment.caption}</p>
-                      <div className="flex items-center justify-between">
+                      <p className="text-sm ">{item.comment.caption}</p>
+                      <div className="flex items-center justify-between ">
                         <div className="flex items-center gap-4">
                           <img
                             src={`./assets/users/${item.image}`}
@@ -70,9 +69,13 @@ const HomeTestimonials = () => {
                             <p className="text-xs -mt-1">{item.membership}</p>
                           </div>
                         </div>
-                        <div className="flex gap-3">
-                          <img src={star} alt="" className="object-contain" />
-                          <p className="text-xs text-blue font-bold">
+                        <div className="flex gap-3 flex-col items-center xs:flex-row">
+                          <img
+                            src={star}
+                            alt=""
+                            className="object-contain w-20"
+                          />
+                          <p className="text-xs text-blue font-bold hidden xs:block">
                             4.5 <span className="text-black">/ 5.0</span>
                           </p>
                         </div>
