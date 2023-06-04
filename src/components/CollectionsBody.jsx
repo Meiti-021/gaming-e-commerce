@@ -1236,11 +1236,11 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                   : Math.floor(collection.length / 6) + 1
               }
               variant="outlined"
-              color="secondary"
+              color="primary"
               size="large"
               onChange={pageHandle}
               shape="rounded"
-              page={page}
+              page={page + 1}
             />
           </div>
         </main>
