@@ -178,10 +178,10 @@ export const products = [
     id: "gaming-chair-for-gamers-with-lumbar",
     brand: "Kepler Brooks",
     images: [
-      "gaming-chair-for-gamers-with-lumbar-",
-      "gaming-chair-for-gamers-with-lumbar-",
-      "gaming-chair-for-gamers-with-lumbar-",
-      "gaming-chair-for-gamers-with-lumbar-",
+      "gaming-chair-for-gamers-with-lumbar-1.webp",
+      "gaming-chair-for-gamers-with-lumbar-2.webp",
+      "gaming-chair-for-gamers-with-lumbar-3.webp",
+      "gaming-chair-for-gamers-with-lumbar-4.webp",
     ],
     name: "Gaming Chair for Gamers with Lumbar",
     type: "Chair",
@@ -316,7 +316,7 @@ export const products = [
     description:
       "Microsoft Windows 10 and Microsoft DirectX 12 supported Video Memory: 8GB DDR5. The XFX Radeon RX 580 Series graphics card coupled with AMD LiquidVR technology delivers a virtually stutter-free, low latency experience, essential for remarkable virtual reality environments.",
     options: ["size", ["3 GB", "6 GB"]],
-    price: 1,
+    price: 423.0,
     comments: [],
     rate: 5,
     seller: 483,
@@ -407,7 +407,7 @@ export const products = [
     price: 900.0,
     comments: [],
     rate: 5,
-    seller: 4.2,
+    seller: 420,
     stock: true,
   },
   {

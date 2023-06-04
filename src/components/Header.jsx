@@ -438,10 +438,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div
-        className="h-14 w-full top-10 absolute bg-red-500"
-        ref={headerRef}
-      ></div>
+      <div className="h-14 w-full top-10 absolute " ref={headerRef}></div>
     </>
   );
 };

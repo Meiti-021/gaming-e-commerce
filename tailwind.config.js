@@ -20,6 +20,9 @@ export default {
         xs: "575px",
         ml: "1200px",
       },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar")],
