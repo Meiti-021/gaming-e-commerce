@@ -99,8 +99,8 @@ BestSellerSlider.propTypes = {
   isActive: PropTypes.bool,
   type: PropTypes.string,
   name: PropTypes.string,
-  images: PropTypes.object,
-  options: PropTypes.object,
+  images: PropTypes.array,
+  options: PropTypes.array,
   price: PropTypes.number,
   stock: PropTypes.bool,
 };

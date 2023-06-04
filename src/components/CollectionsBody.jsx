@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import HomeCategoriesProduct from "./HomeCategoriesProduct";
 import Product from "./Product";
 import { Pagination } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
@@ -1234,7 +1233,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               count={
                 collection.length % 6 === 0
                   ? collection.length / 6
-                  : (collection.length / 6).toFixed(0) + 1
+                  : Math.floor(collection.length / 6) + 1
               }
               variant="outlined"
               color="secondary"

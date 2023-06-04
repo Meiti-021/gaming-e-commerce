@@ -1,4 +1,4 @@
-import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
+import { ExpandMoreTwoTone } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 const Product = ({ type, name, images, options, id, price, stock }) => {
@@ -86,8 +86,8 @@ Product.propTypes = {
   id: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string,
-  images: PropTypes.object,
-  options: PropTypes.object,
+  images: PropTypes.array,
+  options: PropTypes.array,
   price: PropTypes.number,
   stock: PropTypes.bool,
   light: PropTypes.bool,

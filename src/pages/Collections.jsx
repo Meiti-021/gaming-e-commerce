@@ -8,7 +8,15 @@ const Collections = () => {
   const { type } = useParams();
   const { products } = useSelector((store) => store.cart);
   const [collection, setCollection] = useState(products);
-
+  useEffect(() => {
+    if (type !== "all") {
+      setCollection(
+        products.filter((item) => {
+          item.type === type;
+        })
+      );
+    }
+  }, [type, products]);
   return (
     <>
       <CollectionsHero title={type} count={collection.length} />
