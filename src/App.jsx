@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Collections from "./pages/Collections";
 import { useEffect } from "react";
+import About from "./pages/About";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,6 +26,7 @@ function App() {
             element={<Navigate to={"/collections/all"} />}
           />
           <Route path="/collections/:type" element={<Collections />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
       </Router>
