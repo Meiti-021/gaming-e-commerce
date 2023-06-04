@@ -48,7 +48,7 @@ const AboutBody = () => {
         <div className="md:grid md:grid-cols-2 gap-10">
           <div className="flex flex-col gap-4 justify-center w-full">
             <h2 className="text-white text-3xl  font-semibold">
-              Make it inviting and engaging
+              a glimpse into mehdi&apos;s life story
             </h2>
             <p className="text-base text-gray-400 w-full text-justify">
               With determination and perseverance, I honed my skills in
