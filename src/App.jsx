@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
 import Page from "./pages/Page";
 import Blog from "./pages/Blog";
+import Post from "./pages/Post";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/pages/:id" element={<Page />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<Post />} />
         </Routes>
         <Footer />
       </Router>

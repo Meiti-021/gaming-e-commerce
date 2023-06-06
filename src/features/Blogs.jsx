@@ -10,25 +10,25 @@ export const blogs = [
     date: "May 30, 2023",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Gambling has been a main recreational activity in Great Britain for
           centuries. Queen Elizabeth I chartered a lottery that was drawn in
           1569. Horseracing has been a favorite theme for over three centuries.
           It has been heavily regulated.[14] Historically much of the opposition
           comes from Nonconformist Protestants, and from social reformers
         </p>
-        <p className="text-base">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -38,13 +38,18 @@ export const blogs = [
         </p>
         <div className="flex gap-5">
           <FormatQuoteIcon
-            style={{ fontSize: "55px", width: "3rem", display: "block" }}
+            style={{
+              fontSize: "55px",
+              width: "3rem",
+              display: "block",
+              color: "#7b35c8",
+            }}
           />
-          <p className="text-base">
+          <p className="text-lg font-semibold">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -62,10 +67,10 @@ export const blogs = [
     date: "December 13, 2022",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Many jurisdictions, local as well as national, either ban gambling or
           heavily control it by licensing the vendors. Such regulation generally
-          leads to gambling tourism and illegal gambling in the areas where it
+          leads to gambling tourilg and illegal gambling in the areas where it
           is not allowed.
         </p>
         <p className="text-base">
@@ -75,11 +80,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -93,9 +98,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -113,7 +118,7 @@ export const blogs = [
     date: "December 13, 2022",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Gambling has been a main recreational activity in Great Britain for
           centuries. Queen Elizabeth I chartered a lottery that was drawn in
           1569. Horseracing has been a favorite theme for over three centuries.
@@ -127,11 +132,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -145,9 +150,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -165,7 +170,7 @@ export const blogs = [
     date: "December 13, 2022",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Gambling has been a main recreational activity in Great Britain for
           centuries. Queen Elizabeth I chartered a lottery that was drawn in
           1569. Horseracing has been a favorite theme for over three centuries.
@@ -179,11 +184,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -197,9 +202,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -217,7 +222,7 @@ export const blogs = [
     date: "May 30, 2023",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Arbitrage betting is a theoretically risk-free betting system in which
           every outcome of an event is bet upon so that a known profit will be
           made by the bettor upon completion of the event regardless of the
@@ -233,11 +238,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -251,9 +256,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -271,12 +276,12 @@ export const blogs = [
     date: "May 30, 2023",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Studies show that though many people participate in gambling as a form
           of recreation or to earn an income, gambling, like any behavior
           involving variation in brain chemistry, can become a behavioral
           addiction. Behavioral addiction can occur with all the negative
-          consequences in a person's life minus the physical issues faced by
+          consequences in a person&#39;s life minus the physical issues faced by
           people who compulsively engage in drug and alcohol abuse. Problem
           gambling has multiple symptoms. Gamblers often gamble to try to win
           back money they have lost, and some gamble to relieve feelings of
@@ -289,11 +294,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -307,9 +312,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -327,12 +332,12 @@ export const blogs = [
     date: "December 13, 2022",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Studies show that though many people participate in gambling as a form
           of recreation or to earn an income, gambling, like any behavior
           involving variation in brain chemistry, can become a behavioral
           addiction. Behavioral addiction can occur with all the negative
-          consequences in a person's life minus the physical issues faced by
+          consequences in a person&#39;s life minus the physical issues faced by
           people who compulsively engage in drug and alcohol abuse. Problem
           gambling has multiple symptoms. Gamblers often gamble to try to win
           back money they have lost, and some gamble to relieve feelings of
@@ -345,11 +350,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -363,9 +368,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -383,12 +388,12 @@ export const blogs = [
     date: "May 30, 2023",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           If the diagnostic cost of this self-signal and the resulting identity
           change are substantial, it may outweigh the outcome utility of
           hedging, and they may reject even very generous hedges. Ratio bias.
           Gamblers will prefer gambles with worse odds that are drawn from a
-          large sample to better odds that are drawn from a small sample
+          large sample to better odds that are drawn from a lgall sample
           (drawing one red ball from an urn containing 9 red balls and one blue
           ball).
         </p>
@@ -399,11 +404,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -417,9 +422,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -437,8 +442,8 @@ export const blogs = [
     date: "December 13, 2022",
     body: (
       <>
-        <p className="text-sm">
-          From a psychological perspective, such a "hedge" creates an
+        <p className="text-lg">
+          From a psychological perspective, such a &#34;hedge&#34; creates an
           interdependence dilemma – a motivational conflict between a short-term
           monetary gain and the long-term benefits accrued from feelings of
           identification with and loyalty to a position, person, or group whom
@@ -453,11 +458,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -471,9 +476,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>
@@ -485,13 +490,13 @@ export const blogs = [
     id: "best-gamers-desk-settings-for-amateurs",
     categorie: "news",
     image: "best-gamers-desk-settings-for-amateurs.webp",
-    title: "Game Smart Lunar World Basement Playground",
+    title: "Game lgart Lunar World Basement Playground",
     tags: ["Game", "video"],
     author: "Mahdi Dehgani",
     date: "December 18, 2023",
     body: (
       <>
-        <p className="text-sm">
+        <p className="text-lg">
           Gambling dates back to the Paleolithic period, before written history.
           In Mesopotamia the earliest six-sided dice date to about 3000 BCE.
           However, they were based on astragali dating back thousands of years
@@ -507,11 +512,11 @@ export const blogs = [
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&#39;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
-        <p className="text-xs">
+        <p className="text-lg">
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
           popularised in the 1960s with the release of Letraset sheets
@@ -525,9 +530,9 @@ export const blogs = [
           />
           <p className="text-base">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            industry. Lorem Ipsum has been the industry&#39;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
           </p>
         </div>
       </>

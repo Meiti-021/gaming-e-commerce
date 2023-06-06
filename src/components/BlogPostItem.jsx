@@ -13,7 +13,7 @@ const BlogPostItem = ({
     <div className="font-first-font h-auto my-4">
       <figure className="relative h-3/5 overflow-hidden search-bar border-[1px] border-blue">
         <img
-          src={`./assets/blogs/${image}`}
+          src={`/assets/blogs/${image}`}
           alt=""
           className="w-full h-full object-cover"
         />
@@ -33,7 +33,7 @@ const BlogPostItem = ({
       </p>
       <p className="text-sm text-gray-500 uppercase mt-2">AUTHOR : {author}</p>
       {light ? (
-        <p className="text-sm mt-3 h-14 overflow-hidden text-ellipsis text-gray-500">
+        <p className="text-sm mt-3 h-10 overflow-hidden text-ellipsis text-gray-500">
           {describe}
         </p>
       ) : undefined}
