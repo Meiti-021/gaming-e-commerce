@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
+import Page from "./pages/Page";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,6 +32,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faqs" element={<Faqs />} />
+          <Route path="/pages/:id" element={<Page />} />
         </Routes>
         <Footer />
       </Router>
