@@ -39,7 +39,7 @@ const HomeCategoriesProduct = ({
       </p>
       <figure className=" h-3/5 xs:h-[14rem]  p-10">
         <img
-          src={`./assets/products/${images[option]}`}
+          src={`/assets/products/${images[option]}`}
           alt=""
           className="w-full h-full object-contain"
         />
