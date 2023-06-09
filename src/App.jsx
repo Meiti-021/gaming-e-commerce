@@ -17,6 +17,7 @@ import Page from "./pages/Page";
 import Blog from "./pages/Blog";
 import Post from "./pages/Post";
 import Info from "./pages/Info";
+import Login from "./pages/Login";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,6 +40,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<Post />} />
           <Route path="/product/:id" element={<Info />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </Router>

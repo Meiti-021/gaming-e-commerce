@@ -1,9 +1,11 @@
 import Proptypes from "prop-types";
-const PageHero = ({ title, subtitle }) => {
+const PageHero = ({ title, subtitle, className = "h-72 pb-10" }) => {
   return (
-    <div className="bg-black p-10 font-first-font">
+    <div className={`bg-black p-10 font-first-font`}>
       <div className="w-full h-40 bg-black "></div>
-      <div className="w-full h-72 bg-black flex-col justify-end pb-10 flex gap-7 max-w-7xl mx-auto ">
+      <div
+        className={`w-full  bg-black flex-col justify-end  flex gap-7 max-w-7xl mx-auto ${className}`}
+      >
         <div className="flex items-center gap-2">
           <button className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white">
             &#8592;
@@ -24,6 +26,7 @@ const PageHero = ({ title, subtitle }) => {
 PageHero.propTypes = {
   title: Proptypes.string,
   subtitle: Proptypes.string,
+  className: Proptypes.string,
 };
 
 export default PageHero;
