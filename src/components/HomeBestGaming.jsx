@@ -88,7 +88,7 @@ const HomeBestGaming = () => {
                       setctgProduct(
                         products.filter((item) => {
                           return (
-                            item.type === "Game PCs" || item.type === "Cards"
+                            item.type === "GamePCs" || item.type === "Cards"
                           );
                         })
                       );

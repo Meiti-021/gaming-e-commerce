@@ -94,7 +94,7 @@ export const products = [
       "colossus-ergonomic-gaming-office-chair-8.webp",
     ],
     name: "Colossus Ergonomic Gaming Office Chair",
-    type: "Chair",
+    type: "Chairs",
     sku: "1140550231142",
     description:
       "ERGONOMICALLY DESIGNED FOR HARDCORE GAMING : From its unique contours and angled seat edges, to its fully adjustable recline, tilt, and height, the Dr Luxur Colossus supports a healthy sitting posture so you can game for hours in comfort",
@@ -140,7 +140,7 @@ export const products = [
       "electrobot-xtreme-gaming-series-pc-3.webp",
     ],
     name: "Electrobot Xtreme Gaming Series PC",
-    type: "Game PCs",
+    type: "GamePCs",
     sku: "9140570231161",
     description:
       "Multiple connectivity options including HDMI, USB ports & RGB fans let you connect a variety of peripherals easily. Wi-Fi Ready – Connect to the internet wirelessly with ease. Preloaded with Windows 10 64-bit OS for enhanced productivity and multitasking.",
@@ -184,7 +184,7 @@ export const products = [
       "gaming-chair-for-gamers-with-lumbar-4.webp",
     ],
     name: "Gaming Chair for Gamers with Lumbar",
-    type: "Chair",
+    type: "Chairs",
     sku: "9140570231152",
     description:
       "Have back issues or don’t want to develop them? This adjustable office chair includes Cushion Foam Padded support and a recline feature that allows you to tilt the backrest back or sit straight. Now you can quickly find a position that makes your back feel the most comfortable!",
@@ -247,7 +247,7 @@ export const products = [
       "kd-dmtr-gaming-desktop-pc-5.webp",
     ],
     name: "KD DMTR Gaming Desktop PC",
-    type: "Game PCs",
+    type: "GamePCs",
     sku: "9140570251101",
     description:
       "Multiple connectivity options including HDMI, USB ports & RGB fans let you connect a variety of peripherals easily. Wi-Fi Ready – Connect to the internet wirelessly with ease. Preloaded with Windows 10 64-bit OS for enhanced productivity and multitasking.",
@@ -268,7 +268,7 @@ export const products = [
       "kepler-brooks-gaming-chair-4.webp",
     ],
     name: "Kepler Brooks Gaming Chair",
-    type: "Chair",
+    type: "Chairs",
     sku: "9140570231171",
     description:
       "Premium Material: PU Leather Upholstery made with High density foam and added seat cushion, more comfort and long-time use; High Tensile steel frame, more sturdy and stable; lumbar & headrest pillows offer added support and comfort. Heavy-duty base and nylon smooth-rolling casters for super stability and mobility.",
@@ -280,7 +280,7 @@ export const products = [
     stock: true,
   },
   {
-    id: "multi-functional-ergonomic-gaming-chair-",
+    id: "multi-functional-ergonomic-gaming-chair",
     brand: "Kepler Brooks",
     images: [
       "multi-functional-ergonomic-gaming-chair-1.webp",
@@ -420,7 +420,7 @@ export const products = [
       "raptor-gameing-z95-4.webp",
     ],
     name: "Raptor Gameing Z95",
-    type: "Game PCs",
+    type: "GamePCs",
     sku: "9140560231128",
     description:
       "Multiple connectivity options including HDMI, USB ports & RGB fans let you connect a variety of peripherals easily. Wi-Fi Ready – Connect to the internet wirelessly with ease. Preloaded with Windows 10 64-bit OS for enhanced productivity and multitasking.",

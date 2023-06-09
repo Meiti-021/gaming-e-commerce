@@ -22,7 +22,7 @@ const HomeAd = () => {
           >
             <div className="flex  h-auto justify-between items-center">
               <div className="h-[1.3rem] bg-gradient-to-r from-blue to-dark-blue text-xs flex justify-between items-center p-[0.8rem] pt-[0.9rem] rounded-md min-w-[4rem] text-white ">
-                Game PCs
+                GamePCs
               </div>
               <button className="h-full">
                 <FavoriteBorderOutlined style={{ color: "white" }} />
@@ -32,7 +32,7 @@ const HomeAd = () => {
               KD DMTR Gaming Desktop PC
             </p>
             <p className="text-sm font-semibold text-gray-500 -my-2">
-              TYPE: Game PCs
+              TYPE: GamePCs
             </p>
             <p className="text-gray-400 text-sm  h-32 font-semibold my-5">
               Multiple connectivity options including HDMI, USB ports & RGB fans

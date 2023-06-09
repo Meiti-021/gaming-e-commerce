@@ -18,6 +18,7 @@ import Blog from "./pages/Blog";
 import Post from "./pages/Post";
 import Info from "./pages/Info";
 import Login from "./pages/Login";
+
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);

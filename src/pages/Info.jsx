@@ -54,6 +54,13 @@ const Info = () => {
   const modalSwiperRef = useRef(null);
   const { users } = useSelector((store) => store.user);
   useEffect(() => {
+    const myset = new Set();
+    products.forEach((item) => {
+      myset.add(item.id);
+    });
+    console.log(myset);
+  }, []);
+  useEffect(() => {
     swiperRef.current.swiper.slideTo(swiperIndex);
     smSwiperRef.current.swiper.slideTo(swiperIndex);
     modalSwiperRef.current.swiper.slideTo(swiperIndex);

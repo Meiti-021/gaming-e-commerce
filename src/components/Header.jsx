@@ -13,47 +13,47 @@ import { useEffect, useState, useRef } from "react";
 const pages = [
   {
     title: "About US",
-    address: "",
+    address: "/about",
   },
   {
     title: "Contact With Us",
-    address: "",
+    address: "/contact",
   },
   {
     title: "FAQs",
-    address: "",
+    address: "/faqs",
   },
   {
     title: "Privacy & Policy",
-    address: "",
+    address: "/pages/privacy-policy",
   },
   {
     title: "Shipping & Delivery",
-    address: "",
+    address: "/pages/shiping-delivery",
   },
   {
     title: "Terms & Conditions",
-    address: "",
+    address: "/pages/terms-conditions",
   },
 ];
 const blogs = [
   {
     title: "Blog Page",
-    address: "",
+    address: "/blog",
   },
   {
     title: "Article Page",
-    address: "",
+    address: "/blog",
   },
 ];
 const accounts = [
   {
     title: "Log in",
-    address: "",
+    address: "/login",
   },
   {
     title: "Create Account",
-    address: "",
+    address: "/login",
   },
 ];
 
@@ -64,6 +64,11 @@ const sideNavOpt = {
 const Header = () => {
   const [sideMenu, setSideMenu] = useState(sideNavOpt);
   const [menu, setMenu] = useState(false);
+  const [otherMenus, SetOtherMenus] = useState({
+    pages: false,
+    blogs: false,
+    account: false,
+  });
   const [sidenav, setSideNav] = useState(false);
   const [isTop, setTop] = useState(true);
   const headerRef = useRef(null);
@@ -143,6 +148,11 @@ const Header = () => {
                   className=" relative font-first-font flex font-semibold text-white  cursor-pointer nav-item"
                   onMouseEnter={() => {
                     setMenu(false);
+                    SetOtherMenus({
+                      pages: true,
+                      blogs: false,
+                      account: false,
+                    });
                   }}
                 >
                   Pages
@@ -154,23 +164,44 @@ const Header = () => {
                   <div className="nav-indicator h-[1px]  bg-gradient-to-r from-second-color via-blue to-blue absolute -bottom-1 mx-auto my-0 w-0"></div>
                   <div
                     aria-label="pages-menu"
-                    className="nav-menu absolute  bg-white w-64 top-[3.2rem] h-48 p-4 font-normal"
+                    className={`nav-menu absolute pt-9 top-[1rem] ${
+                      otherMenus.pages ? undefined : "hidden"
+                    }`}
                   >
-                    <ul className="flex flex-col gap-1">
-                      {pages.map((item) => {
-                        return (
-                          <li key={item.title} className="text-black">
-                            <Link>{item.title}</Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    <div className="  bg-white w-64  h-48 p-4 font-normal">
+                      <ul className="flex flex-col gap-1">
+                        {pages.map((item) => {
+                          return (
+                            <li key={item.title} className="text-black">
+                              <Link
+                                to={item.address}
+                                className="hover:border-b-1 hover:border-b-black"
+                                onClick={() => {
+                                  SetOtherMenus({
+                                    pages: false,
+                                    blogs: false,
+                                    account: false,
+                                  });
+                                }}
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   </div>
                 </li>
                 <li
                   className="relative font-first-font flex font-semibold text-white  cursor-pointer nav-item"
                   onMouseEnter={() => {
                     setMenu(false);
+                    SetOtherMenus({
+                      pages: false,
+                      blogs: true,
+                      account: false,
+                    });
                   }}
                 >
                   Blog
@@ -182,17 +213,33 @@ const Header = () => {
                   <div className="nav-indicator h-[1px]  bg-gradient-to-r from-second-color via-blue to-blue absolute -bottom-1 mx-auto my-0 w-0"></div>
                   <div
                     aria-label="blogs-menu"
-                    className="nav-menu absolute bg-white w-64 top-[3.2rem] h-20 p-4 font-normal"
+                    className={`nav-menu absolute pt-9 top-[1rem] ${
+                      otherMenus.blogs ? undefined : "hidden"
+                    }`}
                   >
-                    <ul className="flex flex-col gap-1">
-                      {blogs.map((item) => {
-                        return (
-                          <li key={item.title} className="text-black">
-                            <Link>{item.title}</Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    <div className=" bg-white w-64 h-20 p-4 font-normal">
+                      <ul className="flex flex-col gap-1">
+                        {blogs.map((item) => {
+                          return (
+                            <li key={item.title} className="text-black ">
+                              <Link
+                                to={item.address}
+                                className="hover:border-b-1 border-black"
+                                onClick={() => {
+                                  SetOtherMenus({
+                                    pages: false,
+                                    blogs: false,
+                                    account: false,
+                                  });
+                                }}
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -202,30 +249,46 @@ const Header = () => {
               className="object-contain hidden lg:block  "
               alt=""
             />
-            <div className="flex gap-4 text-white">
+            <div className="flex gap-4 text-white ">
               <button
-                className="nav-item"
+                className="nav-item relative"
                 onMouseEnter={() => {
                   setMenu(false);
+                  SetOtherMenus({ pages: false, blogs: false, account: true });
                 }}
               >
                 <AccountCircleOutlinedIcon />
                 <div
                   aria-label="account-menu"
-                  className="nav-menu absolute bg-white w-64 top-[5.2rem] right-11 h-20 p-4 font-normal"
+                  className={`nav-menu absolute top-[1rem]  pt-7 -right-28 mx-auto ${
+                    otherMenus.account ? undefined : "hidden"
+                  }`}
                 >
-                  <ul className="flex flex-col gap-1">
-                    {accounts.map((item) => {
-                      return (
-                        <li
-                          key={item.title}
-                          className="text-black hover:underline"
-                        >
-                          <Link>{item.title}</Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <div className=" bg-white w-64  h-20 p-4 font-normal">
+                    <ul className="flex flex-col gap-1">
+                      {accounts.map((item) => {
+                        return (
+                          <li
+                            key={item.title}
+                            className="text-black hover:underline"
+                          >
+                            <Link
+                              to={item.address}
+                              onClick={() => {
+                                SetOtherMenus({
+                                  pages: false,
+                                  blogs: false,
+                                  account: false,
+                                });
+                              }}
+                            >
+                              {item.title}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </div>
               </button>
               <button className="relative">
@@ -256,7 +319,10 @@ const Header = () => {
         >
           <div className="flex max-w-7xl mx-auto justify-between h-full items-center px-4 py-3">
             <p className="font-first-font text-white font-bold">
-              New Accessories -30 % Off. <span className="underline">More</span>
+              New Accessories -30 % Off.{" "}
+              <Link to="/collections/all" className="underline">
+                More
+              </Link>
             </p>
             <div className="w-64 border-[1px] border-gray-500 search-bar flex items-center justify-center h-full">
               <button>
@@ -270,16 +336,21 @@ const Header = () => {
                 />
               </button>
             </div>
-            <p className="font-first-font text-white underline">
+            <Link
+              to="/collections/all"
+              className="font-first-font text-white underline"
+            >
               New Collections
-            </p>
+            </Link>
           </div>
         </div>
         <div
           aria-label="gaming-accesories-menu"
           className={`${
             menu ? "nav-menu-on" : undefined
-          } nav-menu absolute hidden w-full top-[4.9rem] h-[26rem] bg-white md:flex justify-between p-4`}
+          } nav-menu absolute hidden w-full ${
+            isTop ? "top-[4.5rem]" : "top-[3.5rem]"
+          } h-[26rem] bg-white md:flex justify-between p-4`}
           onMouseLeave={() => {
             setMenu(false);
           }}
@@ -287,64 +358,130 @@ const Header = () => {
           <ul className="font-first-font flex flex-col gap-3 p-2 w-1/4">
             <p className=" font-semibold">Pro Gaming</p>
             <li className="hover:border-b-2 border-black">
-              <Link>Game Console</Link>
+              <Link to={`/collections/Console`} onClick={() => setMenu(false)}>
+                Game Console
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>Game Remote</Link>
+              <Link to="/collections/Remote" onClick={() => setMenu(false)}>
+                Game Remote
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>Gaming Cards</Link>
+              <Link to="/collections/Cards" onClick={() => setMenu(false)}>
+                Gaming Cards
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>Gaming Chairs</Link>
+              <Link to="/collections/Chairs" onClick={() => setMenu(false)}>
+                Gaming Chairs
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>Gaming moniters</Link>
+              <Link to="/collections/Monitors" onClick={() => setMenu(false)}>
+                Gaming moniters
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>Gaming Pc</Link>
+              <Link to="/collections/GamePCs" onClick={() => setMenu(false)}>
+                Gaming Pc
+              </Link>
             </li>
           </ul>
           <ul className="font-first-font flex flex-col gap-3 p-2 w-1/4">
             <p className="font-semibold">New Accessories</p>
             <li className="hover:border-b-2 border-black">
-              <Link>Alien ware Monitor</Link>
+              <Link to="/product/alien-ware-monitor-t-46">
+                Alien ware Monitor
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>G-series Curved VA Monitor</Link>
+              <Link to="/product/g-series-curved-va-monitor">
+                G-series Curved VA Monitor
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>Cloud Alpha Gaming Headset</Link>
+              <Link
+                to="/product/cloud-alpha-gaming-headset"
+                onClick={() => setMenu(false)}
+              >
+                Cloud Alpha Gaming Headset
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>DualSense Wirless Controllers</Link>
+              <Link
+                to="/product/dualsense-wireless-controllers"
+                onClick={() => setMenu(false)}
+              >
+                DualSense Wirless Controllers
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>Raptor Gaming z95 </Link>
+              <Link
+                to="/product/raptor-gameing-z95"
+                onClick={() => setMenu(false)}
+              >
+                Raptor Gaming z95{" "}
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>KD DMTR GAming Desktop PC</Link>
+              <Link
+                to="/product/kd-dmtr-gaming-desktop-pc"
+                onClick={() => setMenu(false)}
+              >
+                KD DMTR GAming Desktop PC
+              </Link>
             </li>
           </ul>
           <ul className="font-first-font flex flex-col gap-3  p-2 w-1/4">
             <p className="font-semibold">Master Game</p>
             <li className="hover:border-b-2 border-black">
-              <Link>Gaming Office Chair</Link>
+              <Link
+                to="/product/colossus-ergonomic-gaming-office-chair"
+                onClick={() => setMenu(false)}
+              >
+                Gaming Office Chair
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>HTC Vive Tracker 3.0 PC</Link>
+              <Link
+                to="/product/htc-vive-tracker-3-0-pc-"
+                onClick={() => setMenu(false)}
+              >
+                HTC Vive Tracker 3.0 PC
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>VR Headset with Headphones</Link>
+              <Link
+                to="/product/vr-headset-with-headphones"
+                onClick={() => setMenu(false)}
+              >
+                VR Headset with Headphones
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>RX 590 GTS Graphics CArd</Link>
+              <Link
+                to="/product/radeon-rx-590-gts-graphics-card"
+                onClick={() => setMenu(false)}
+              >
+                RX 590 GTS Graphics Card
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>GAming Chair for Gamers for lambers</Link>
+              <Link
+                to="/product/gaming-chair-for-gamers-with-lumbar"
+                onClick={() => setMenu(false)}
+              >
+                Gaming Chair for Gamers for lambers
+              </Link>
             </li>
             <li className="hover:border-b-2 border-black">
-              <Link>RX 680 GTS Graphic Card</Link>
+              <Link
+                to="/product/radeon-rx-680-gts-graphics-card"
+                onClick={() => setMenu(false)}
+              >
+                RX 680 GTS Graphic Card
+              </Link>
             </li>
           </ul>
           <div className="w-1/4 p-2 ">
@@ -383,22 +520,22 @@ const Header = () => {
                   } nav-menu`}
                 >
                   <li>
-                    <Link> Gaming Pc</Link>
+                    <Link to={`/collections/Console`}>Game Console</Link>
                   </li>
                   <li>
-                    <Link>Game Remote </Link>
+                    <Link to="/collections/Remote">Game Remote</Link>
                   </li>
                   <li>
-                    <Link>Gaming Cards </Link>
+                    <Link to="/collections/Cards">Gaming Cards</Link>
                   </li>
                   <li>
-                    <Link>Gaming Chairs </Link>
+                    <Link to="/collections/Chairs">Gaming Chairs</Link>
                   </li>
                   <li>
-                    <Link> Gaming Monitores </Link>
+                    <Link to="/collections/Monitors">Gaming moniters</Link>
                   </li>
                   <li>
-                    <Link> Gaming Console</Link>
+                    <Link to="/collections/GamePCs">Gaming Pc</Link>
                   </li>
                 </ul>
               </li>
@@ -418,21 +555,21 @@ const Header = () => {
                   } nav-menu`}
                 >
                   <li>
-                    <Link> Blog Page</Link>
+                    <Link to="/blog"> Blog Page</Link>
                   </li>
                   <li>
-                    <Link>Article Page </Link>
+                    <Link to="/blog">Article Page </Link>
                   </li>
                 </ul>
               </li>
               <li className="relative mb-3 text-lg text-gray-500">
-                <Link>All Collection</Link>
+                <Link to="/collections/all">All Collection</Link>
               </li>
               <li className="relative mb-3 text-lg text-gray-500">
-                <Link>About Us</Link>
+                <Link to="/about">About Us</Link>
               </li>
               <li className="relative mb-3 text-lg text-gray-500">
-                <Link>Contact Us</Link>
+                <Link to="/contact">Contact Us</Link>
               </li>
             </ul>
           </div>

@@ -607,7 +607,13 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                 {allBrands.map((item) => {
                   return (
                     <div
-                      className="flex justify-between items-center"
+                      className={`flex justify-between items-center ${
+                        collection.filter((product) => {
+                          return product.brand === item;
+                        }).length === 0
+                          ? "hidden"
+                          : undefined
+                      }`}
                       key={"brands" + item}
                     >
                       <div className="flex gap-4">
@@ -975,7 +981,13 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                   {allBrands.map((item) => {
                     return (
                       <div
-                        className="flex justify-between items-center"
+                        className={`flex justify-between items-center ${
+                          collection.filter((product) => {
+                            return product.brand === item;
+                          }).length === 0
+                            ? "hidden"
+                            : undefined
+                        }`}
                         key={"brands" + item}
                       >
                         <div className="flex gap-4">

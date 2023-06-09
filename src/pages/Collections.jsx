@@ -7,20 +7,22 @@ import CollectionsBody from "../components/CollectionsBody";
 const Collections = () => {
   const { type } = useParams();
   const { products } = useSelector((store) => store.cart);
-  const [collection, setCollection] = useState(products);
+  const [collection, setCollection] = useState([]);
   useEffect(() => {
-    if (type !== "all") {
-      setCollection(
-        products.filter((item) => {
-          item.type === type;
-        })
-      );
+    if (type.toLowerCase() !== "all") {
+      const data = products.filter((item) => {
+        return item.type.toLowerCase() === type.toLowerCase();
+      });
+      setCollection(data);
+    } else {
+      setCollection(products);
     }
   }, [type, products]);
+
   return (
     <>
       <CollectionsHero title={type} count={collection.length} />
-      <CollectionsBody collections={collection} />
+      <CollectionsBody collections={collection} type={type} />
     </>
   );
 };
