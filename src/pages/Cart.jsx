@@ -6,7 +6,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useState, useEffect } from "react";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { Link } from "react-router-dom";
-
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 const Cart = () => {
   const { cartItems } = useSelector((store) => store.cart);
   const [total, setTotal] = useState(0);
@@ -30,7 +33,7 @@ const Cart = () => {
               name
             </p>
             <p className="text-base hidden font-semibold lg:flex justify-center capitalize w-1/12 border-r-1   px-3 py-1 border-x-border-color text-gray-500">
-              option
+              price
             </p>
             <p className="text-base  font-semibold flex justify-center capitalize w-2/12 border-r-1   px-3 py-1 border-x-border-color text-gray-500">
               <span className="hidden md:block">quantity</span>
@@ -56,18 +59,19 @@ const Cart = () => {
                     />
                   </div>
                   <Link
-                    to={`/products/${item.id}`}
+                    to={`/product/${item.id}`}
                     className=" lg:text-2xl text-lg gap-1 flex-col font-semibold flex capitalize lg:w-6/12 w-7/12    px-3 py-1  justify-center"
                   >
                     {item.name}
-                    <p className="lg:hidden text-xs">
+                    <p className=" text-xs">
                       {item.options[0]}: {item.options[1][item.option]}
+                    </p>
+                    <p className="lg:hidden text-base">
+                      {formatter.format(item.price)}
                     </p>
                   </Link>
                   <div className="text-sm hidden font-semibold lg:flex  capitalize w-1/12    px-3 py-1  items-center">
-                    <p>
-                      {item.options[0]}: <br /> {item.options[1][item.option]}
-                    </p>
+                    <p>{formatter.format(item.price)}</p>
                   </div>
                   <div className="text-base font-semibold flex justify-center capitalize w-2/12    px-3 py-1  items-center">
                     <div className="flex lg:flex-row flex-col justify-between text-sm rounded-sm items-center lg:gap-5 p-1 lg:border-1 border-border-color">
@@ -95,7 +99,8 @@ const Cart = () => {
             <div className="flex justify-between items-center w-full ">
               <p className="text-2xl font-semibold">Total Price</p>
               <p className="text-xl font-semibold">
-                {total},00 <span className="align-super text-sm">USD</span>
+                {formatter.format(total)}
+                <span className="align-super text-sm">USD</span>
               </p>
             </div>
 

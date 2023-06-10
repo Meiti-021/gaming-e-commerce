@@ -28,6 +28,7 @@ import banner7 from "../assets/images/banner-7.jpg";
 import banner8 from "../assets/images/banner-8.jpg";
 import banner9 from "../assets/images/banner-9.jpg";
 import HomeBestProGamingProducts from "../components/HomeBestProGamingProducts";
+import { useParams } from "react-router-dom";
 
 const banners = [
   banner1,
@@ -40,34 +41,42 @@ const banners = [
   banner8,
   banner9,
 ];
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 
 const Info = () => {
+  const productID = useParams();
   const [form, setForm] = useState({ name: "", message: "", rate: null });
-  const { products } = useSelector((store) => store.cart);
+  const { products, cartItems } = useSelector((store) => store.cart);
+  const [currentProduct, setCurrentProduct] = useState(
+    products.find((item) => item.id === productID.id)
+  );
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInCart, setIsInCart] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
-  const [count, setCount] = useState(1);
   const [swiperIndex, setSwiperIndex] = useState(0);
   const swiperRef = useRef(null);
   const smSwiperRef = useRef(null);
   const modalSwiperRef = useRef(null);
   const { users } = useSelector((store) => store.user);
   useEffect(() => {
-    const myset = new Set();
-    products.forEach((item) => {
-      myset.add(item.id);
-    });
-    console.log(myset);
-  }, []);
-  useEffect(() => {
     swiperRef.current.swiper.slideTo(swiperIndex);
     smSwiperRef.current.swiper.slideTo(swiperIndex);
     modalSwiperRef.current.swiper.slideTo(swiperIndex);
   }, [swiperIndex]);
 
+  useEffect(() => {
+    const pro = cartItems.find((item) => item.id === productID.id);
+    if (pro !== undefined) {
+      setCurrentProduct(pro);
+    }
+  }, [productID, products, cartItems]);
+
   const addIndex = () => {
-    if (swiperIndex === products[1].images.length - 1) {
+    if (swiperIndex === currentProduct.images.length - 1) {
       setSwiperIndex(0);
     } else {
       setSwiperIndex(swiperIndex + 1);
@@ -75,7 +84,7 @@ const Info = () => {
   };
   const minusIndex = () => {
     if (swiperIndex === 0) {
-      setSwiperIndex(products[1].images.length - 1);
+      setSwiperIndex(currentProduct.images.length - 1);
     } else {
       setSwiperIndex(swiperIndex - 1);
     }
@@ -109,7 +118,7 @@ const Info = () => {
             centeredSlides={true}
             className="w-full  pointer-events-none search-bar overflow-hidden h-full text-white"
           >
-            {products[1].images.map((image) => {
+            {currentProduct.images.map((image) => {
               return (
                 <SwiperSlide
                   key={`product-info-images-${image}`}
@@ -144,7 +153,7 @@ const Info = () => {
           </button>
         </div>
         <p className="text-center text-lg font-first-font text-white">
-          {products[0].name}
+          {currentProduct.name}
         </p>
       </div>
       <div className="bg-black h-20 sm:h-40"></div>
@@ -159,33 +168,37 @@ const Info = () => {
           <div className="flex flex-col gap-5">
             <div className="w-full h-12  flex gap-2 items-center">
               <div className="w-auto h-6 mr-3 bg-gradient-to-r from-blue to-second-color text-xs p-2 px-3 font-first-font rounded-[0.25rem] text-white pt-[0.3rem]">
-                {products[0].type}
+                {currentProduct.type}
               </div>
               <FavoriteBorderOutlined />
               <p className="text-sm">Add to wishlist</p>
             </div>
             <div className="flex gap-2">
               <Rating
-                value={products[0].rate}
+                value={currentProduct.rate}
                 precision={0.5}
                 readOnly
                 size="small"
                 sx={{ color: "white", fontSize: "1.3rem" }}
               />
-              <p>({products[0].seller})</p>
+              <p>({currentProduct.seller})</p>
               <button className="text-sm flex items-center gap-1">
                 <EditOutlinedIcon style={{ fontSize: "1rem" }} />
                 Write a review
               </button>
             </div>
-            <h1 className="text-3xl font-semibold">{products[0].name}</h1>
+            <h1 className="text-3xl font-semibold">{currentProduct.name}</h1>
             <p className="text-sm text-gray-400 flex gap-4">
-              <span>TYPE: {products[0].type}</span>
-              <span>SKU: {products[0].sku}</span>
+              <span>TYPE: {currentProduct.type}</span>
+              <span>SKU: {currentProduct.sku}</span>
             </p>
-            <p className="text-sm text-gray-400">{products[0].description}</p>
+            <p className="text-sm text-gray-400">
+              {currentProduct.description}
+            </p>
             <div className="flex flex-col ">
-              <p className="text-sm text-white">{products[0].options[0]}: </p>
+              <p className="text-sm text-white">
+                {currentProduct.options[0]}:{" "}
+              </p>
               <div
                 className="h-10 w-full cursor-pointer flex relative justify-between px-4 items-center search-bar border-[1px] border-gray-500 mt-2"
                 onMouseLeave={() => {
@@ -196,21 +209,25 @@ const Info = () => {
                 }}
               >
                 <p className="font-normal text-sm text-white">
-                  {products[0].options[1][0]}
+                  {currentProduct.options[1][currentProduct.option]}
                 </p>
                 <p>
                   <ExpandMoreTwoTone style={{ color: "#7b35c8" }} />
                 </p>
                 <div className="bg-white z-20 absolute top-6 w-64 right-0 left-0 mx-auto flex flex-col">
-                  {products[0].options[1].map((item, index) => {
+                  {currentProduct.options[1].map((item, index) => {
                     return (
                       <button
-                        key={`${products[0].id}optionsbtnctg${index}`}
+                        key={`${currentProduct.id}optionsbtnctg${index}`}
                         className={` ${
                           isOpen ? "block" : "hidden"
                         } text-xs text-black border-[1px] border-black`}
                         onClick={() => {
                           setSwiperIndex(index);
+                          setCurrentProduct({
+                            ...currentProduct,
+                            option: index,
+                          });
                         }}
                       >
                         {item}
@@ -222,18 +239,42 @@ const Info = () => {
             </div>
             <div className="flex justify-between">
               <p className="text-lg font-semibold">
-                {products[0].price}.00{" "}
+                {formatter.format(
+                  currentProduct.price * currentProduct.quantity
+                )}
                 <sup className="text-xs font-normal"> USD</sup>
               </p>
               <div className="flex items-center gap-2">
                 <p>Quantity: </p>
                 <div className="rounded-md border-1 border-gray-500 h-8 w-28 px-2 text-gray-500 flex items-center justify-between">
-                  <button>
-                    <AddIcon style={{ fontSize: "1rem" }} />{" "}
+                  <button
+                    onClick={() => {
+                      if (!isInCart) {
+                        setCurrentProduct({
+                          ...currentProduct,
+                          quantity: currentProduct.quantity + 1,
+                        });
+                      } else {
+                        undefined;
+                      }
+                    }}
+                  >
+                    <AddIcon style={{ fontSize: "1rem" }} />
                   </button>
-                  <p className="text-sm">{count}</p>
-                  <button>
-                    <RemoveIcon style={{ fontSize: "1rem" }} />{" "}
+                  <p className="text-sm">{currentProduct.quantity}</p>
+                  <button
+                    onClick={() => {
+                      if (!isInCart && currentProduct.quantity > 1) {
+                        setCurrentProduct({
+                          ...currentProduct,
+                          quantity: currentProduct.quantity - 1,
+                        });
+                      } else {
+                        undefined;
+                      }
+                    }}
+                  >
+                    <RemoveIcon style={{ fontSize: "1rem" }} />
                   </button>
                 </div>
               </div>
@@ -255,7 +296,7 @@ const Info = () => {
                   direction={"vertical"}
                   className="w-full h-16 pointer-events-none relative z-10   overflow-visible  search-bar  text-white"
                 >
-                  {products[1].images.map((image) => {
+                  {currentProduct.images.map((image) => {
                     return (
                       <SwiperSlide
                         key={`product-info-images-${image}`}
@@ -308,7 +349,7 @@ const Info = () => {
                 centeredSlides={true}
                 className="w-full border-1 pointer-events-none border-blue search-bar overflow-hidden h-full text-white"
               >
-                {products[1].images.map((image) => {
+                {currentProduct.images.map((image) => {
                   return (
                     <SwiperSlide
                       key={`product-info-images-${image}`}
@@ -364,7 +405,7 @@ const Info = () => {
             {tabIndex === 1 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <p className="text-base py-5 text-justify">
-                  {products[0].description}
+                  {currentProduct.description}
                 </p>
                 <div className="w-full h-96">
                   <img
