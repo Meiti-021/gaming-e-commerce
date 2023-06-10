@@ -19,6 +19,8 @@ export const products = [
     rate: 4.5,
     seller: 223,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "alienware-gameing-monitor-t-45",
@@ -39,6 +41,8 @@ export const products = [
     rate: 5,
     seller: 184,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "alienware-monitor-d-152",
@@ -59,6 +63,8 @@ export const products = [
     rate: 5,
     seller: 188,
     stock: false,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "cloud-alpha-gaming-headset",
@@ -79,6 +85,8 @@ export const products = [
     rate: 4.8,
     seller: 421,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "colossus-ergonomic-gaming-office-chair",
@@ -104,6 +112,8 @@ export const products = [
     rate: 5,
     seller: 455,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "dualsense-wireless-controllers",
@@ -130,6 +140,8 @@ export const products = [
     rate: 4.5,
     seller: 189,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "electrobot-xtreme-gaming-series-pc",
@@ -150,6 +162,8 @@ export const products = [
     rate: 4.2,
     seller: 124,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "g-series-curved-va-monitor",
@@ -173,6 +187,8 @@ export const products = [
     rate: 4.2,
     seller: 189,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "gaming-chair-for-gamers-with-lumbar",
@@ -194,6 +210,8 @@ export const products = [
     rate: 3.5,
     seller: 146,
     stock: false,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "htc-vive-tracker-3-0-pc-",
@@ -215,6 +233,8 @@ export const products = [
     rate: 4.2,
     seller: 188,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "hyper-clutch-gaming-controller",
@@ -235,6 +255,8 @@ export const products = [
     rate: 3.5,
     seller: 176,
     stock: false,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "kd-dmtr-gaming-desktop-pc",
@@ -257,6 +279,8 @@ export const products = [
     rate: 4.2,
     seller: 156,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "kepler-brooks-gaming-chair",
@@ -278,6 +302,8 @@ export const products = [
     rate: 4.3,
     seller: 231,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "multi-functional-ergonomic-gaming-chair",
@@ -300,6 +326,8 @@ export const products = [
     rate: 5,
     seller: 183,
     stock: false,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "radeon-rx-120-gts-graphics-card-",
@@ -321,6 +349,8 @@ export const products = [
     rate: 5,
     seller: 483,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "radeon-rx-590-gts-graphics-card",
@@ -348,6 +378,8 @@ export const products = [
     rate: 5,
     seller: 487,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "radeon-rx-680-gts-graphics-card",
@@ -368,6 +400,8 @@ export const products = [
     rate: 3.8,
     seller: 16,
     stock: false,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "radeon™-rx-750-xt-speedster-merc",
@@ -388,6 +422,8 @@ export const products = [
     rate: 4.3,
     seller: 222,
     stock: false,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "radeon™-rx-750-xt-speedster-merc-1",
@@ -409,6 +445,8 @@ export const products = [
     rate: 5,
     seller: 420,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "raptor-gameing-z95",
@@ -430,6 +468,8 @@ export const products = [
     rate: 4.5,
     seller: 232,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "refurbished-xbox-series-x-1tb-console",
@@ -451,6 +491,8 @@ export const products = [
     rate: 5,
     seller: 453,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "rubber-keycaps",
@@ -474,6 +516,8 @@ export const products = [
     rate: 3.8,
     seller: 178,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "vr-headset-with-headphones",
@@ -496,6 +540,8 @@ export const products = [
     rate: 1,
     seller: 1,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
   {
     id: "nintendo-switch-lite-turquoise",
@@ -519,5 +565,7 @@ export const products = [
     rate: 4.5,
     seller: 352,
     stock: true,
+    option: 0,
+    quantity: 1,
   },
 ];

@@ -18,6 +18,7 @@ import Blog from "./pages/Blog";
 import Post from "./pages/Post";
 import Info from "./pages/Info";
 import Login from "./pages/Login";
+import Cart from "./pages/Cart";
 
 function App() {
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/blog/:id" element={<Post />} />
           <Route path="/product/:id" element={<Info />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </Router>

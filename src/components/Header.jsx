@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useEffect, useState, useRef } from "react";
+import CartSideBar from "./CartSideBar";
 const pages = [
   {
     title: "About US",
@@ -574,7 +575,9 @@ const Header = () => {
             </ul>
           </div>
         </div>
+        <CartSideBar />
       </div>
+
       <div className="h-14 w-full top-10 absolute " ref={headerRef}></div>
     </>
   );
