@@ -7,6 +7,7 @@ import Product from "./Product";
 import { Pagination } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import CloseIcon from "@mui/icons-material/Close";
+import { Link } from "react-router-dom";
 const allBrands = [
   "samsung",
   "acer",
@@ -44,7 +45,7 @@ const allColors = ["red", "black", "white", "green", "gray", "blue"];
 
 const CollectionsBody = ({ collections = [], type = "all" }) => {
   const { products } = useSelector((store) => store.cart);
-  const [collection, setCollection] = useState(products);
+  const [collection, setCollection] = useState(collections);
   const [sort, setSort] = useState("newest");
   const [page, setPage] = useState(0);
   const [sideFilter, setSideFilter] = useState(false);
@@ -556,22 +557,25 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                     <div className="flex flex-col gap-1 text-xs">
                       <p>Max price:</p>
                       <input
-                        type="text"
+                        type="number"
                         className="search-bar border-1 border-border-color w-full h-10 p-3"
                         placeholder="900.00"
                         max={filter.maxPrice}
                         min="0"
                         value={filter.maxPrice}
                         onChange={(e) => {
+                          setFilter({
+                            ...filter,
+                            maxPrice: e.target.value,
+                          });
+                        }}
+                        onBlur={(e) => {
                           e.target.value === ""
                             ? setFilter({
                                 ...filter,
-                                maxPrice: 1000,
+                                maxPrice: 0,
                               })
-                            : setFilter({
-                                ...filter,
-                                maxPrice: e.target.value,
-                              });
+                            : undefined;
                         }}
                       />
                     </div>
@@ -935,15 +939,18 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                           min="0"
                           value={filter.maxPrice}
                           onChange={(e) => {
+                            setFilter({
+                              ...filter,
+                              maxPrice: e.target.value,
+                            });
+                          }}
+                          onBlur={(e) => {
                             e.target.value === ""
                               ? setFilter({
                                   ...filter,
-                                  maxPrice: 1000,
+                                  maxPrice: 0,
                                 })
-                              : setFilter({
-                                  ...filter,
-                                  maxPrice: e.target.value,
-                                });
+                              : undefined;
                           }}
                         />
                       </div>
@@ -1230,16 +1237,28 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               <TuneIcon />
             </button>
           </div>
-          <div className="h-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {collection.slice(page * 6, 6 * (page + 1)).map((item, index) => {
-              return (
-                <Product
-                  {...item}
-                  key={"collection-product" + "item.id" + `${index}`}
-                />
-              );
-            })}
-          </div>
+          {collection.length === 0 ? (
+            <div className="w-full h-full flex flex-col justify-center items-center gap-4">
+              <p className="text-3xl">Nothing Found!</p>
+              <p>
+                Please Take a look at our collections{"  "}
+                <Link to="/collections/all" className="underline text-blue">
+                  here!
+                </Link>
+              </p>
+            </div>
+          ) : (
+            <div className="h-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {collection.slice(page * 6, 6 * (page + 1)).map((item, index) => {
+                return (
+                  <Product
+                    {...item}
+                    key={"collection-product" + "item.id" + `${index}`}
+                  />
+                );
+              })}
+            </div>
+          )}
           <div className="h-20 w-full flex justify-center items-center">
             <Pagination
               count={

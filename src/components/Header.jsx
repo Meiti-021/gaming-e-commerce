@@ -13,6 +13,7 @@ import { useEffect, useState, useRef } from "react";
 import CartSideBar from "./CartSideBar";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const pages = [
   {
     title: "About US",
@@ -65,6 +66,7 @@ const sideNavOpt = {
   blog: false,
 };
 const Header = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [sideMenu, setSideMenu] = useState(sideNavOpt);
   const [menu, setMenu] = useState(false);
@@ -76,11 +78,14 @@ const Header = () => {
   const [sidenav, setSideNav] = useState(false);
   const [isTop, setTop] = useState(true);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { cartItems, wishList } = useSelector((store) => store.cart);
   const headerRef = useRef(null);
+  const [query, setQuery] = useState("");
   useEffect(() => {
     setOpen(false);
     setSideNav(false);
+    setSearchOpen(false);
   }, [location]);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -93,6 +98,47 @@ const Header = () => {
   }, []);
   return (
     <>
+      <div
+        className={`${
+          !searchOpen
+            ? "hidden"
+            : "fixed flex p-5 bg-black justify-center z-30 items-center h-screen w-full"
+        }`}
+      >
+        <form
+          className="w-full h-14 relative border-[1px] border-gray-500 search-bar flex gap-2 items-center justify-start px-5 "
+          onSubmit={(e) => {
+            e.preventDefault();
+            navigate(`/collections/search?${query}`);
+            setQuery("");
+          }}
+        >
+          <button type="submit">
+            <SearchOutlinedIcon style={{ color: "#fff" }} />{" "}
+          </button>
+          <input
+            type="search"
+            name="query"
+            id=""
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+            className="bg-transparent font-first-font text-white border-0 outline-none"
+            placeholder="Search Products ..."
+          />
+          <button
+            className="text-red-600 absolute right-5"
+            onClick={(e) => {
+              e.preventDefault();
+              setQuery("");
+              setSearchOpen(false);
+            }}
+          >
+            <CloseIcon />{" "}
+          </button>
+        </form>
+      </div>
       <div className="h-auto z-50 fixed w-full">
         <div className="absolute w-full h-full -z-10"></div>
         <div className="md:hidden w-full h-14 p-3  flex items-center justify-between bg-black ">
@@ -100,9 +146,13 @@ const Header = () => {
             <img src={logo} alt="logo" className="h-7 object-contain" />
           </Link>
           <div className="flex text-white  gap-4 items-center">
-            <Link>
+            <button
+              onClick={() => {
+                setSearchOpen(true);
+              }}
+            >
               <SearchOutlinedIcon style={{ fontSize: "22px" }} />
-            </Link>
+            </button>
             <Link to="login">
               <AccountCircleOutlinedIcon style={{ fontSize: "22px" }} />
             </Link>
@@ -363,18 +413,29 @@ const Header = () => {
                 More
               </Link>
             </p>
-            <div className="w-64 border-[1px] border-gray-500 search-bar flex items-center justify-center h-full">
-              <button>
+            <form
+              className="w-64 border-[1px] border-gray-500 search-bar flex items-center justify-center h-full"
+              onSubmit={(e) => {
+                e.preventDefault();
+                navigate(`/collections/search?${query}`);
+                setQuery("");
+              }}
+            >
+              <button type="submit">
                 <SearchOutlinedIcon style={{ color: "#fff" }} />{" "}
-                <input
-                  type="search"
-                  name=""
-                  id=""
-                  className="bg-transparent font-first-font text-white border-0 outline-none"
-                  placeholder="Search Products ..."
-                />
               </button>
-            </div>
+              <input
+                type="search"
+                name="query"
+                id=""
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                }}
+                className="bg-transparent font-first-font text-white border-0 outline-none"
+                placeholder="Search Products ..."
+              />
+            </form>
             <Link
               to="/collections/all"
               className="font-first-font text-white underline"
