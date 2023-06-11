@@ -18,7 +18,7 @@ const aboutOptions = [
 ];
 const HomeAbout = () => {
   return (
-    <div className="w-full md:-mt-28 mx-auto max-w-7xl font-first-font p-3">
+    <div className="mx-auto w-full max-w-7xl p-3  md:-mt-28">
       <h2 className="text-5xl ">About our shop</h2>
       <p className="my-5 text-gray-400">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos
@@ -26,16 +26,16 @@ const HomeAbout = () => {
         laborum reiciendis ipsa consectetur totam dicta corrupti amet modi odit.
         Quam.
       </p>
-      <div className="w-full h-auto grid grid-cols-1 xs:grid-cols-2 xs:grid-rows-2 grid-rows-4 gap-5 md:grid-cols-4 md:grid-rows-1 mt-11">
+      <div className="mt-11 grid h-auto w-full grid-cols-1 grid-rows-4 gap-5 xs:grid-cols-2 xs:grid-rows-2 md:grid-cols-4 md:grid-rows-1">
         {aboutOptions.map((item, index) => {
           return (
             <div key={item.title}>
-              <div className="w-full h-full bg-white bg-gradient-to-br search-bar from-sky-200 to-white flex flex-col gap-2 p-4">
-                <p className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-t from-blue to-second-color">
+              <div className="border-ellipse flex h-full w-full flex-col gap-2 bg-white bg-gradient-to-br from-sky-200 to-white p-4">
+                <p className="bg-gradient-to-t from-blue to-second-color bg-clip-text text-3xl font-semibold text-transparent">
                   0{index + 1}
                 </p>
                 <p className="text-2xl font-semibold">{item.title}</p>
-                <p className="text-xs w-40">{item.description}</p>
+                <p className="w-40 text-xs">{item.description}</p>
               </div>
             </div>
           );

@@ -13,20 +13,20 @@ const HomeTestimonials = () => {
   const lg = useMediaQuery("(min-width:1024px)");
   const { users } = useSelector((store) => store.user);
   return (
-    <div className="w-full py-10 p-5">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col gap-5 xs:flex-row xs:justify-between xs:items-center">
-          <h2 className="font-first-font text-black font-semibold text-3xl  md:w-full md:max-w-[20rem] md:text-4xl ml:text-5xl">
+    <div className="w-full p-5 py-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col gap-5 xs:flex-row xs:items-center xs:justify-between">
+          <h2 className=" text-3xl font-semibold text-black  md:w-full md:max-w-[20rem] md:text-4xl ml:text-5xl">
             Testimonials
           </h2>
-          <p className="text-gray-500 md:block hidden text-xs w-[23rem]">
+          <p className="hidden w-[23rem] text-xs text-gray-500 md:block">
             A video game console is an electronic device that outputs a video
             signal or image to display a video game that can be played with a
             game controller.
           </p>
           <Link
             to="collections/all"
-            className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center hover:text-white hover:border-none hover:bg-gradient-to-r hover:from-blue hover:to-second-color items-center p-2 gap-2 border-[1px] search-bar border-gray-500 text-xs font-first-font text-gray-500 transition-all"
+            className="border-ellipse flex h-10 w-36 items-center justify-center gap-2 border-[1px] border-gray-500 p-2 text-xs text-gray-500 transition-all hover:border-none hover:bg-gradient-to-r hover:from-blue hover:to-second-color hover:text-white  xs:h-12 xs:w-44"
           >
             Show More
             <SportsEsportsOutlined />
@@ -42,20 +42,20 @@ const HomeTestimonials = () => {
             }}
             modules={[Navigation, Autoplay]}
             loop={true}
-            className="w-full py-10 h-full "
+            className="h-full w-full py-10 "
           >
             {users.map((item, index) => {
               return (
                 <SwiperSlide
                   key={`testimonal-comments-${item.comment.id}-${index}`}
                 >
-                  <div className="border-[1px] flex flex-col xs:flex-row xs:items-center xs:h-64 px-10 border-second-color search-bar p-5 h-[26.5rem] bg-gradient-to-br from-sky-200 via-white to-white">
+                  <div className="border-ellipse flex h-[26.5rem] flex-col border-[1px] border-second-color bg-gradient-to-br from-sky-200 via-white to-white p-5 px-10 xs:h-64 xs:flex-row xs:items-center">
                     <img
                       src={`./assets/products/${item.comment.productImage}`}
                       alt=""
-                      className="w-full block object-contain h-36 xs:w-60 drop-shadow-2xl"
+                      className="block h-36 w-full object-contain drop-shadow-2xl xs:w-60"
                     />
-                    <div className="flex flex-col mt-10 xs:mt-0 gap-3 font-first-font">
+                    <div className="mt-10 flex flex-col gap-3 xs:mt-0 ">
                       <p className="text-2xl font-semibold">
                         {item.comment.title}
                       </p>
@@ -65,20 +65,20 @@ const HomeTestimonials = () => {
                           <img
                             src={`./assets/users/${item.image}`}
                             alt=""
-                            className="w-11 h-11 bg-gradient-to-l from-blue to-second-color rounded-md object-cover block"
+                            className="block h-11 w-11 rounded-md bg-gradient-to-l from-blue to-second-color object-cover"
                           />
                           <div>
                             <p className="text-lg font-semibold">{item.name}</p>
-                            <p className="text-xs -mt-1">{item.membership}</p>
+                            <p className="-mt-1 text-xs">{item.membership}</p>
                           </div>
                         </div>
-                        <div className="flex gap-3 flex-col items-center xs:flex-row">
+                        <div className="flex flex-col items-center gap-3 xs:flex-row">
                           <img
                             src={star}
                             alt=""
-                            className="object-contain w-20"
+                            className="w-20 object-contain"
                           />
-                          <p className="text-xs text-blue font-bold hidden xs:block">
+                          <p className="hidden text-xs font-bold text-blue xs:block">
                             4.5 <span className="text-black">/ 5.0</span>
                           </p>
                         </div>
@@ -90,7 +90,7 @@ const HomeTestimonials = () => {
             })}
           </Swiper>
           <button
-            className="absolute left-2 z-20 top-0 bottom-0 my-auto text-blue border-2 border-white w-5 h-5 bg-white  flex justify-center items-center"
+            className="absolute bottom-0 left-2 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-blue"
             onClick={() => {
               swiperRef.current.swiper.slideNext();
             }}
@@ -98,7 +98,7 @@ const HomeTestimonials = () => {
             <ArrowCircleLeftRoundedIcon style={{ fontSize: "2.5rem" }} />
           </button>
           <button
-            className="absolute right-2 z-20 top-0 bottom-0 my-auto text-second-color border-2 border-white w-5 h-5 bg-white  flex justify-center items-center"
+            className="absolute bottom-0 right-2 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-second-color"
             onClick={() => {
               swiperRef.current.swiper.slidePrev();
             }}

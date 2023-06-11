@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 const SectionHeader = ({ title, address }) => {
   return (
-    <div className="max-w-7xl relative z-20 w-full mx-auto flex flex-col xs:flex-row xs:justify-between xs:items-center gap-4 mb-7 p-4 ">
-      <h2 className="font-first-font text-3xl font-semibold text-white">
-        {title}
-      </h2>
+    <div className="relative z-20 mx-auto mb-7 flex w-full max-w-7xl flex-col gap-4 p-4 xs:flex-row xs:items-center xs:justify-between ">
+      <h2 className=" text-3xl font-semibold text-white">{title}</h2>
       <Link
         to={address}
-        className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center hover:bg-gradient-to-r hover:from-blue hover:to-second-color hover:border-none hover:text-white items-center p-2 gap-2 border-[1px] search-bar border-[rgba(255,255,255,0.6)] text-xs font-first-font text-[rgba(255,255,255,0.6)] transition-all  "
+        className="border-ellipse flex h-10 w-36 items-center justify-center gap-2 border-[1px] border-[rgba(255,255,255,0.6)] p-2 text-xs text-[rgba(255,255,255,0.6)] transition-all hover:border-none hover:bg-gradient-to-r hover:from-blue hover:to-second-color hover:text-white  xs:h-12 xs:w-44  "
       >
         Show product
         <SportsEsportsOutlined />

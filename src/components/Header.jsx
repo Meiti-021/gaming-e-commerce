@@ -102,11 +102,11 @@ const Header = () => {
         className={`${
           !searchOpen
             ? "hidden"
-            : "fixed flex p-5 bg-black justify-center z-30 items-center h-screen w-full"
+            : "fixed z-30 flex h-screen w-full items-center justify-center bg-black p-5"
         }`}
       >
         <form
-          className="w-full h-14 relative border-[1px] border-gray-500 search-bar flex gap-2 items-center justify-start px-5 "
+          className="border-ellipse relative flex h-14 w-full items-center justify-start gap-2 border-[1px] border-gray-500 px-5 "
           onSubmit={(e) => {
             e.preventDefault();
             navigate(`/collections/search?${query}`);
@@ -124,11 +124,11 @@ const Header = () => {
             onChange={(e) => {
               setQuery(e.target.value);
             }}
-            className="bg-transparent font-first-font text-white border-0 outline-none"
+            className="border-0  bg-transparent text-white outline-none"
             placeholder="Search Products ..."
           />
           <button
-            className="text-red-600 absolute right-5"
+            className="absolute right-5 text-red-600"
             onClick={(e) => {
               e.preventDefault();
               setQuery("");
@@ -139,13 +139,13 @@ const Header = () => {
           </button>
         </form>
       </div>
-      <div className="h-auto z-50 fixed w-full">
-        <div className="absolute w-full h-full -z-10"></div>
-        <div className="md:hidden w-full h-14 p-3  flex items-center justify-between bg-black ">
+      <div className="fixed z-50 h-auto w-full">
+        <div className="absolute -z-10 h-full w-full"></div>
+        <div className="flex h-14 w-full items-center  justify-between bg-black p-3 md:hidden ">
           <Link to="/" className="block">
             <img src={logo} alt="logo" className="h-7 object-contain" />
           </Link>
-          <div className="flex text-white  gap-4 items-center">
+          <div className="flex items-center  gap-4 text-white">
             <button
               onClick={() => {
                 setSearchOpen(true);
@@ -158,12 +158,12 @@ const Header = () => {
             </Link>
             <Link
               to="/wishlist"
-              className="relative flex justify-center items-center"
+              className="relative flex items-center justify-center"
             >
               <div
                 className={`${
                   wishList.length === 0 ? "hidden" : undefined
-                } absolute w-4 h-4 rounded-full -top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1`}
+                } absolute -right-2 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-second-color to-blue  pt-1 text-[0.7rem]`}
               >
                 {wishList.length}
               </div>
@@ -173,7 +173,7 @@ const Header = () => {
               <div
                 className={`${
                   cartItems.length === 0 && "hidden"
-                } absolute w-4 h-4 rounded-full -top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1`}
+                } absolute -right-2 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-second-color to-blue  pt-1 text-[0.7rem]`}
               >
                 {cartItems.length}
               </div>
@@ -190,24 +190,24 @@ const Header = () => {
           </div>
         </div>
         <div
-          className={`hidden md:flex flex-col w-full ${
+          className={`hidden w-full flex-col md:flex ${
             isTop ? undefined : "bg-black"
           }`}
         >
           <div
             aria-label="mid-header"
-            className={`flex justify-between transition-all duration-200 items-center  w-full  mx-auto max-w-7xl ${
+            className={`mx-auto flex w-full max-w-7xl items-center  justify-between  transition-all duration-200 ${
               isTop ? "h-20" : "h-14"
             }`}
           >
-            <nav className="flex gap-4 items-center">
+            <nav className="flex items-center gap-4">
               <Link to="/" className="block">
                 <img src={logo} className="object-contain lg:hidden" alt="" />
               </Link>
 
-              <ul className="list-none list-outside flex gap-4 items-center">
+              <ul className="flex list-outside list-none items-center gap-4">
                 <li
-                  className="relative font-first-font flex  font-semibold text-white  cursor-pointer nav-item"
+                  className="nav-item  relative  flex cursor-pointer  font-semibold text-white"
                   onMouseEnter={() => {
                     setMenu(true);
                   }}
@@ -218,10 +218,10 @@ const Header = () => {
                       style={{ fontSize: "20px", marginLeft: "5px" }}
                     />
                   </p>
-                  <div className="nav-indicator h-[1px]  bg-gradient-to-r from-second-color via-blue to-blue absolute -bottom-1 mx-auto my-0 w-0"></div>
+                  <div className="nav-indicator absolute  -bottom-1 mx-auto my-0 h-[1px] w-0 bg-gradient-to-r from-second-color via-blue to-blue"></div>
                 </li>
                 <li
-                  className=" relative font-first-font flex font-semibold text-white  cursor-pointer nav-item"
+                  className=" nav-item  relative flex cursor-pointer  font-semibold text-white"
                   onMouseEnter={() => {
                     setMenu(false);
                     SetOtherMenus({
@@ -237,14 +237,14 @@ const Header = () => {
                       style={{ fontSize: "20px", marginLeft: "5px" }}
                     />
                   </p>
-                  <div className="nav-indicator h-[1px]  bg-gradient-to-r from-second-color via-blue to-blue absolute -bottom-1 mx-auto my-0 w-0"></div>
+                  <div className="nav-indicator absolute  -bottom-1 mx-auto my-0 h-[1px] w-0 bg-gradient-to-r from-second-color via-blue to-blue"></div>
                   <div
                     aria-label="pages-menu"
-                    className={`nav-menu absolute pt-9 top-[1rem] ${
+                    className={`nav-menu absolute top-[1rem] pt-9 ${
                       otherMenus.pages ? undefined : "hidden"
                     }`}
                   >
-                    <div className="  bg-white w-64  h-48 p-4 font-normal">
+                    <div className="  h-48 w-64  bg-white p-4 font-normal">
                       <ul className="flex flex-col gap-1">
                         {pages.map((item) => {
                           return (
@@ -270,7 +270,7 @@ const Header = () => {
                   </div>
                 </li>
                 <li
-                  className="relative font-first-font flex font-semibold text-white  cursor-pointer nav-item"
+                  className="nav-item  relative flex cursor-pointer  font-semibold text-white"
                   onMouseEnter={() => {
                     setMenu(false);
                     SetOtherMenus({
@@ -286,21 +286,21 @@ const Header = () => {
                       style={{ fontSize: "20px", marginLeft: "5px" }}
                     />
                   </p>
-                  <div className="nav-indicator h-[1px]  bg-gradient-to-r from-second-color via-blue to-blue absolute -bottom-1 mx-auto my-0 w-0"></div>
+                  <div className="nav-indicator absolute  -bottom-1 mx-auto my-0 h-[1px] w-0 bg-gradient-to-r from-second-color via-blue to-blue"></div>
                   <div
                     aria-label="blogs-menu"
-                    className={`nav-menu absolute pt-9 top-[1rem] ${
+                    className={`nav-menu absolute top-[1rem] pt-9 ${
                       otherMenus.blogs ? undefined : "hidden"
                     }`}
                   >
-                    <div className=" bg-white w-64 h-20 p-4 font-normal">
+                    <div className=" h-20 w-64 bg-white p-4 font-normal">
                       <ul className="flex flex-col gap-1">
                         {blogs.map((item) => {
                           return (
                             <li key={item.title} className="text-black ">
                               <Link
                                 to={item.address}
-                                className="hover:border-b-1 border-black"
+                                className="border-black hover:border-b-1"
                                 onClick={() => {
                                   SetOtherMenus({
                                     pages: false,
@@ -323,7 +323,7 @@ const Header = () => {
             <Link className="block" to="/">
               <img
                 src={logo}
-                className="object-contain hidden lg:block  "
+                className="hidden object-contain lg:block  "
                 alt=""
               />
             </Link>
@@ -338,11 +338,11 @@ const Header = () => {
                 <AccountCircleOutlinedIcon />
                 <div
                   aria-label="account-menu"
-                  className={`nav-menu absolute top-[1rem]  pt-7 -right-28 mx-auto ${
+                  className={`nav-menu absolute -right-28  top-[1rem] mx-auto pt-7 ${
                     otherMenus.account ? undefined : "hidden"
                   }`}
                 >
-                  <div className=" bg-white w-64  h-20 p-4 font-normal">
+                  <div className=" h-20 w-64  bg-white p-4 font-normal">
                     <ul className="flex flex-col gap-1">
                       {accounts.map((item) => {
                         return (
@@ -371,25 +371,25 @@ const Header = () => {
               </button>
               <Link
                 to="/wishlist"
-                className="relative flex justify-center items-center"
+                className="relative flex items-center justify-center"
               >
                 <FavoriteBorderOutlinedIcon />
                 <div
                   className={`${
                     wishList.length === 0 ? "hidden" : undefined
-                  } absolute w-5 h-5 rounded-full top-[0.22rem] -right-[0.7rem] flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1`}
+                  } absolute -right-[0.7rem] top-[0.22rem] flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-second-color to-blue  pt-1 text-[0.7rem]`}
                 >
                   {wishList.length}
                 </div>
               </Link>
-              <p className="font-first-font font-semibold text-sm text-right">
+              <p className=" text-right text-sm font-semibold">
                 My Cart:
                 <br /> 0.000 USD
               </p>
               <button className="relative" onClick={() => setOpen(!open)}>
                 <LocalMallOutlinedIcon />
                 <div
-                  className={`absolute w-5 h-5 rounded-full top-[0.22rem] -right-[0.7rem] flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1 ${
+                  className={`absolute -right-[0.7rem] top-[0.22rem] flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-second-color to-blue  pt-1 text-[0.7rem] ${
                     cartItems.length === 0 ? "hidden" : undefined
                   }`}
                 >
@@ -399,22 +399,22 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="md:hidden absolute h-[1px] bottom-0 w-full bg-gradient-to-r from-second-color via-blue to-blue "></div>
-        <div className="hidden md:block absolute h-[1px] bottom-16 w-full bg-[rgba(255,255,255,0.2)] "></div>
+        <div className="absolute bottom-0 h-[1px] w-full bg-gradient-to-r from-second-color via-blue to-blue md:hidden "></div>
+        <div className="absolute bottom-16 hidden h-[1px] w-full bg-[rgba(255,255,255,0.2)] md:block "></div>
         <div
-          className={`hidden md:block  h-16  w-full border-b-[1px] border-[rgba(255,255,255,0.2)] transition-all  ${
+          className={`hidden h-16  w-full  border-b-[1px] border-[rgba(255,255,255,0.2)] transition-all md:block  ${
             isTop ? undefined : "header-sc "
           }`}
         >
-          <div className="flex max-w-7xl mx-auto justify-between h-full items-center px-4 py-3">
-            <p className="font-first-font text-white font-bold">
+          <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 py-3">
+            <p className=" font-bold text-white">
               New Accessories -30 % Off.{" "}
               <Link to="/collections/all" className="underline">
                 More
               </Link>
             </p>
             <form
-              className="w-64 border-[1px] border-gray-500 search-bar flex items-center justify-center h-full"
+              className="border-ellipse flex h-full w-64 items-center justify-center border-[1px] border-gray-500"
               onSubmit={(e) => {
                 e.preventDefault();
                 navigate(`/collections/search?${query}`);
@@ -432,14 +432,11 @@ const Header = () => {
                 onChange={(e) => {
                   setQuery(e.target.value);
                 }}
-                className="bg-transparent font-first-font text-white border-0 outline-none"
+                className="border-0  bg-transparent text-white outline-none"
                 placeholder="Search Products ..."
               />
             </form>
-            <Link
-              to="/collections/all"
-              className="font-first-font text-white underline"
-            >
+            <Link to="/collections/all" className=" text-white underline">
               New Collections
             </Link>
           </div>
@@ -450,57 +447,57 @@ const Header = () => {
             menu ? "nav-menu-on" : undefined
           } nav-menu absolute hidden w-full ${
             isTop ? "top-[4.5rem]" : "top-[3.5rem]"
-          } h-[26rem] bg-white md:flex justify-between p-4`}
+          } h-[26rem] justify-between bg-white p-4 md:flex`}
           onMouseLeave={() => {
             setMenu(false);
           }}
         >
-          <ul className="font-first-font flex flex-col gap-3 p-2 w-1/4">
+          <ul className=" flex w-1/4 flex-col gap-3 p-2">
             <p className=" font-semibold">Pro Gaming</p>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to={`/collections/Console`} onClick={() => setMenu(false)}>
                 Game Console
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to="/collections/Remote" onClick={() => setMenu(false)}>
                 Game Remote
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to="/collections/Cards" onClick={() => setMenu(false)}>
                 Gaming Cards
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to="/collections/Chairs" onClick={() => setMenu(false)}>
                 Gaming Chairs
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to="/collections/Monitors" onClick={() => setMenu(false)}>
                 Gaming moniters
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to="/collections/GamePCs" onClick={() => setMenu(false)}>
                 Gaming Pc
               </Link>
             </li>
           </ul>
-          <ul className="font-first-font flex flex-col gap-3 p-2 w-1/4">
+          <ul className=" flex w-1/4 flex-col gap-3 p-2">
             <p className="font-semibold">New Accessories</p>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to="/product/alien-ware-monitor-t-46">
                 Alien ware Monitor
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link to="/product/g-series-curved-va-monitor">
                 G-series Curved VA Monitor
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/cloud-alpha-gaming-headset"
                 onClick={() => setMenu(false)}
@@ -508,7 +505,7 @@ const Header = () => {
                 Cloud Alpha Gaming Headset
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/dualsense-wireless-controllers"
                 onClick={() => setMenu(false)}
@@ -516,7 +513,7 @@ const Header = () => {
                 DualSense Wirless Controllers
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/raptor-gameing-z95"
                 onClick={() => setMenu(false)}
@@ -524,7 +521,7 @@ const Header = () => {
                 Raptor Gaming z95{" "}
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/kd-dmtr-gaming-desktop-pc"
                 onClick={() => setMenu(false)}
@@ -533,9 +530,9 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <ul className="font-first-font flex flex-col gap-3  p-2 w-1/4">
+          <ul className=" flex w-1/4 flex-col  gap-3 p-2">
             <p className="font-semibold">Master Game</p>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/colossus-ergonomic-gaming-office-chair"
                 onClick={() => setMenu(false)}
@@ -543,7 +540,7 @@ const Header = () => {
                 Gaming Office Chair
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/htc-vive-tracker-3-0-pc-"
                 onClick={() => setMenu(false)}
@@ -551,7 +548,7 @@ const Header = () => {
                 HTC Vive Tracker 3.0 PC
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/vr-headset-with-headphones"
                 onClick={() => setMenu(false)}
@@ -559,7 +556,7 @@ const Header = () => {
                 VR Headset with Headphones
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/radeon-rx-590-gts-graphics-card"
                 onClick={() => setMenu(false)}
@@ -567,7 +564,7 @@ const Header = () => {
                 RX 590 GTS Graphics Card
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/gaming-chair-for-gamers-with-lumbar"
                 onClick={() => setMenu(false)}
@@ -575,7 +572,7 @@ const Header = () => {
                 Gaming Chair for Gamers for lambers
               </Link>
             </li>
-            <li className="hover:border-b-2 border-black">
+            <li className="border-black hover:border-b-2">
               <Link
                 to="/product/radeon-rx-680-gts-graphics-card"
                 onClick={() => setMenu(false)}
@@ -589,11 +586,11 @@ const Header = () => {
           </div>
         </div>
         <div
-          className={`w-screen h-screen absolute top-0 transition-all bg-white ${
+          className={`absolute top-0 h-screen w-screen bg-white transition-all ${
             sidenav ? "left-0" : "left-full"
           } flex flex-col`}
         >
-          <div className="w-full h-12 bg-blue px-4 flex items-center">
+          <div className="flex h-12 w-full items-center bg-blue px-4">
             <button
               onClick={() => {
                 setSideNav(false);
@@ -602,11 +599,11 @@ const Header = () => {
               <CloseIcon style={{ color: "#fff" }} />
             </button>
           </div>
-          <div className="p-5 font-first-font">
+          <div className="p-5 ">
             <ul>
               <li className="relative mb-3">
                 <div
-                  className="flex justify-between text-lg text-gray-500 cursor-pointer"
+                  className="flex cursor-pointer justify-between text-lg text-gray-500"
                   onClick={() => {
                     setSideMenu({ ...sideMenu, shopAll: !sideMenu.shopAll });
                   }}
@@ -615,7 +612,7 @@ const Header = () => {
                   {sideMenu.shopAll ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                 </div>
                 <ul
-                  className={`text-base flex flex-col gap-2 mt-3  ${
+                  className={`mt-3 flex flex-col gap-2 text-base  ${
                     sideMenu.shopAll ? "nav-menu-on static" : "absolute "
                   } nav-menu`}
                 >
@@ -641,7 +638,7 @@ const Header = () => {
               </li>
               <li className="relative mb-3">
                 <div
-                  className="flex justify-between text-lg text-gray-500 cursor-pointer"
+                  className="flex cursor-pointer justify-between text-lg text-gray-500"
                   onClick={() => {
                     setSideMenu({ ...sideMenu, blog: !sideMenu.blog });
                   }}
@@ -650,7 +647,7 @@ const Header = () => {
                   {sideMenu.blog ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                 </div>
                 <ul
-                  className={`text-base flex flex-col gap-2 mt-3  ${
+                  className={`mt-3 flex flex-col gap-2 text-base  ${
                     sideMenu.blog ? "nav-menu-on static" : "absolute"
                   } nav-menu`}
                 >
@@ -677,7 +674,7 @@ const Header = () => {
         <CartSideBar open={open} setOpen={setOpen} />
       </div>
 
-      <div className="h-14 w-full top-10 absolute " ref={headerRef}></div>
+      <div className="absolute top-10 h-14 w-full " ref={headerRef}></div>
     </>
   );
 };

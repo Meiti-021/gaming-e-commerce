@@ -137,8 +137,8 @@ const Info = () => {
 
   if (loading) {
     return (
-      <div className="w-full h-screen flex justify-center items-center bg-black">
-        <img src={Loading} className=" object-contain bg-black" />
+      <div className="flex h-screen w-full items-center justify-center bg-black">
+        <img src={Loading} className=" bg-black object-contain" />
       </div>
     );
   }
@@ -149,19 +149,19 @@ const Info = () => {
   return (
     <div className="relative">
       <div
-        className={`fixed  w-full h-screen flex-col justify-center items-center z-50 bg-[rgba(0,0,0,0.8)] ${
+        className={`fixed  z-50 h-screen w-full flex-col items-center justify-center bg-[rgba(0,0,0,0.8)] ${
           isModalOpen ? "flex" : "hidden"
         }`}
       >
         <button
-          className="w-32 h-12 absolute top-10 right-10 text-white "
+          className="absolute right-10 top-10 h-12 w-32 text-white "
           onClick={() => {
             setIsModalOpen(false);
           }}
         >
           <CloseIcon style={{ fontSize: "3rem" }} />
         </button>
-        <div className="relative w-full max-w-7xl h-[30.5rem] sm:col-span-7">
+        <div className="relative h-[30.5rem] w-full max-w-7xl sm:col-span-7">
           <Swiper
             slidesPerView={"1"}
             ref={modalSwiperRef}
@@ -169,7 +169,7 @@ const Info = () => {
             speed={1000}
             modules={[Pagination, Navigation]}
             centeredSlides={true}
-            className="w-full  pointer-events-none search-bar overflow-hidden h-full text-white"
+            className="border-ellipse  pointer-events-none h-full w-full overflow-hidden text-white"
           >
             {currentProduct.images.map((image) => {
               return (
@@ -177,7 +177,7 @@ const Info = () => {
                   key={`product-info-images-${image}`}
                   className="h-full w-full "
                 >
-                  <figure className="w-full h-full flex justify-center items-center p-5">
+                  <figure className="flex h-full w-full items-center justify-center p-5">
                     <img
                       src={`/assets/products/${image}`}
                       alt=""
@@ -189,7 +189,7 @@ const Info = () => {
             })}
           </Swiper>
           <button
-            className="cursor-pointer z-10 text-white absolute top-0 bottom-0 my-auto right-0 hover:text-blue transition-all"
+            className="absolute bottom-0 right-0 top-0 z-10 my-auto cursor-pointer text-white transition-all hover:text-blue"
             onClick={() => {
               addIndex();
             }}
@@ -197,7 +197,7 @@ const Info = () => {
             <ArrowForwardIosIcon style={{ fontSize: "3rem" }} />
           </button>
           <button
-            className="cursor-pointer z-10 text-white absolute top-0 bottom-0 my-auto left-0 hover:text-blue transition-all"
+            className="absolute bottom-0 left-0 top-0 z-10 my-auto cursor-pointer text-white transition-all hover:text-blue"
             onClick={() => {
               minusIndex();
             }}
@@ -205,27 +205,25 @@ const Info = () => {
             <ArrowBackIosIcon style={{ fontSize: "3rem" }} />
           </button>
         </div>
-        <p className="text-center text-lg font-first-font text-white">
-          {currentProduct.name}
-        </p>
+        <p className="text-center text-lg  text-white">{currentProduct.name}</p>
       </div>
-      <div className="bg-black h-20 sm:h-40"></div>
+      <div className="h-20 bg-black sm:h-40"></div>
       <div className="w-full bg-black py-14">
-        <div className="flex max-w-7xl items-center p-5 bg-black gap-2 w-full mx-auto ">
+        <div className="mx-auto flex w-full max-w-7xl items-center gap-2 bg-black p-5 ">
           <button
-            className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white"
+            className=" h-9 w-9 rounded-full border-1 border-white pb-[0.1rem] text-lg text-white"
             onClick={() => {
               navigate(-1);
             }}
           >
             &#8592;
           </button>
-          <p className="text-white text-xs font-semibold">Back to categories</p>
+          <p className="text-xs font-semibold text-white">Back to categories</p>
         </div>
-        <div className="grid  gap-10 max-w-7xl mx-auto lg:grid-cols-2 p-5 font-first-font grid-cols-1 text-white bg-black">
+        <div className="mx-auto  grid max-w-7xl grid-cols-1 gap-10 bg-black  p-5 text-white lg:grid-cols-2">
           <div className="flex flex-col gap-5">
-            <div className="w-full h-12  flex gap-2 items-center">
-              <div className="w-auto h-6 mr-3 bg-gradient-to-r from-blue to-second-color text-xs p-2 px-3 font-first-font rounded-[0.25rem] text-white pt-[0.3rem]">
+            <div className="flex h-12  w-full items-center gap-2">
+              <div className="mr-3 h-6 w-auto rounded-[0.25rem] bg-gradient-to-r from-blue to-second-color p-2 px-3  pt-[0.3rem] text-xs text-white">
                 {currentProduct.type}
               </div>
               <button
@@ -236,7 +234,7 @@ const Info = () => {
                     enqueueSnackbar({
                       variant: "info",
                       message: "Item seccesfuly removed from your wishlist!",
-                      className: "font-first-font",
+                      className: "",
                     });
                   } else {
                     dispatch(addToWishList(currentProduct));
@@ -244,7 +242,7 @@ const Info = () => {
                     enqueueSnackbar({
                       variant: "info",
                       message: "Item seccesfuly added to your wishlist!",
-                      className: "font-first-font",
+                      className: "",
                     });
                   }
                 }}
@@ -256,7 +254,7 @@ const Info = () => {
                 )}
               </button>
               <p
-                className="text-sm cursor-pointer"
+                className="cursor-pointer text-sm"
                 onClick={() => {
                   dispatch(addToWishList(currentProduct));
                 }}
@@ -278,13 +276,13 @@ const Info = () => {
                 }
               />
               <p>({currentProduct.seller})</p>
-              <button className="text-sm flex items-center gap-1">
+              <button className="flex items-center gap-1 text-sm">
                 <EditOutlinedIcon style={{ fontSize: "1rem" }} />
                 Write a review
               </button>
             </div>
             <h1 className="text-3xl font-semibold">{currentProduct.name}</h1>
-            <p className="text-sm text-gray-400 flex gap-4 uppercase">
+            <p className="flex gap-4 text-sm uppercase text-gray-400">
               <span>BRAND: {currentProduct.brand}</span>
               <span>SKU: {currentProduct.sku}</span>
             </p>
@@ -296,7 +294,7 @@ const Info = () => {
                 {currentProduct.options[0]}:{" "}
               </p>
               <div
-                className="h-10 w-full cursor-pointer flex relative justify-between px-4 items-center search-bar border-[1px] border-gray-500 mt-2"
+                className="border-ellipse relative mt-2 flex h-10 w-full cursor-pointer items-center justify-between border-[1px] border-gray-500 px-4"
                 onMouseLeave={() => {
                   setIsOpen(false);
                 }}
@@ -304,20 +302,20 @@ const Info = () => {
                   setIsOpen(true);
                 }}
               >
-                <p className="font-normal text-sm text-white">
+                <p className="text-sm font-normal text-white">
                   {currentProduct.options[1][currentProduct.option]}
                 </p>
                 <p>
                   <ExpandMoreTwoTone style={{ color: "#7b35c8" }} />
                 </p>
-                <div className="bg-white z-20 absolute top-6 w-64 right-0 left-0 mx-auto flex flex-col">
+                <div className="absolute left-0 right-0 top-6 z-20 mx-auto flex w-64 flex-col bg-white">
                   {currentProduct.options[1].map((item, index) => {
                     return (
                       <button
                         key={`${currentProduct.id}optionsbtnctg${index}`}
                         className={` ${
                           isOpen ? "block" : "hidden"
-                        } text-xs text-black border-[1px] border-black`}
+                        } border-[1px] border-black text-xs text-black`}
                         onClick={() => {
                           setSwiperIndex(index);
                           setCurrentProduct({
@@ -342,7 +340,7 @@ const Info = () => {
               </p>
               <div className="flex items-center gap-2">
                 <p>Quantity: </p>
-                <div className="rounded-md border-1 border-gray-500 h-8 w-28 px-2 text-gray-500 flex items-center justify-between">
+                <div className="flex h-8 w-28 items-center justify-between rounded-md border-1 border-gray-500 px-2 text-gray-500">
                   <button
                     onClick={() => {
                       if (!isInCart) {
@@ -376,10 +374,10 @@ const Info = () => {
               </div>
             </div>
             <button
-              className={`search-bar text-sm h-8 w-32   ${
+              className={`border-ellipse h-8 w-32 text-sm   ${
                 currentProduct.stock
-                  ? "text-white bg-gradient-to-r from-blue to-second-color"
-                  : "text-gray-300 cursor-not-allowed pointer-events-none border-2 border-gray-400"
+                  ? "bg-gradient-to-r from-blue to-second-color text-white"
+                  : "pointer-events-none cursor-not-allowed border-2 border-gray-400 text-gray-300"
               }`}
               onClick={() => {
                 dispatch(addToCart(currentProduct));
@@ -387,13 +385,13 @@ const Info = () => {
                   enqueueSnackbar({
                     variant: "error",
                     message: "This product is already exist in your cart!",
-                    className: "capitalize font-first-font",
+                    className: "capitalize ",
                   });
                 } else {
                   enqueueSnackbar({
                     variant: "success",
                     message: "Product seccessfuly added to your cart!",
-                    className: "capitalize font-first-font",
+                    className: "capitalize ",
                   });
                 }
               }}
@@ -402,7 +400,7 @@ const Info = () => {
             </button>
           </div>
           <div className="sm:grid sm:grid-cols-8 sm:gap-3">
-            <div className="sm:col-span-1 hidden  h-[30.5rem] sm:flex flex-col gap-3 ">
+            <div className="hidden h-[30.5rem]  flex-col gap-3 sm:col-span-1 sm:flex ">
               <div className="h-72 overflow-hidden ">
                 <Swiper
                   slidesPerView={"1"}
@@ -412,17 +410,17 @@ const Info = () => {
                   modules={[Pagination, Navigation]}
                   centeredSlides={true}
                   direction={"vertical"}
-                  className="w-full h-16 pointer-events-none relative z-10   overflow-visible  search-bar  text-white"
+                  className="border-ellipse pointer-events-none relative z-10 h-16   w-full  overflow-visible  text-white"
                 >
                   {currentProduct.images.map((image) => {
                     return (
                       <SwiperSlide
                         key={`product-info-images-${image}`}
-                        className="h-auto relative z-20 cursor-pointer search-bar overflow-hidden border-1 border-border-color w-full  "
+                        className="border-ellipse relative z-20 h-auto w-full cursor-pointer overflow-hidden border-1 border-border-color  "
                       >
                         {({ isActive }) => (
                           <figure
-                            className={`w-full h-full flex justify-center items-center p-2 ${
+                            className={`flex h-full w-full items-center justify-center p-2 ${
                               isActive ? "bg-white" : "bg-black"
                             }`}
                           >
@@ -473,7 +471,7 @@ const Info = () => {
                 speed={1000}
                 modules={[Pagination, Navigation]}
                 centeredSlides={true}
-                className="w-full border-1 pointer-events-none border-blue search-bar overflow-hidden h-full text-white"
+                className="border-ellipse pointer-events-none h-full w-full overflow-hidden border-1 border-blue text-white"
               >
                 {currentProduct.images.map((image) => {
                   return (
@@ -481,7 +479,7 @@ const Info = () => {
                       key={`product-info-images-${image}`}
                       className="h-full w-full "
                     >
-                      <figure className="w-full h-full flex justify-center items-center p-5 relative">
+                      <figure className="relative flex h-full w-full items-center justify-center p-5">
                         <img
                           src={`/assets/products/${image}`}
                           alt=""
@@ -491,7 +489,7 @@ const Info = () => {
                         <button
                           className={`${
                             isInside ? "block" : "hidden"
-                          } text-white  cursor-pointer pointer-events-auto w-20 search-bar h-12 bg-gradient-to-r from-blue absolute to-second-color`}
+                          } border-ellipse  pointer-events-auto absolute h-12 w-20 cursor-pointer bg-gradient-to-r from-blue to-second-color text-white`}
                           onClick={() => {
                             setIsModalOpen(true);
                           }}
@@ -504,7 +502,7 @@ const Info = () => {
                 })}
               </Swiper>
               <button
-                className="cursor-pointer  sm:hidden z-10 transition-all hover:text-white hover:bg-blue absolute right-0 top-0 bottom-0 my-auto w-9 h-9 rounded-full  text-black text-lg pb-[0.1rem] bg-white"
+                className="absolute  bottom-0 right-0 top-0 z-10 my-auto h-9 w-9 cursor-pointer rounded-full bg-white pb-[0.1rem] text-lg text-black  transition-all hover:bg-blue hover:text-white sm:hidden"
                 onClick={() => {
                   addIndex();
                 }}
@@ -512,7 +510,7 @@ const Info = () => {
                 &#8594;
               </button>
               <button
-                className="cursor-pointer sm:hidden z-10 transition-all hover:text-white hover:bg-second-color absolute left-0 top-0 bottom-0 my-auto w-9 h-9 rounded-full  text-black text-lg pb-[0.1rem] bg-white"
+                className="absolute bottom-0 left-0 top-0 z-10 my-auto h-9 w-9 cursor-pointer rounded-full bg-white pb-[0.1rem] text-lg text-black  transition-all hover:bg-second-color hover:text-white sm:hidden"
                 onClick={() => {
                   minusIndex();
                 }}
@@ -523,61 +521,61 @@ const Info = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-5  text-black font-first-font">
-        <div className="w-full max-w-7xl mx-auto mt-8">
+      <div className="bg-white p-5  text-black ">
+        <div className="mx-auto mt-8 w-full max-w-7xl">
           <Tabs value={tabIndex} onChange={handleChange}>
             <Tab label="Reviews" sx={{ fontFamily: "Outfit" }} />
             <Tab label="Description" sx={{ fontFamily: "Outfit" }} />
           </Tabs>
           <div className="">
             {tabIndex === 1 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <p className="text-base py-5 text-justify">
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <p className="py-5 text-justify text-base">
                   {currentProduct.description}
                 </p>
-                <div className="w-full h-96">
+                <div className="h-96 w-full">
                   <img
                     src={banners[Math.floor(Math.random() * banners.length)]}
                     alt=""
-                    className="w-full h-full object-top object-contain block"
+                    className="block h-full w-full object-contain object-top"
                   />
                 </div>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 gap-12 grid-cols-1">
-                <div className="flex flex-col gap-3 sm:gap-10 p-4">
+              <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+                <div className="flex flex-col gap-3 p-4 sm:gap-10">
                   {users.map((item) => {
                     return (
                       <div className="" key={item.id + "product-comment"}>
-                        <div className="flex flex-col mt-10 xs:mt-0 gap-3 font-first-font">
+                        <div className="mt-10 flex flex-col gap-3 xs:mt-0 ">
                           <div className="flex items-center justify-between ">
                             <div className="flex items-center gap-4">
                               <img
                                 src={`/assets/users/${item.image}`}
                                 alt=""
-                                className="w-11 h-11 bg-gradient-to-l from-blue to-second-color rounded-md object-cover block"
+                                className="block h-11 w-11 rounded-md bg-gradient-to-l from-blue to-second-color object-cover"
                               />
                               <div>
                                 <p className="text-lg font-semibold">
                                   {item.name}
                                 </p>
-                                <p className="text-xs -mt-1">
+                                <p className="-mt-1 text-xs">
                                   {item.membership}
                                 </p>
                               </div>
                             </div>
-                            <div className="flex gap-3 flex-col items-center xs:flex-row">
+                            <div className="flex flex-col items-center gap-3 xs:flex-row">
                               <img
                                 src={star}
                                 alt=""
-                                className="object-contain w-20"
+                                className="w-20 object-contain"
                               />
-                              <p className="text-xs text-blue font-bold hidden xs:block">
+                              <p className="hidden text-xs font-bold text-blue xs:block">
                                 4.5 <span className="text-black">/ 5.0</span>
                               </p>
                             </div>
                           </div>
-                          <p className="text-sm px-14">
+                          <p className="px-14 text-sm">
                             {item.comment.caption}
                           </p>
                         </div>
@@ -585,9 +583,9 @@ const Info = () => {
                     );
                   })}
                 </div>
-                <div className="w-full h-full relative">
+                <div className="relative h-full w-full">
                   <form
-                    className="border-1 sticky top-14 search-bar pt-5 border-border-color max-w-md flex flex-col gap-4 p-3"
+                    className="border-ellipse sticky top-14 flex max-w-md flex-col gap-4 border-1 border-border-color p-3 pt-5"
                     onSubmit={(e) => {
                       e.preventDefault();
                       enqueueSnackbar({
@@ -597,7 +595,7 @@ const Info = () => {
                       });
                     }}
                   >
-                    <p className="text-2xl font-semibold flex justify-between items-center">
+                    <p className="flex items-center justify-between text-2xl font-semibold">
                       Write a Review
                       <Rating
                         precision={0.5}
@@ -630,11 +628,11 @@ const Info = () => {
                       }}
                       placeholder="title"
                       required
-                      className="border-1 border-border-color search-bar p-3 text-sm h-12"
+                      className="border-ellipse h-12 border-1 border-border-color p-3 text-sm"
                     />
 
                     <textarea
-                      className="border-1 resize-none border-border-color search-bar p-3 text-sm min-h-[3rem] "
+                      className="border-ellipse min-h-[3rem] resize-none border-1 border-border-color p-3 text-sm "
                       placeholder="Message"
                       required
                       value={form.message}
@@ -642,10 +640,10 @@ const Info = () => {
                         setForm({ ...form, message: event.target.value });
                       }}
                     ></textarea>
-                    <p className="text-xs text-red-500 px-3 w-full hidden">
+                    <p className="hidden w-full px-3 text-xs text-red-500">
                       alert!
                     </p>
-                    <button className="w-full h-12 search-bar text-white font-semibold bg-gradient-to-r from-blue to-second-color">
+                    <button className="border-ellipse h-12 w-full bg-gradient-to-r from-blue to-second-color font-semibold text-white">
                       Post Review
                     </button>
                   </form>

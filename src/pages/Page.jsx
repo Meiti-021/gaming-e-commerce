@@ -21,7 +21,7 @@ const Page = () => {
     }
   }, [parameter.id]);
   return (
-    <div className="font-first-font">
+    <div className="">
       <PageHero {...data} />
       <PageBody {...data} />
     </div>

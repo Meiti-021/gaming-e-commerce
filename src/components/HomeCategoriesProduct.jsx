@@ -32,12 +32,12 @@ const HomeCategoriesProduct = ({
     <div
       className={`h-full w-full ${
         light
-          ? "bg-gradient-to-br from-sky-200 p-4 search-bar border-[1px] border-blue to-white"
+          ? "border-ellipse border-[1px] border-blue bg-gradient-to-br from-sky-200 to-white p-4"
           : undefined
       }`}
     >
-      <div className="w-full h-12  flex justify-between items-center">
-        <div className="w-auto h-6 bg-gradient-to-r from-blue to-white text-xs p-2 px-3 font-first-font rounded-[0.25rem] text-white pt-[0.3rem]">
+      <div className="flex h-12  w-full items-center justify-between">
+        <div className="h-6 w-auto rounded-[0.25rem] bg-gradient-to-r from-blue to-white p-2 px-3  pt-[0.3rem] text-xs text-white">
           {type}
         </div>
         <button
@@ -48,7 +48,7 @@ const HomeCategoriesProduct = ({
               enqueueSnackbar({
                 variant: "info",
                 message: "Item seccesfuly removed from your wishlist!",
-                className: "font-first-font",
+                className: "",
               });
             } else {
               dispatch(addToWishList(product));
@@ -56,7 +56,7 @@ const HomeCategoriesProduct = ({
               enqueueSnackbar({
                 variant: "info",
                 message: "Item seccesfuly added to your wishlist!",
-                className: "font-first-font z-20",
+                className: " z-20",
               });
             }
           }}
@@ -69,24 +69,22 @@ const HomeCategoriesProduct = ({
         </button>
       </div>
       <p
-        className={`text-2xl h-14 xs:h-10 ${
+        className={`h-14 text-2xl xs:h-10 ${
           light ? undefined : "md:text-white"
-        } font-first-font font-semibold whitespace-nowrap overflow-hidden text-ellipsis`}
+        }  overflow-hidden text-ellipsis whitespace-nowrap font-semibold`}
       >
         {name}
       </p>
-      <p className="text-xs font-first-font font-semibold text-gray-500">
-        TYPE : {type}
-      </p>
-      <figure className=" h-3/5 xs:h-[14rem]  p-10">
+      <p className="text-xs  font-semibold text-gray-500">TYPE : {type}</p>
+      <figure className=" h-3/5 p-10  xs:h-[14rem]">
         <img
           src={`/assets/products/${images[option]}`}
           alt=""
-          className="w-full h-full object-contain"
+          className="h-full w-full object-contain"
         />
       </figure>
       <div
-        className="h-10 w-full cursor-pointer flex relative justify-between px-4 items-center search-bar border-[1px] border-gray-500 mt-2"
+        className="border-ellipse relative mt-2 flex h-10 w-full cursor-pointer items-center justify-between border-[1px] border-gray-500 px-4"
         onMouseLeave={() => {
           setIsOpen(false);
         }}
@@ -94,18 +92,18 @@ const HomeCategoriesProduct = ({
           setIsOpen(true);
         }}
       >
-        <p className="font-normal text-sm text-gray-400">{options[1][0]}</p>
+        <p className="text-sm font-normal text-gray-400">{options[1][0]}</p>
         <p>
           <ExpandMoreTwoTone style={{ color: "#7b35c8" }} />
         </p>
-        <div className="bg-white z-20 absolute top-6 w-64 right-0 left-0 mx-auto flex flex-col">
+        <div className="absolute left-0 right-0 top-6 z-20 mx-auto flex w-64 flex-col bg-white">
           {options[1].map((item, index) => {
             return (
               <button
                 key={`${id}optionsbtnctg${index}`}
                 className={` ${
                   isOpen ? "block" : "hidden"
-                } text-xs text-black border-[1px] border-black`}
+                } border-[1px] border-black text-xs text-black`}
                 onClick={() => {
                   setOption(index);
                   setIsOpen(false);
@@ -117,12 +115,12 @@ const HomeCategoriesProduct = ({
           })}
         </div>
       </div>
-      <div className="h-14 md:h-24  mt-3 flex md:flex-col justify-between p-3 items-center">
+      <div className="mt-3 flex  h-14 items-center justify-between p-3 md:h-24 md:flex-col">
         <div className="flex flex-col gap-1">
           <p className="text-lg font-semibold">
             {formatter.format(price)} <sup className="text-xs">USD</sup>
           </p>
-          <p className="text-sm md:hidden font-semibold text-gray-600">
+          <p className="text-sm font-semibold text-gray-600 md:hidden">
             <span className="line-through">
               {(price - (price * 20) / 100).toFixed(2)}
             </span>
@@ -131,7 +129,7 @@ const HomeCategoriesProduct = ({
         </div>
         <Link
           to={`/product/${id}`}
-          className={`search-bar flex justify-center items-center text-sm pt-[0.15rem] w-36 h-9 text-white bg-gradient-to-r from-blue to-second-color font-first-font`}
+          className={`border-ellipse flex h-9 w-36 items-center justify-center bg-gradient-to-r from-blue to-second-color pt-[0.15rem] text-sm text-white `}
         >
           View More
         </Link>

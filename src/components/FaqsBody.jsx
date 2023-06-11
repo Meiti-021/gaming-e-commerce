@@ -80,15 +80,15 @@ const faqs = [
 
 const FaqsBody = () => {
   return (
-    <div className="w-full font-first-font p-4">
-      <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full  p-4">
+      <div className="mx-auto w-full max-w-7xl">
         <h2 className="text-3xl font-semibold">
           About
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue to-second-color">
+          <span className="bg-gradient-to-r from-blue to-second-color bg-clip-text text-transparent">
             Shop
           </span>
         </h2>
-        <div className="flex flex-col lg:flex-row min-h-screen lg:gap-3 mt-4 ">
+        <div className="mt-4 flex min-h-screen flex-col lg:flex-row lg:gap-3 ">
           <div>
             {faqs.slice(0, 5).map((item, index) => {
               return <FaqsElement {...item} key={"faqs-element" + index} />;

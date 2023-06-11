@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Product from "./Product";
@@ -44,7 +44,6 @@ const allSizes = [
 const allColors = ["red", "black", "white", "green", "gray", "blue"];
 
 const CollectionsBody = ({ collections = [], type = "all" }) => {
-  const { products } = useSelector((store) => store.cart);
   const [collection, setCollection] = useState(collections);
   const [sort, setSort] = useState("newest");
   const [page, setPage] = useState(0);
@@ -432,13 +431,13 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
     setPage(value - 1);
   };
   return (
-    <div className="bg-white relative h-auto w-full px-5 py-10 font-first-font">
+    <div className="relative h-auto w-full bg-white px-5 py-10 ">
       <div
-        className={`absolute bg-white z-40 px-10 transition-all  w-screen ${
+        className={`absolute z-40 w-screen bg-white px-10  transition-all ${
           sideFilter ? "right-0" : "right-full"
-        } h-full col-span-1 `}
+        } col-span-1 h-full `}
       >
-        <p className="text-2xl font-semibold flex justify-between items-center">
+        <p className="flex items-center justify-between text-2xl font-semibold">
           Filter
           <button
             onClick={() => {
@@ -449,8 +448,8 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
           </button>
         </p>
         <div className=" mt-7">
-          <div className="flex flex-col  justify-center font-first-font font-medium  border-b-1 border-border-color">
-            <div className="flex justify-between min-h-[3rem] items-center h-auto ">
+          <div className="flex flex-col  justify-center  border-b-1  border-border-color font-medium">
+            <div className="flex h-auto min-h-[3rem] items-center justify-between ">
               <p className="">AVAILABILITY</p>
               <button
                 className=" text-2xl  font-normal"
@@ -469,16 +468,16 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                 filterOpen.availability ? undefined : "hidden"
               }`}
             >
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
                 <button className="text-sm font-normal">Reset</button>
               </div>
-              <div className="flex flex-col mt-4 gap-1">
-                <div className="flex justify-between items-center">
+              <div className="mt-4 flex flex-col gap-1">
+                <div className="flex items-center justify-between">
                   <div className="flex gap-2">
                     <input
                       type="checkbox"
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       onInput={(e) => {
                         if (e.target.checked === true) {
                           setFilter({ ...filter, availability: true });
@@ -493,11 +492,11 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                     ({collections.filter((item) => item.stock).length})
                   </p>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <div className="flex gap-2">
                     <input
                       type="checkbox"
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       onInput={(e) => {
                         if (e.target.checked === true) {
                           setFilter({ ...filter, nonAvailability: true });
@@ -515,8 +514,8 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center  font-first-font font-medium  border-b-1 border-border-color">
-            <div className="flex justify-between items-center h-auto min-h-[3rem]">
+          <div className="flex flex-col justify-center   border-b-1  border-border-color font-medium">
+            <div className="flex h-auto min-h-[3rem] items-center justify-between">
               <p className="">PRICE</p>
               <button
                 className=" text-2xl font-normal"
@@ -533,12 +532,12 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             <div
               className={`my-7 pr-2 ${filterOpen.price ? undefined : "hidden"}`}
             >
-              <div className="flex justify-between items-center font-normal">
+              <div className="flex items-center justify-between font-normal">
                 <p className="text-sm">The highest price is 900.00</p>
                 <button className="text-sm font-normal">Reset</button>
               </div>
-              <div className="flex flex-col mt-4">
-                <div className="flex justify-between items-center">
+              <div className="mt-4 flex flex-col">
+                <div className="flex items-center justify-between">
                   <div className="grid grid-cols-2 gap-2">
                     <div className="flex flex-col gap-1 text-xs">
                       <p>Min Price:</p>
@@ -546,7 +545,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                         type="number"
                         max={filter.maxPrice}
                         min={filter.minPrice}
-                        className="search-bar border-1 border-border-color w-full h-10 p-3"
+                        className="border-ellipse h-10 w-full border-1 border-border-color p-3"
                         placeholder="0"
                         value={filter.minPrice}
                         onChange={(e) => {
@@ -558,7 +557,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                       <p>Max price:</p>
                       <input
                         type="number"
-                        className="search-bar border-1 border-border-color w-full h-10 p-3"
+                        className="border-ellipse h-10 w-full border-1 border-border-color p-3"
                         placeholder="900.00"
                         max={filter.maxPrice}
                         min="0"
@@ -585,8 +584,8 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             </div>
           </div>
 
-          <div className="flex flex-col  justify-center  font-first-font font-medium  border-b-1 border-border-color">
-            <div className="flex justify-between min-h-[3rem]  items-center h-auto ">
+          <div className="flex flex-col  justify-center   border-b-1  border-border-color font-medium">
+            <div className="flex h-auto min-h-[3rem]  items-center justify-between ">
               <p className="">BRAND</p>
               <button
                 className=" text-2xl font-normal"
@@ -603,15 +602,15 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             <div
               className={`my-7 pr-2 ${filterOpen.brand ? undefined : "hidden"}`}
             >
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
                 <button className="text-sm font-normal">Reset</button>
               </div>
-              <div className="flex flex-col mt-4">
+              <div className="mt-4 flex flex-col">
                 {allBrands.map((item) => {
                   return (
                     <div
-                      className={`flex justify-between items-center ${
+                      className={`flex items-center justify-between ${
                         collection.filter((product) => {
                           return product.brand === item;
                         }).length === 0
@@ -623,7 +622,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                       <div className="flex gap-4">
                         <input
                           type="checkbox"
-                          className="w-5 h-5"
+                          className="h-5 w-5"
                           name={item}
                           onInput={(e) => {
                             if (e.target.checked) {
@@ -662,11 +661,11 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center  font-first-font font-medium border-b-1 border-border-color">
-            <div className="flex justify-between items-center min-h-[3rem] h-auto  ">
+          <div className="flex flex-col justify-center   border-b-1 border-border-color font-medium">
+            <div className="flex h-auto min-h-[3rem] items-center justify-between  ">
               <p className="">SIZE</p>
               <button
-                className="font-normal text-2xl "
+                className="text-2xl font-normal "
                 onClick={() =>
                   setFilterOpen({
                     ...filterOpen,
@@ -680,21 +679,21 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             <div
               className={`my-7 pr-2  ${filterOpen.size ? undefined : "hidden"}`}
             >
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
                 <button className="text-sm font-normal">Reset</button>
               </div>
-              <div className="flex flex-col mt-4">
+              <div className="mt-4 flex flex-col">
                 {allSizes.map((item) => {
                   return (
                     <div
-                      className="flex justify-between items-center"
+                      className="flex items-center justify-between"
                       key={"options" + item}
                     >
                       <div className="flex gap-4">
                         <input
                           type="checkbox"
-                          className="w-5 h-5"
+                          className="h-5 w-5"
                           name={item}
                           onInput={(e) => {
                             if (e.target.checked) {
@@ -736,11 +735,11 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center  font-first-font font-medium">
-            <div className="flex justify-between items-center h-auto min-h-[3rem] ">
+          <div className="flex flex-col justify-center   font-medium">
+            <div className="flex h-auto min-h-[3rem] items-center justify-between ">
               <p className="">COLORS</p>
               <button
-                className="font-normal text-2xl "
+                className="text-2xl font-normal "
                 onClick={() =>
                   setFilterOpen({
                     ...filterOpen,
@@ -754,21 +753,21 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             <div
               className={`my-7 pr-2 ${filterOpen.color ? undefined : "hidden"}`}
             >
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
                 <button className="text-sm font-normal">Reset</button>
               </div>
-              <div className="flex flex-col gap-4 mt-4">
+              <div className="mt-4 flex flex-col gap-4">
                 {allColors.map((item) => {
                   return (
                     <div
-                      className="flex justify-between items-center"
+                      className="flex items-center justify-between"
                       key={"options-colors" + item}
                     >
                       <div className="flex gap-4">
                         <input
                           type="checkbox"
-                          className={`w-5 h-5 accent-slate-950`}
+                          className={`h-5 w-5 accent-slate-950`}
                           name={item}
                           onInput={(e) => {
                             if (e.target.checked) {
@@ -791,9 +790,9 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                           }}
                         />
                         <p className="w-14">{item}</p>
-                        <div className="w-6 h-6 rounded-full  p-[0.15rem]  border-2 border-black overflow-hidden ">
+                        <div className="h-6 w-6 overflow-hidden  rounded-full  border-2 border-black p-[0.15rem] ">
                           <div
-                            className={`w-full h-full rounded-full`}
+                            className={`h-full w-full rounded-full`}
                             style={{ backgroundColor: item }}
                           ></div>
                         </div>
@@ -818,12 +817,12 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl h-auto mx-auto grid grid-cols-1 ml:grid-cols-4 gap-3">
-        <div className=" hidden ml:block w-full h-full col-span-1 ">
+      <div className="mx-auto grid h-auto max-w-7xl grid-cols-1 gap-3 ml:grid-cols-4">
+        <div className=" col-span-1 hidden h-full w-full ml:block ">
           <p className="text-2xl font-semibold">Filter</p>
           <div className=" mt-7">
-            <div className="flex flex-col  justify-center font-first-font font-medium  border-b-1 border-border-color">
-              <div className="flex justify-between min-h-[3rem] items-center h-auto ">
+            <div className="flex flex-col  justify-center  border-b-1  border-border-color font-medium">
+              <div className="flex h-auto min-h-[3rem] items-center justify-between ">
                 <p className="">AVAILABILITY</p>
                 <button
                   className=" text-2xl  font-normal"
@@ -842,16 +841,16 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                   filterOpen.availability ? undefined : "hidden"
                 }`}
               >
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
                   <button className="text-sm font-normal">Reset</button>
                 </div>
-                <div className="flex flex-col mt-4 gap-1">
-                  <div className="flex justify-between items-center">
+                <div className="mt-4 flex flex-col gap-1">
+                  <div className="flex items-center justify-between">
                     <div className="flex gap-2">
                       <input
                         type="checkbox"
-                        className="w-5 h-5"
+                        className="h-5 w-5"
                         onInput={(e) => {
                           if (e.target.checked === true) {
                             setFilter({ ...filter, availability: true });
@@ -866,11 +865,11 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                       ({collections.filter((item) => item.stock).length})
                     </p>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-center justify-between">
                     <div className="flex gap-2">
                       <input
                         type="checkbox"
-                        className="w-5 h-5"
+                        className="h-5 w-5"
                         onInput={(e) => {
                           if (e.target.checked === true) {
                             setFilter({ ...filter, nonAvailability: true });
@@ -888,8 +887,8 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-center  font-first-font font-medium  border-b-1 border-border-color">
-              <div className="flex justify-between items-center h-auto min-h-[3rem]">
+            <div className="flex flex-col justify-center border-b-1 border-border-color font-medium">
+              <div className="flex h-auto min-h-[3rem] items-center justify-between">
                 <p className="">PRICE</p>
                 <button
                   className=" text-2xl font-normal"
@@ -908,12 +907,12 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                   filterOpen.price ? undefined : "hidden"
                 }`}
               >
-                <div className="flex justify-between items-center font-normal">
+                <div className="flex items-center justify-between font-normal">
                   <p className="text-sm">The highest price is 900.00</p>
                   <button className="text-sm font-normal">Reset</button>
                 </div>
-                <div className="flex flex-col mt-4">
-                  <div className="flex justify-between items-center">
+                <div className="mt-4 flex flex-col">
+                  <div className="flex items-center justify-between">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="flex flex-col gap-1 text-xs">
                         <p>Min Price:</p>
@@ -921,7 +920,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                           type="number"
                           max={filter.maxPrice}
                           min={filter.minPrice}
-                          className="search-bar border-1 border-border-color w-full h-10 p-3"
+                          className="border-ellipse h-10 w-full border-1 border-border-color p-3"
                           placeholder="0"
                           value={filter.minPrice}
                           onChange={(e) => {
@@ -933,7 +932,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                         <p>Max price:</p>
                         <input
                           type="text"
-                          className="search-bar border-1 border-border-color w-full h-10 p-3"
+                          className="border-ellipse h-10 w-full border-1 border-border-color p-3"
                           placeholder="900.00"
                           max={filter.maxPrice}
                           min="0"
@@ -960,8 +959,8 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               </div>
             </div>
 
-            <div className="flex flex-col  justify-center  font-first-font font-medium  border-b-1 border-border-color">
-              <div className="flex justify-between min-h-[3rem]  items-center h-auto ">
+            <div className="flex flex-col  justify-center   border-b-1  border-border-color font-medium">
+              <div className="flex h-auto min-h-[3rem]  items-center justify-between ">
                 <p className="">BRAND</p>
                 <button
                   className=" text-2xl font-normal"
@@ -980,15 +979,15 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                   filterOpen.brand ? undefined : "hidden"
                 }`}
               >
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
                   <button className="text-sm font-normal">Reset</button>
                 </div>
-                <div className="flex flex-col mt-4">
+                <div className="mt-4 flex flex-col">
                   {allBrands.map((item) => {
                     return (
                       <div
-                        className={`flex justify-between items-center ${
+                        className={`flex items-center justify-between ${
                           collection.filter((product) => {
                             return product.brand === item;
                           }).length === 0
@@ -1000,7 +999,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                         <div className="flex gap-4">
                           <input
                             type="checkbox"
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             name={item}
                             onInput={(e) => {
                               if (e.target.checked) {
@@ -1039,11 +1038,11 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-center  font-first-font font-medium border-b-1 border-border-color">
-              <div className="flex justify-between items-center min-h-[3rem] h-auto  ">
+            <div className="flex flex-col justify-center   border-b-1 border-border-color font-medium">
+              <div className="flex h-auto min-h-[3rem] items-center justify-between  ">
                 <p className="">SIZE</p>
                 <button
-                  className="font-normal text-2xl "
+                  className="text-2xl font-normal "
                   onClick={() =>
                     setFilterOpen({
                       ...filterOpen,
@@ -1059,21 +1058,21 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                   filterOpen.size ? undefined : "hidden"
                 }`}
               >
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
                   <button className="text-sm font-normal">Reset</button>
                 </div>
-                <div className="flex flex-col mt-4">
+                <div className="mt-4 flex flex-col">
                   {allSizes.map((item) => {
                     return (
                       <div
-                        className="flex justify-between items-center"
+                        className="flex items-center justify-between"
                         key={"options" + item}
                       >
                         <div className="flex gap-4">
                           <input
                             type="checkbox"
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             name={item}
                             onInput={(e) => {
                               if (e.target.checked) {
@@ -1115,11 +1114,11 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-center  font-first-font font-medium">
-              <div className="flex justify-between items-center h-auto min-h-[3rem] ">
+            <div className="flex flex-col justify-center   font-medium">
+              <div className="flex h-auto min-h-[3rem] items-center justify-between ">
                 <p className="">COLORS</p>
                 <button
-                  className="font-normal text-2xl "
+                  className="text-2xl font-normal "
                   onClick={() =>
                     setFilterOpen({
                       ...filterOpen,
@@ -1135,21 +1134,21 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                   filterOpen.color ? undefined : "hidden"
                 }`}
               >
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
                   <button className="text-sm font-normal">Reset</button>
                 </div>
-                <div className="flex flex-col gap-4 mt-4">
+                <div className="mt-4 flex flex-col gap-4">
                   {allColors.map((item) => {
                     return (
                       <div
-                        className="flex justify-between items-center"
+                        className="flex items-center justify-between"
                         key={"options-colors" + item}
                       >
                         <div className="flex gap-4">
                           <input
                             type="checkbox"
-                            className={`w-5 h-5 accent-slate-950`}
+                            className={`h-5 w-5 accent-slate-950`}
                             name={item}
                             onInput={(e) => {
                               if (e.target.checked) {
@@ -1172,9 +1171,9 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
                             }}
                           />
                           <p className="w-14">{item}</p>
-                          <div className="w-6 h-6 rounded-full  p-[0.15rem]  border-2 border-black overflow-hidden ">
+                          <div className="h-6 w-6 overflow-hidden  rounded-full  border-2 border-black p-[0.15rem] ">
                             <div
-                              className={`w-full h-full rounded-full`}
+                              className={`h-full w-full rounded-full`}
                               style={{ backgroundColor: item }}
                             ></div>
                           </div>
@@ -1201,13 +1200,13 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
         </div>
         <main
           aria-label="main"
-          className="w-full h-full col-span-1  ml:col-span-3 "
+          className="col-span-1 h-full w-full  ml:col-span-3 "
         >
-          <div className="flex justify-between mb-3 items-center">
-            <p className="text-sm font-medium  h-8 capitalize flex items-center">
+          <div className="mb-3 flex items-center justify-between">
+            <p className="flex h-8  items-center text-sm font-medium capitalize">
               Home / collections / {type}
             </p>
-            <div className="hidden ml:flex items-center h-full gap-1">
+            <div className="hidden h-full items-center gap-1 ml:flex">
               <span className="text-sm font-bold text-black">Sort by:</span>
               <div className="">
                 <select
@@ -1238,17 +1237,17 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             </button>
           </div>
           {collection.length === 0 ? (
-            <div className="w-full h-full flex flex-col justify-center items-center gap-4">
+            <div className="flex h-full w-full flex-col items-center justify-center gap-4">
               <p className="text-3xl">Nothing Found!</p>
               <p>
                 Please Take a look at our collections{"  "}
-                <Link to="/collections/all" className="underline text-blue">
+                <Link to="/collections/all" className="text-blue underline">
                   here!
                 </Link>
               </p>
             </div>
           ) : (
-            <div className="h-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid h-auto grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {collection.slice(page * 6, 6 * (page + 1)).map((item, index) => {
                 return (
                   <Product
@@ -1259,7 +1258,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               })}
             </div>
           )}
-          <div className="h-20 w-full flex justify-center items-center">
+          <div className="flex h-20 w-full items-center justify-center">
             <Pagination
               count={
                 collection.length % 6 === 0

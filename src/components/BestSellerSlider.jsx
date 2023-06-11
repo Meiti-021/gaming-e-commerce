@@ -31,12 +31,12 @@ const BestSellerSlider = ({
   }, [id, wishList]);
   return (
     <div
-      className={`w-full search-bar h-full ${
+      className={`border-ellipse h-full w-full ${
         isActive ? "scale-110" : undefined
-      } border-[1px]  border-blue transition-all p-4 font-first-font `}
+      } border-[1px]  border-blue p-4 transition-all  `}
     >
-      <div className="flex  h-auto justify-between items-center">
-        <div className="h-[1.3rem] bg-gradient-to-r from-blue to-dark-blue text-xs flex justify-between items-center p-[0.8rem] pt-[0.9rem] rounded-md min-w-[4rem] ">
+      <div className="flex  h-auto items-center justify-between">
+        <div className="flex h-[1.3rem] min-w-[4rem] items-center justify-between rounded-md bg-gradient-to-r from-blue to-dark-blue p-[0.8rem] pt-[0.9rem] text-xs ">
           {type}
         </div>
         <button
@@ -47,7 +47,7 @@ const BestSellerSlider = ({
               enqueueSnackbar({
                 variant: "info",
                 message: "Item seccesfuly removed from your wishlist!",
-                className: "font-first-font",
+                className: "",
               });
             } else {
               dispatch(addToWishList(product));
@@ -55,7 +55,7 @@ const BestSellerSlider = ({
               enqueueSnackbar({
                 variant: "info",
                 message: "Item seccesfuly added to your wishlist!",
-                className: "font-first-font",
+                className: "",
               });
             }
           }}
@@ -67,17 +67,17 @@ const BestSellerSlider = ({
           )}
         </button>
       </div>
-      <p className="text-[1.35rem] font-semibold my-4">{name}</p>
-      <p className="text-sm font-semibold text-gray-500 -my-2">TYPE: {type}</p>
+      <p className="my-4 text-[1.35rem] font-semibold">{name}</p>
+      <p className="-my-2 text-sm font-semibold text-gray-500">TYPE: {type}</p>
       <img
         src={`./assets/products/${images[option]}`}
         alt={name}
         title={name}
-        className=" h-52  my-5 block w-full object-contain "
+        className=" my-5  block h-52 w-full object-contain "
       />
       <p className="text-xs capitalize">{options[0]} :</p>
       <div
-        className="h-10 w-full cursor-pointer flex relative justify-between px-4 items-center search-bar border-[1px] border-gray-500 mt-2"
+        className="border-ellipse relative mt-2 flex h-10 w-full cursor-pointer items-center justify-between border-[1px] border-gray-500 px-4"
         onMouseLeave={() => {
           setIsOpen(false);
         }}
@@ -85,18 +85,18 @@ const BestSellerSlider = ({
           setIsOpen(true);
         }}
       >
-        <p className="font-normal text-sm text-gray-400">{options[1][0]}</p>
+        <p className="text-sm font-normal text-gray-400">{options[1][0]}</p>
         <p>
           <ExpandMoreTwoTone style={{ color: "#7b35c8" }} />
         </p>
-        <div className="bg-white z-20 absolute top-6 w-64 right-0 left-0 mx-auto flex flex-col">
+        <div className="absolute left-0 right-0 top-6 z-20 mx-auto flex w-64 flex-col bg-white">
           {options[1].map((item, index) => {
             return (
               <button
                 key={`${index}optionsbtn`}
                 className={` ${
                   isOpen ? "block" : "hidden"
-                } text-xs text-black border-[1px] border-black`}
+                } border-[1px] border-black text-xs text-black`}
                 onClick={() => {
                   setOption(index);
                   setIsOpen(false);
@@ -109,7 +109,7 @@ const BestSellerSlider = ({
         </div>
       </div>
 
-      <div className="h-14 mt-3 flex justify-between p-3 items-center">
+      <div className="mt-3 flex h-14 items-center justify-between p-3">
         <div className="flex flex-col gap-1">
           <p className="text-lg font-semibold">
             {formatter.format(price)}
@@ -124,7 +124,7 @@ const BestSellerSlider = ({
         </div>
         <Link
           to={`/product/${id}`}
-          className="search-bar flex justify-center items-center text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font"
+          className="border-ellipse flex h-9 w-36 items-center justify-center bg-gradient-to-r from-blue to-second-color pt-[0.15rem] text-sm "
         >
           View more
         </Link>

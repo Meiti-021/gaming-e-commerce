@@ -25,22 +25,22 @@ const HomeBestProducts = () => {
       setExist(true);
   }, [wishList]);
   return (
-    <div className="h-auto  py-5 bg-black relative mt-10">
-      <div className="absolute w-full h-full ">
+    <div className="relative  mt-10 h-auto bg-black py-5">
+      <div className="absolute h-full w-full ">
         <img
           src={circle1}
           alt=""
-          className="absolute  right-0 left-0 top-0 bottom-0 m-auto"
+          className="absolute  bottom-0 left-0 right-0 top-0 m-auto"
         />
         <img
           src={circle2}
           alt=""
-          className="absolute hidden md:block left-44 -top-14"
+          className="absolute -top-14 left-44 hidden md:block"
         />
         <img
           src={circle3}
           alt=""
-          className="absolute hidden md:block -top-12 right-44"
+          className="absolute -top-12 right-44 hidden md:block"
         />
       </div>
 
@@ -48,20 +48,20 @@ const HomeBestProducts = () => {
         title="Best Pro Gaming Products"
         address="/collections/GamePCs"
       />
-      <div className="w-full -mt-10 lg:-mt-40 relative z-10 p-3 h-[60rem] flex flex-col gap-5 md:flex-row md:items-center justify-between">
+      <div className="relative z-10 -mt-10 flex h-[60rem] w-full flex-col justify-between gap-5 p-3 md:flex-row md:items-center lg:-mt-40">
         <img
           src={cpu}
           alt=""
-          className="block object-contain lg:h-full  md:w-1/2 h-1/2 sm:h-[30rem] xl:w-1/3 object-left"
+          className="block h-1/2 object-contain  object-left sm:h-[30rem] md:w-1/2 lg:h-full xl:w-1/3"
         />
-        <div className="h-auto w-full relative z-10  max-w-md mx-auto bg-gradient-to-r from-blue to-second-color p-[1px] search-bar">
+        <div className="border-ellipse relative z-10 mx-auto  h-auto w-full max-w-md bg-gradient-to-r from-blue to-second-color p-[1px]">
           <div
-            className={`w-full search-bar bg-black h-full 
-             "scale-110" 
-             transition-all p-4 font-first-font `}
+            className={`border-ellipse "scale-110" h-full w-full 
+             bg-black 
+             p-4 transition-all  `}
           >
-            <div className="flex  h-auto justify-between items-center">
-              <div className="h-[1.3rem] bg-gradient-to-r from-blue to-dark-blue text-xs flex justify-between items-center p-[0.8rem] pt-[0.9rem] rounded-md min-w-[4rem] text-white ">
+            <div className="flex  h-auto items-center justify-between">
+              <div className="flex h-[1.3rem] min-w-[4rem] items-center justify-between rounded-md bg-gradient-to-r from-blue to-dark-blue p-[0.8rem] pt-[0.9rem] text-xs text-white ">
                 GamePCs
               </div>
               <button
@@ -72,7 +72,7 @@ const HomeBestProducts = () => {
                     enqueueSnackbar({
                       variant: "info",
                       message: "Item seccesfuly removed from your wishlist!",
-                      className: "font-first-font",
+                      className: "",
                     });
                   } else {
                     dispatch(addToWishList(product));
@@ -80,7 +80,7 @@ const HomeBestProducts = () => {
                     enqueueSnackbar({
                       variant: "info",
                       message: "Item seccesfuly added to your wishlist!",
-                      className: "font-first-font",
+                      className: "",
                     });
                   }
                 }}
@@ -92,13 +92,13 @@ const HomeBestProducts = () => {
                 )}
               </button>
             </div>
-            <p className="text-[1.35rem] text-white font-semibold my-4">
+            <p className="my-4 text-[1.35rem] font-semibold text-white">
               KD DMTR Gaming Desktop PC
             </p>
-            <p className="text-sm font-semibold text-gray-500 -my-2">
+            <p className="-my-2 text-sm font-semibold text-gray-500">
               TYPE: GamePCs
             </p>
-            <p className="text-gray-400 text-sm  h-32 font-semibold my-5">
+            <p className="my-5 h-32  text-sm font-semibold text-gray-400">
               Multiple connectivity options including HDMI, USB ports & RGB fans
               let you connect a variety of peripherals easily. Wi-Fi Ready –
               Connect to the internet wirelessly with ease. Preloaded with
@@ -106,7 +106,7 @@ const HomeBestProducts = () => {
             </p>
             <p className="text-xs capitalize text-white">Size :</p>
             <div
-              className="h-10 w-full cursor-pointer flex relative justify-between px-4 items-center search-bar border-[1px] border-gray-500 mt-2"
+              className="border-ellipse relative mt-2 flex h-10 w-full cursor-pointer items-center justify-between border-[1px] border-gray-500 px-4"
               onMouseLeave={() => {
                 setIsOpen(false);
               }}
@@ -114,20 +114,20 @@ const HomeBestProducts = () => {
                 setIsOpen(true);
               }}
             >
-              <p className="font-normal text-sm text-gray-400">
+              <p className="text-sm font-normal text-gray-400">
                 {["256 GB", "364 GB"][option]}
               </p>
               <p>
                 <ExpandMoreTwoTone style={{ color: "#7b35c8" }} />
               </p>
-              <div className="bg-white z-20 absolute top-6 w-64 right-0 left-0 mx-auto flex flex-col">
+              <div className="absolute left-0 right-0 top-6 z-20 mx-auto flex w-64 flex-col bg-white">
                 {["256 GB", "364 GB"].map((item, index) => {
                   return (
                     <button
                       key={`${index}-options-btn-best-product`}
                       className={` ${
                         isOpen ? "block" : "hidden"
-                      } text-xs text-black border-[1px] border-black`}
+                      } border-[1px] border-black text-xs text-black`}
                       onClick={() => {
                         setOption(index);
                         setIsOpen(false);
@@ -140,15 +140,15 @@ const HomeBestProducts = () => {
               </div>
             </div>
 
-            <div className="h-14 mt-3 flex justify-between p-3 items-center">
+            <div className="mt-3 flex h-14 items-center justify-between p-3">
               <div className="flex flex-col gap-1">
-                <p className="text-3xl text-white font-semibold">
+                <p className="text-3xl font-semibold text-white">
                   865.00 <sup className="text-xs">USD</sup>
                 </p>
               </div>
               <Link
                 to={"/product/kd-dmtr-gaming-desktop-pc"}
-                className={`search-bar flex justify-center cursor-pointer text-white  items-center text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font `}
+                className={`border-ellipse flex h-9 w-36 cursor-pointer  items-center justify-center bg-gradient-to-r from-blue to-second-color pt-[0.15rem] text-sm text-white  `}
               >
                 View More
               </Link>
@@ -158,7 +158,7 @@ const HomeBestProducts = () => {
         <img
           src={cpu2}
           alt=""
-          className=" object-contain hidden relative z-10  h-1/2 sm:h-2/3 w-1/3 xl:block object-left"
+          className=" relative z-10 hidden h-1/2  w-1/3 object-contain object-left sm:h-2/3 xl:block"
         />
       </div>
     </div>

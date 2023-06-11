@@ -4,26 +4,26 @@ import { useNavigate } from "react-router-dom";
 const PageHero = ({ title, subtitle, className = "h-72 pb-10" }) => {
   const navigate = useNavigate();
   return (
-    <div className={`bg-black p-10 font-first-font`}>
-      <div className="w-full h-40 bg-black "></div>
+    <div className={`bg-black p-10 `}>
+      <div className="h-40 w-full bg-black "></div>
       <div
-        className={`w-full sm:px-5  bg-black flex-col justify-end  flex gap-7 max-w-7xl mx-auto ${className}`}
+        className={`mx-auto flex  w-full max-w-7xl flex-col  justify-end gap-7 bg-black sm:px-5 ${className}`}
       >
         <div className="flex items-center gap-2">
           <button
-            className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white"
+            className=" h-9 w-9 rounded-full border-1 border-white pb-[0.1rem] text-lg text-white"
             onClick={() => {
               navigate(-1);
             }}
           >
             &#8592;
           </button>
-          <p className="text-white text-xs font-semibold">Back to home</p>
+          <p className="text-xs font-semibold text-white">Back to home</p>
         </div>
-        <h1 className=" text-[2.2rem] font-semibold  text-transparent  bg-clip-text bg-gradient-to-r from-blue  to-25% to-second-color capitalize">
+        <h1 className=" bg-gradient-to-r from-blue  to-second-color  to-25% bg-clip-text text-[2.2rem]  font-semibold capitalize text-transparent">
           {title}
         </h1>
-        <p className="text-sm text-white max-w-3xl md:w-1/2 pr-10">
+        <p className="max-w-3xl pr-10 text-sm text-white md:w-1/2">
           {subtitle}
         </p>
       </div>

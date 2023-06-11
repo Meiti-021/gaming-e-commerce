@@ -12,78 +12,78 @@ import { Link } from "react-router-dom";
 const HomeHero = () => {
   return (
     <div className="relative">
-      <div className="absolute w-full h-[27rem] xs:h-[31rem] md:h-[35rem] lg:h-[36rem]  bg-black ">
-        <div className="absolute w-full full bg-black">
+      <div className="absolute h-[27rem] w-full bg-black xs:h-[31rem] md:h-[35rem]  lg:h-[36rem] ">
+        <div className="full absolute w-full bg-black">
           <img
             src={heroBgLeft}
             alt=""
-            className="absolute object-contain h-[28rem] xs:h-[35rem] ml:h-[42rem] z-10 left-0 top-0"
+            className="absolute left-0 top-0 z-10 h-[28rem] object-contain xs:h-[35rem] ml:h-[42rem]"
           />
 
           <img
             src={heroBgRight}
             alt=""
-            className="absolute object-contain h-[25rem] xs:h-[33rem] ml:h-[39rem] z-10 right-[0] -top-12 ml:right-[12%]"
+            className="absolute -top-12 right-[0] z-10 h-[25rem] object-contain xs:h-[33rem] ml:right-[12%] ml:h-[39rem]"
           />
           <img
             src={circle1}
             alt=""
-            className="absolute hidden md:block z-0 top-0 left-0"
+            className="absolute left-0 top-0 z-0 hidden md:block"
           />
           <img
             src={joystick}
             alt=""
-            className="absolute hidden xs:block z-20 top-80 left-24"
+            className="absolute left-24 top-80 z-20 hidden xs:block"
           />
           <img
             src={circle4}
             alt=""
-            className="absolute hidden  z-20 top-[20rem] right-[47%]"
+            className="absolute right-[47%]  top-[20rem] z-20 hidden"
           />
           <img
             src={circle3}
             alt=""
-            className="absolute hidden md:block z-20 right-[50%] top-[12rem]  "
+            className="absolute right-[50%] top-[12rem] z-20 hidden md:block  "
           />
           <img
             src={circle5}
             alt=""
-            className="absolute hidden md:block object-contain h-20 z-20 top-[10rem] right-[21%]"
+            className="absolute right-[21%] top-[10rem] z-20 hidden h-20 object-contain md:block"
           />
           <img
             src={herostar}
             alt=""
-            className="absolute hidden xs:block z-20 top-32 right-[20%] "
+            className="absolute right-[20%] top-32 z-20 hidden xs:block "
           />
           <img src={circle2} alt="" className="absolute right-0 top-0" />
         </div>
-        <div className="absolute w-full h-full  z-40 pt-14 backdrop-brightness-75">
-          <div className="w-full h-full mx-auto max-w-7xl ">
-            <div className=" h-full md:mt-14 p-5 flex flex-col justify-center gap-5 w-full xl:w-[34rem] ">
-              <div className="h-11 w-full max-w-sm xs:h-12 transition-all bg-dark-blue rounded-full flex items-center p-2 gap-1 ">
-                <div className="h-full rounded-s-full w-20 bg-gradient-to-r from-blue  to-dark-blue font-first-font text-white text-xs flex items-center px-2 pt-[0.1rem]">
+        <div className="absolute z-40 h-full  w-full pt-14 backdrop-brightness-75">
+          <div className="mx-auto h-full w-full max-w-7xl ">
+            <div className=" flex h-full w-full flex-col justify-center gap-5 p-5 md:mt-14 xl:w-[34rem] ">
+              <div className="flex h-11 w-full max-w-sm items-center gap-1 rounded-full bg-dark-blue p-2 transition-all xs:h-12 ">
+                <div className="flex h-full w-20 items-center rounded-s-full  bg-gradient-to-r  from-blue to-dark-blue px-2 pt-[0.1rem] text-xs text-white">
                   Featured
                 </div>
-                <p className="text-white text-xs">New featured collection \</p>
+                <p className="text-xs text-white">New featured collection \</p>
                 <p className="text-xs text-blue">Gaming Collector</p>
               </div>
-              <h1 className="font-first-font lg:text-5xl xl:text-6xl text-white text-4xl font-semibold">
+              <h1 className=" text-4xl font-semibold text-white lg:text-5xl xl:text-6xl">
                 Best
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue to-second-color">
+                <span className="bg-gradient-to-r from-blue to-second-color bg-clip-text text-transparent">
                   {" "}
                   Pro Gaming
                 </span>
                 <br /> Accessories
               </h1>
-              <p className="text-white md:text-gray-500 text-sm font-first-font w-full ">
+              <p className="w-full text-sm text-white  md:text-gray-500 ">
                 Gaming accessories include gear such as headsets, extra
                 controllers, charging stations, memory devices, carrying cases
                 and much more.
               </p>
-              <div className="flex gap-3 h-10 w-72 transition-all xs:w-[26rem] xs:h-[3rem]">
+              <div className="flex h-10 w-72 gap-3 transition-all xs:h-[3rem] xs:w-[26rem]">
                 <Link
                   to={"/collections/all"}
-                  className="w-1/2 transition-all flex justify-center items-center  h-full search-bar  bg-gradient-to-r from-blue to-second-color  text-white   text-xs  font-first-font "
+                  className="border-ellipse flex h-full w-1/2 items-center  justify-center bg-gradient-to-r  from-blue to-second-color text-xs  text-white   transition-all   "
                 >
                   Show products
                   <SportsEsportsOutlinedIcon
@@ -92,7 +92,7 @@ const HomeHero = () => {
                 </Link>
                 <Link
                   to={"/collections/all"}
-                  className="w-1/2 transition-all flex justify-center items-center h-full search-bar border-[1px] border-[rgba(255,255,255,0.4)] text-xs font-first-font text-[rgba(255,255,255,0.4)] hover:text-white hover:border-blue hover:bg-gradient-to-r hover:from-blue hover:to-second-color"
+                  className="border-ellipse flex h-full w-1/2 items-center justify-center border-[1px] border-[rgba(255,255,255,0.4)] text-xs text-[rgba(255,255,255,0.4)]  transition-all hover:border-blue hover:bg-gradient-to-r hover:from-blue hover:to-second-color hover:text-white"
                 >
                   Show Collections
                   <SportsEsportsOutlinedIcon

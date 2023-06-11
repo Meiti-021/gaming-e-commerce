@@ -10,7 +10,7 @@ const Collections = () => {
   const [collection, setCollection] = useState([]);
   const location = useLocation();
   useEffect(() => {
-    if (type === "search") {
+    if (type === "search" && location.search.split("?")[1] !== "") {
       const parts = location.search.split("?");
       const data = products.filter((item) =>
         item.name.toLowerCase().includes(parts[1].toLocaleLowerCase())

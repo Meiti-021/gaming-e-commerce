@@ -5,27 +5,27 @@ const HomeNewsLetter = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [email, setEmail] = useState("");
   return (
-    <div className="w-full p-5 gap-5 lg:gap-7 max-w-7xl flex md:flex-row-reverse md:items-center flex-col mt-7 h-[35rem] mx-auto">
+    <div className="mx-auto mt-7 flex h-[35rem] w-full max-w-7xl flex-col gap-5 p-5 md:flex-row-reverse md:items-center lg:gap-7">
       <img
         src={image}
         alt=""
-        className="block h-1/2 lg:h-3/4 w-full object-contain transition-all"
+        className="block h-1/2 w-full object-contain transition-all lg:h-3/4"
       />
-      <div className="w-full font-first-font flex flex-col gap-4">
-        <div className="w-24 rounded-md text-white h-6 bg-gradient-to-r from-blue to-second-color text-xs pt-[1px] flex justify-center items-center">
+      <div className="flex  w-full flex-col gap-4">
+        <div className="flex h-6 w-24 items-center justify-center rounded-md bg-gradient-to-r from-blue to-second-color pt-[1px] text-xs text-white">
           Subscribe US
         </div>
-        <h2 className="text-3xl lg:text-5xl  font-semibold">
+        <h2 className="text-3xl font-semibold  lg:text-5xl">
           Subscribe newsletter and{" "}
-          <span className="text-transparent mx-2  md:mx-0 bg-clip-text bg-gradient-to-r from-blue to-second-color">
+          <span className="mx-2 bg-gradient-to-r  from-blue to-second-color bg-clip-text text-transparent md:mx-0">
             get -20% off
           </span>
         </h2>
-        <p className="text-sm lg:text-base  text-gray-500 font-first-font">
+        <p className="text-sm text-gray-500  lg:text-base ">
           Almost three-quarters of dedicated PC gamers say their main motivation
           to upgrade is improving gaming experiences.
         </p>
-        <div className="w-full  h-[2.9rem] items-center overflow-hidden search-bar border-[1px] border-black flex">
+        <div className="border-ellipse  flex h-[2.9rem] w-full items-center overflow-hidden border-[1px] border-black">
           <input
             type="email"
             name=""
@@ -35,23 +35,23 @@ const HomeNewsLetter = () => {
               setEmail(e.target.value);
             }}
             placeholder="Enter enail address.."
-            className="w-5/6 h-2/4 lg:w-4/6  text-xs p-4 font-first-font border-none focus:outline-none "
+            className="h-2/4 w-5/6 border-none  p-4 text-xs  focus:outline-none lg:w-4/6 "
           />
           <button
-            className="w-1/4 lg:w-2/6 h-full text-white font-semibold font-first-font text-sm bg-gradient-to-r from-blue to-second-color "
+            className="h-full w-1/4 bg-gradient-to-r from-blue to-second-color  text-sm font-semibold text-white lg:w-2/6 "
             onClick={() => {
               if (email !== "") {
                 enqueueSnackbar({
                   variant: "success",
                   message: "You have seccessfully subscribed to out newsletter",
-                  className: "capitalize font-first-font",
+                  className: "capitalize ",
                 });
               } else {
                 enqueueSnackbar({
                   variant: "error",
                   message:
                     "The email section is empty or your email format is incorrect!",
-                  className: "capitalize font-first-font",
+                  className: "capitalize ",
                 });
               }
             }}

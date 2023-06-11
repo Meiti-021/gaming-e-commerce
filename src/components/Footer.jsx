@@ -7,7 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 const Footer = () => {
   return (
-    <div className="bg-black py-10 overflow-hidden relative text-white px-5 font-first-font">
+    <div className="bg-black py-10 overflow-hidden relative text-white px-5 ">
       <div className="relative z-20 lg:gap-10 lg:flex md:flex-row lg:justify-between mx-auto max-w-7xl">
         <div className="flex flex-col  gap-5">
           <img src={logo} className="block w-32 object-contain" alt="" />

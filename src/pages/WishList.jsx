@@ -20,61 +20,61 @@ const WishList = () => {
   const dispatch = useDispatch();
   const { wishList } = useSelector((store) => store.cart);
   return (
-    <div className="min-h-screen font-first-font">
+    <div className="min-h-screen ">
       <div className="h-36 w-full bg-black"></div>
       <div className="w-full px-5 py-10">
-        <div className="w-full max-w-7xl mx-auto">
+        <div className="mx-auto w-full max-w-7xl">
           <div className="flex border-b-1 border-border-color">
-            <p className="text-base font-semibold flex justify-center capitalize w-2/12 border-r-1   px-3 py-1 border-x-border-color text-gray-500">
+            <p className="flex w-2/12 justify-center border-r-1 border-x-border-color px-3 py-1   text-base font-semibold capitalize text-gray-500">
               image
             </p>
-            <p className="text-base font-semibold flex justify-center capitalize lg:w-6/12 w-7/12 border-r-1   px-3 py-1 border-x-border-color text-gray-500">
+            <p className="flex w-7/12 justify-center border-r-1 border-x-border-color px-3 py-1 text-base   font-semibold capitalize text-gray-500 lg:w-6/12">
               name
             </p>
-            <p className="text-base hidden font-semibold lg:flex justify-center capitalize w-1/12 border-r-1   px-3 py-1 border-x-border-color text-gray-500">
+            <p className="hidden w-1/12 justify-center border-r-1 border-x-border-color px-3 py-1 text-base   font-semibold capitalize text-gray-500 lg:flex">
               price
             </p>
-            <p className="text-base  font-semibold flex justify-center capitalize w-2/12 border-r-1   px-3 py-1 border-x-border-color text-gray-500">
+            <p className="flex  w-2/12 justify-center border-r-1 border-x-border-color px-3 py-1   text-base font-semibold capitalize text-gray-500">
               <span className="hidden md:block">quantity</span>
               <span className="md:hidden">Qty</span>
             </p>
-            <p className="text-base  font-semibold flex justify-center capitalize w-1/12  px-3 py-1 items-center border-x-border-color text-gray-500">
+            <p className="flex  w-1/12 items-center justify-center border-x-border-color px-3  py-1 text-base font-semibold capitalize text-gray-500">
               <span className="hidden md:block">remove</span>
               <span className="md:hidden">Del</span>
             </p>
           </div>
           {wishList.length > 0 ? (
-            <div className="py-5 -mt-5">
+            <div className="-mt-5 py-5">
               {wishList.map((item, index) => {
                 return (
                   <div
-                    className="flex lg:h-24  h-32 border-b-1 border-border-color"
+                    className="flex h-32  border-b-1 border-border-color lg:h-24"
                     key={"wishList-item-page" + item.id + index}
                   >
-                    <div className="text-base font-semibold flex justify-center capitalize w-2/12    px-3 py-1 ">
+                    <div className="flex w-2/12 justify-center px-3 py-1 text-base    font-semibold capitalize ">
                       <img
                         src={`/assets/products/${item.images[item.option]}`}
                         alt=""
-                        className="w-full p-2 h-full  object-contain object-center"
+                        className="h-full w-full object-contain  object-center p-2"
                       />
                     </div>
                     <Link
                       to={`/product/${item.id}`}
-                      className=" lg:text-2xl text-lg gap-1 flex-col font-semibold flex capitalize lg:w-6/12 w-7/12    px-3 py-1  justify-center"
+                      className=" flex w-7/12 flex-col justify-center gap-1 px-3 py-1 text-lg font-semibold    capitalize lg:w-6/12  lg:text-2xl"
                     >
                       {item.name}
                       <p className=" text-xs">
                         {item.options[0]}: {item.options[1][item.option]}
                       </p>
-                      <p className="lg:hidden text-base">
+                      <p className="text-base lg:hidden">
                         {formatter.format(item.price)}
                       </p>
                     </Link>
-                    <div className="text-sm hidden font-semibold lg:flex  capitalize w-1/12    px-3 py-1  items-center">
+                    <div className="hidden w-1/12 items-center px-3  py-1 text-sm    font-semibold capitalize  lg:flex">
                       <p>{formatter.format(item.price)}</p>
                     </div>
-                    <div className="text-base font-semibold flex justify-center capitalize w-2/12    px-3 py-1  items-center">
-                      <div className="flex lg:flex-row flex-col justify-between text-sm rounded-sm items-center lg:gap-5 p-1 lg:border-1 border-border-color">
+                    <div className="flex w-2/12 items-center justify-center px-3 py-1    text-base font-semibold  capitalize">
+                      <div className="flex flex-col items-center justify-between rounded-sm border-border-color p-1 text-sm lg:flex-row lg:gap-5 lg:border-1">
                         <button
                           onClick={() => {
                             dispatch(addToCart(item));
@@ -85,7 +85,7 @@ const WishList = () => {
                         </button>
                       </div>
                     </div>
-                    <div className="text-base font-semibold flex justify-center capitalize w-1/12  px-3 py-1  items-center">
+                    <div className="flex w-1/12 items-center justify-center px-3 py-1  text-base font-semibold  capitalize">
                       <button
                         className="text-gray-400"
                         onClick={() => {
@@ -94,7 +94,7 @@ const WishList = () => {
                             variant: "info",
                             message:
                               "Item seccessfully removed from your wishList !",
-                            className: "capitalize font-first-font",
+                            className: "capitalize ",
                           });
                         }}
                       >
@@ -106,28 +106,28 @@ const WishList = () => {
               })}
             </div>
           ) : (
-            <div className="flex flex-col gap-2 justify-center items-center p-5">
-              <div className="flex max-w-7xl items-center p-5  gap-2 w-full mx-auto ">
+            <div className="flex flex-col items-center justify-center gap-2 p-5">
+              <div className="mx-auto flex w-full max-w-7xl  items-center gap-2 p-5 ">
                 <button
-                  className=" w-9 h-9 rounded-full border-1 text-black text-lg pb-[0.1rem] border-black"
+                  className=" h-9 w-9 rounded-full border-1 border-black pb-[0.1rem] text-lg text-black"
                   onClick={() => {
                     navigate(-1);
                   }}
                 >
                   &#8592;
                 </button>
-                <p className="text-black text-xs font-semibold">
+                <p className="text-xs font-semibold text-black">
                   Back to categories
                 </p>
               </div>
-              <p className="text-3xl h-80 py-12 flex justify-center items-center">
+              <p className="flex h-80 items-center justify-center py-12 text-3xl">
                 Your wishList Is Empty!{" "}
               </p>
             </div>
           )}
-          <div className=" flex flex-col justify-start items-center gap-1   w-full p-8  bg-white">
+          <div className=" flex w-full flex-col items-center justify-start   gap-1 bg-white  p-8">
             <button
-              className="h-12 max-w-md my-1 mt-4 flex justify-center items-center gap-2 border-1 search-bar text-gray-500 hover:border-none transition-all border-border-color w-full bg-gradient-to-r hover:from-blue hover:to-second-color hover:text-white"
+              className="border-ellipse my-1 mt-4 flex h-12 w-full max-w-md items-center justify-center gap-2 border-1 border-border-color bg-gradient-to-r text-gray-500 transition-all hover:border-none hover:from-blue hover:to-second-color hover:text-white"
               onClick={() => {
                 dispatch(clearWishList());
               }}
@@ -136,7 +136,7 @@ const WishList = () => {
               <DeleteIcon />
             </button>
             <button
-              className="h-12 max-w-md my-1 flex justify-center items-center gap-2 border-1 search-bar border-none transition-all  w-full bg-gradient-to-r from-blue to-second-color text-white"
+              className="border-ellipse my-1 flex h-12 w-full max-w-md items-center justify-center gap-2 border-1 border-none  bg-gradient-to-r from-blue to-second-color text-white transition-all"
               onClick={() => {
                 dispatch(addAllToCart());
               }}

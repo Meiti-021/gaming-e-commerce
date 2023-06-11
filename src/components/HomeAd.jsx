@@ -22,21 +22,21 @@ const HomeAd = () => {
       setExist(true);
   }, [wishList]);
   return (
-    <div className="h-auto  py-5  relative mt-10">
-      <div className="w-full -mt-10 lg:-mt-40 items-center  p-3 h-[60rem] flex flex-col md:flex-row md:justify-center md:items-center gap-10">
+    <div className="relative  mt-10  h-auto py-5">
+      <div className="-mt-10 flex h-[60rem] w-full  flex-col items-center gap-10 p-3 md:flex-row md:items-center md:justify-center lg:-mt-40">
         <img
           src={doubleHeadset}
           alt=""
-          className="block object-contain lg:h-full md:w-[25rem]  h-[20rem] p-3 sm:h-[30rem] xl:w-[35rem] "
+          className="block h-[20rem] object-contain p-3  sm:h-[30rem] md:w-[25rem] lg:h-full xl:w-[35rem] "
         />
-        <div className="h-auto  max-w-md  bg-gradient-to-r from-blue to-second-color p-[1px] search-bar">
+        <div className="border-ellipse  h-auto  max-w-md bg-gradient-to-r from-blue to-second-color p-[1px]">
           <div
-            className={`w-full search-bar bg-white h-full 
-             "scale-110" 
-             transition-all p-4 font-first-font `}
+            className={`border-ellipse "scale-110" h-full w-full 
+             bg-white 
+             p-4 transition-all  `}
           >
-            <div className="flex  h-auto justify-between items-center relative z-20">
-              <div className="h-[1.3rem] bg-gradient-to-r from-blue to-dark-blue text-xs flex justify-between items-center p-[0.8rem] pt-[0.9rem] rounded-md min-w-[4rem] text-white ">
+            <div className="relative  z-20 flex h-auto items-center justify-between">
+              <div className="flex h-[1.3rem] min-w-[4rem] items-center justify-between rounded-md bg-gradient-to-r from-blue to-dark-blue p-[0.8rem] pt-[0.9rem] text-xs text-white ">
                 Headset
               </div>
               <button
@@ -47,7 +47,7 @@ const HomeAd = () => {
                     enqueueSnackbar({
                       variant: "info",
                       message: "Item seccesfuly removed from your wishlist!",
-                      className: "font-first-font",
+                      className: "",
                     });
                   } else {
                     dispatch(addToWishList(product));
@@ -55,7 +55,7 @@ const HomeAd = () => {
                     enqueueSnackbar({
                       variant: "info",
                       message: "Item seccesfuly added to your wishlist!",
-                      className: "font-first-font",
+                      className: "",
                     });
                   }
                 }}
@@ -67,13 +67,13 @@ const HomeAd = () => {
                 )}
               </button>
             </div>
-            <p className="text-[1.35rem] text-black font-semibold my-4">
+            <p className="my-4 text-[1.35rem] font-semibold text-black">
               Cloud Alpha Gaming Headset
             </p>
-            <p className="text-sm font-semibold text-gray-500 -my-2">
+            <p className="-my-2 text-sm font-semibold text-gray-500">
               TYPE: GamePCs
             </p>
-            <p className="text-gray-400 text-sm  h-32 font-semibold my-5">
+            <p className="my-5 h-32  text-sm font-semibold text-gray-400">
               HyperX Dual Chamber Drivers for more distinction and less
               distortion. Signature Award-Winning HyperX comfort. Durable
               aluminum frame with an expanded headband. Detachable braided cable
@@ -82,7 +82,7 @@ const HomeAd = () => {
             </p>
             <p className="text-xs capitalize text-black">Color :</p>
             <div
-              className="h-10 w-full cursor-pointer flex relative justify-between px-4 items-center search-bar border-[1px] border-gray-500 mt-2"
+              className="border-ellipse relative mt-2 flex h-10 w-full cursor-pointer items-center justify-between border-[1px] border-gray-500 px-4"
               onMouseLeave={() => {
                 setIsOpen(false);
               }}
@@ -90,20 +90,20 @@ const HomeAd = () => {
                 setIsOpen(true);
               }}
             >
-              <p className="font-normal text-sm text-gray-400">
+              <p className="text-sm font-normal text-gray-400">
                 {["black", "red"][option]}
               </p>
               <p>
                 <ExpandMoreTwoTone style={{ color: "#7b35c8" }} />
               </p>
-              <div className="bg-white z-20 absolute top-6 w-64 right-0 left-0 mx-auto flex flex-col">
+              <div className="absolute left-0 right-0 top-6 z-20 mx-auto flex w-64 flex-col bg-white">
                 {["black", "red"].map((item, index) => {
                   return (
                     <button
                       key={`${index}-options-btn-best-product`}
                       className={` ${
                         isOpen ? "block" : "hidden"
-                      } text-xs text-black border-[1px] border-black`}
+                      } border-[1px] border-black text-xs text-black`}
                       onClick={() => {
                         setOption(index);
                         setIsOpen(false);
@@ -116,15 +116,15 @@ const HomeAd = () => {
               </div>
             </div>
 
-            <div className="h-14 mt-3 flex justify-between p-3 items-center">
+            <div className="mt-3 flex h-14 items-center justify-between p-3">
               <div className="flex flex-col gap-1">
-                <p className="text-3xl text-black font-semibold">
+                <p className="text-3xl font-semibold text-black">
                   530.00 <sup className="text-xs">USD</sup>
                 </p>
               </div>
               <Link
                 to="/product/cloud-alpha-gaming-headset"
-                className={`search-bar text-sm flex justify-center items-center pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font cursor-pointer text-white`}
+                className={`border-ellipse flex h-9 w-36 cursor-pointer items-center justify-center bg-gradient-to-r from-blue to-second-color pt-[0.15rem]  text-sm text-white`}
               >
                 View More
               </Link>
@@ -134,7 +134,7 @@ const HomeAd = () => {
         <img
           src={headset}
           alt=""
-          className=" object-contain hidden absolute -right-36 z-10  h-1/2 sm:h-2/3 w-1/3 xl:block "
+          className=" absolute -right-36 z-10 hidden h-1/2  w-1/3 object-contain sm:h-2/3 xl:block "
         />
       </div>
     </div>

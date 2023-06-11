@@ -19,38 +19,38 @@ const CartSideBar = ({ open = false, setOpen }) => {
   }, [cartItems]);
   return (
     <div
-      className={`fixed  transition-all top-0 w-full   sm:w-96 bg-white h-screen font-first-font ${
+      className={`fixed  top-0 h-screen w-full   bg-white transition-all sm:w-96  ${
         open ? "right-0" : "-right-[50rem]"
       }`}
     >
-      <div className="flex justify-between items-center p-5 h-16 text-white text-2xl bg-gradient-to-r from-blue to-second-color ">
+      <div className="flex h-16 items-center justify-between bg-gradient-to-r from-blue to-second-color p-5 text-2xl text-white ">
         MyCart
         <button onClick={() => setOpen(!open)}>
           <CloseIcon />
         </button>
       </div>
-      <div className="grid border-l-1 border-border-color grid-col-1 gap-1 p-5 h-full overflow-y-scroll pb-96 ">
+      <div className="grid-col-1 grid h-full gap-1 overflow-y-scroll border-l-1 border-border-color p-5 pb-96 ">
         {cartItems.map((item, index) => {
           return <CartItem {...item} key={item.id + "cart-item" + index} />;
         })}
       </div>
-      <div className="absolute border-l-1  bottom-0 flex flex-col justify-center  h-60 border-t-1 w-full border-border-color p-8  bg-white">
-        <div className="flex justify-between items-center ">
+      <div className="absolute bottom-0  flex h-60 w-full flex-col  justify-center border-l-1 border-t-1 border-border-color bg-white  p-8">
+        <div className="flex items-center justify-between ">
           <p className="text-2xl font-semibold">Total Price</p>
           <p className="text-xl font-semibold">
             {total},00 <span className="align-super text-sm">USD</span>
           </p>
         </div>
 
-        <button className="h-12 my-4 flex justify-center items-center gap-2  search-bar w-full bg-gradient-to-r from-blue to-second-color text-white">
+        <button className="border-ellipse my-4 flex h-12 w-full items-center  justify-center gap-2 bg-gradient-to-r from-blue to-second-color text-white">
           Proceed to checkout
           <LocalMallOutlinedIcon />
         </button>
         <Link
           to={"/cart"}
-          className="text-xl cursor-pointer font-semibold text-center flex justify-center items-center gap-3"
+          className="flex cursor-pointer items-center justify-center gap-3 text-center text-xl font-semibold"
         >
-          View Cart <span className="text-4xl block -mt-1">&#8594; </span>
+          View Cart <span className="-mt-1 block text-4xl">&#8594; </span>
         </Link>
       </div>
     </div>

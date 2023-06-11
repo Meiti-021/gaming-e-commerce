@@ -9,35 +9,35 @@ const ContactBody = () => {
     message: "",
   });
   return (
-    <div className="w-full px-5 py-10 font-first-font">
-      <div className="w-full max-w-7xl mx-auto relative flex flex-col md:flex-row gap-10 md:-mb-64">
-        <div className="md:w-1/2 flex flex-col md:flex-row md:justify-end  gap-5  ">
+    <div className="w-full px-5 py-10 ">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 md:-mb-64 md:flex-row">
+        <div className="flex flex-col gap-5 md:w-1/2 md:flex-row  md:justify-end  ">
           <div>
             <p className="text-sm font-semibold text-gray-600">CALL US</p>
-            <p className="text-sm mt-2 mb-5  text-gray-500">+41 0021-32-12</p>
+            <p className="mb-5 mt-2 text-sm  text-gray-500">+41 0021-32-12</p>
           </div>
           <div>
             <p className="text-sm font-semibold text-gray-600">EMAIL</p>
-            <p className="text-sm mt-2 mb-5  text-gray-500">
+            <p className="mb-5 mt-2 text-sm  text-gray-500">
               dev.meiti@gmail.com
             </p>
           </div>
           <div>
             <p className="text-sm font-semibold text-gray-600">ADDRESS</p>
-            <p className="text-sm leading-7 mt-2 mb-5  text-gray-500">
+            <p className="mb-5 mt-2 text-sm leading-7  text-gray-500">
               Iran, tabriz
               <br />
               Hojjati St, Azerbayjan <br /> St.golestan, P121
             </p>
           </div>
         </div>
-        <div className="md:w-1/2 md:relative bottom-[16rem]">
-          <h2 className="text-4xl mb-7 font-semibold bg-clip-text bg-transparent bg-gradient-to-r from-blue to-second-color text-transparent">
+        <div className="bottom-[16rem] md:relative md:w-1/2">
+          <h2 className="mb-7 bg-transparent bg-gradient-to-r from-blue to-second-color bg-clip-text text-4xl font-semibold text-transparent">
             Contact form
           </h2>
-          <div className="border-2 border-second-color p-5 gap-5 grid grid-cols-1 md:grid-cols-2 bg-white">
+          <div className="grid grid-cols-1 gap-5 border-2 border-second-color bg-white p-5 md:grid-cols-2">
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-400 font-semibold">
+              <p className="text-sm font-semibold text-gray-400">
                 First name <sup className="text-red-600">*</sup> :
               </p>
               <input
@@ -46,13 +46,13 @@ const ContactBody = () => {
                 onChange={(e) => {
                   setForm({ ...form, name: e.target.value });
                 }}
-                className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                 placeholder="First name"
                 required
               />
             </div>
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-400 font-semibold">
+              <p className="text-sm font-semibold text-gray-400">
                 Last name <sup className="text-red-600">*</sup> :
               </p>
               <input
@@ -61,13 +61,13 @@ const ContactBody = () => {
                 onChange={(e) => {
                   setForm({ ...form, lastname: e.target.value });
                 }}
-                className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                 placeholder="Last name"
                 required
               />
             </div>
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-400 font-semibold">
+              <p className="text-sm font-semibold text-gray-400">
                 Email <sup className="text-red-600">*</sup> :
               </p>
               <input
@@ -76,13 +76,13 @@ const ContactBody = () => {
                 onChange={(e) => {
                   setForm({ ...form, email: e.target.value });
                 }}
-                className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                 placeholder="Email"
                 required
               />
             </div>
             <div className="flex flex-col gap-3">
-              <p className="text-sm text-gray-400 font-semibold">
+              <p className="text-sm font-semibold text-gray-400">
                 Phone number <sup className="text-red-600">*</sup> :
               </p>
               <input
@@ -91,15 +91,15 @@ const ContactBody = () => {
                 onChange={(e) => {
                   setForm({ ...form, phone: e.target.value });
                 }}
-                className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                 placeholder="Phone number"
                 required
               />
             </div>
             <div className="flex flex-col gap-3 md:col-span-2">
-              <p className="text-sm text-gray-400 font-semibold">Message :</p>
+              <p className="text-sm font-semibold text-gray-400">Message :</p>
               <textarea
-                className="border-1  text-gray-500 resize-none border-border-color text-sm p-4 search-bar h-44"
+                className="border-ellipse  h-44 resize-none border-1 border-border-color p-4 text-sm text-gray-500"
                 placeholder="How Can I Help You?"
                 value={form.message}
                 onChange={(e) => {
@@ -107,7 +107,7 @@ const ContactBody = () => {
                 }}
               ></textarea>
             </div>
-            <button className="search-bar text-sm h-11 w-52 bg-gradient-to-r from-blue to-second-color  text-white font-semibold">
+            <button className="border-ellipse h-11 w-52 bg-gradient-to-r from-blue to-second-color text-sm  font-semibold text-white">
               Send Message <span className="ml-3">&#8594;</span>
             </button>
           </div>

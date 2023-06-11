@@ -5,10 +5,10 @@ const FaqsElement = ({ question, answer }) => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className={`border-1 w-full mb-3 border-border-color text-gray-500 text-sm flex flex-col`}
+      className={`mb-3 flex w-full flex-col border-1 border-border-color text-sm text-gray-500`}
     >
       <div
-        className="flex justify-between cursor-pointer p-3"
+        className="flex cursor-pointer justify-between p-3"
         onClick={() => {
           setOpen(!open);
         }}
@@ -21,7 +21,7 @@ const FaqsElement = ({ question, answer }) => {
         )}
       </div>
       <div
-        className={`p-3 transition-all overflow-hidden ${
+        className={`overflow-hidden p-3 transition-all ${
           open ? "h-auto border-t-1 border-border-color" : "h-0 py-0"
         }`}
       >

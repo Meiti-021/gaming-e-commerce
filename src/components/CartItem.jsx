@@ -8,24 +8,24 @@ import { enqueueSnackbar } from "notistack";
 const CartItem = ({ id, name, price, quantity, images, options, option }) => {
   const dispatch = useDispatch();
   return (
-    <div className="p-3 border-1 h-36 font-first-font border-border-color w-full flex gap-2">
+    <div className="flex h-36 w-full  gap-2 border-1 border-border-color p-3">
       <img
         src={`/assets/products/${images[option]}`}
         alt=""
-        className="w-20 h-full p-2 object-contain object-center"
+        className="h-full w-20 object-contain object-center p-2"
       />
-      <div className="w-4/6 flex flex-col justify-between gap-1">
-        <p className="text-lg  overflow-hidden text-ellipsis whitespace-nowrap">
+      <div className="flex w-4/6 flex-col justify-between gap-1">
+        <p className="overflow-hidden  text-ellipsis whitespace-nowrap text-lg">
           {name}
         </p>
         <p className="text-sm">
           {options[0]}: {options[1][option]}
         </p>
         <p className="text-lg font-semibold">
-          {price * quantity}.00 <span className="text-xs align-super">USD</span>
+          {price * quantity}.00 <span className="align-super text-xs">USD</span>
         </p>
-        <div className="flex justify-between items-center">
-          <div className="flex justify-between text-sm rounded-sm items-center gap-5 p-1 border-1 border-border-color">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-5 rounded-sm border-1 border-border-color p-1 text-sm">
             <button>
               <AddIcon style={{ fontSize: "1rem", color: "gray" }} />
             </button>
@@ -41,7 +41,7 @@ const CartItem = ({ id, name, price, quantity, images, options, option }) => {
               enqueueSnackbar({
                 variant: "info",
                 message: "Item seccessfully removed from your cart !",
-                className: "capitalize font-first-font",
+                className: "capitalize ",
               });
             }}
           >

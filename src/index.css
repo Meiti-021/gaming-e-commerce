@@ -4,9 +4,9 @@
 
 @layer base {
   html {
-    @apply overflow-x-hidden w-screen;
+    @apply w-screen overflow-x-hidden font-first-font;
   }
   body {
-    @apply scrollbar-none w-full overflow-x-hidden;
+    @apply w-full overflow-x-hidden scrollbar-none;
   }
 }

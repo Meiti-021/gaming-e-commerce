@@ -14,13 +14,13 @@ const HomeBestSellers = () => {
     swiperRef.current.swiper.slideTo(3);
   }, [swiperRef]);
   return (
-    <div className="relative bg-black w-full h-auto mt-[27rem] xs:mt-[31rem] md:mt-[35rem] lg:mt-[36rem]">
+    <div className="relative mt-[27rem] h-auto w-full bg-black xs:mt-[31rem] md:mt-[35rem] lg:mt-[36rem]">
       <img
         src={circle6}
         alt=""
-        className="absolute -top-32 z-0 right-0 left-0 mx-auto"
+        className="absolute -top-32 left-0 right-0 z-0 mx-auto"
       />
-      <div className="flex-col relative  w-full z-40">
+      <div className="relative z-40  w-full flex-col">
         <SectionHeader
           title="Bestsellers of the week"
           address="/collections/all"
@@ -38,7 +38,7 @@ const HomeBestSellers = () => {
             loop={true}
             modules={[Pagination]}
             centeredSlides={true}
-            className="mySwiper w-[21rem] overflow-visible h-[40rem] text-white"
+            className="mySwiper h-[40rem] w-[21rem] overflow-visible text-white"
           >
             {products
               .slice(0, 8)

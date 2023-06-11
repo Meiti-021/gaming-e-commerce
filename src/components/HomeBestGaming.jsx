@@ -42,30 +42,30 @@ const HomeBestGaming = () => {
   );
   const swiperRef = useRef(null);
   return (
-    <div className="w-full relative  min-h-[34rem] h-auto">
-      <div className="absolute hidden md:block w-full h-44 bg-black -z-30">
-        <img src={circle} alt="" className="absolute right-8 -bottom-8 " />
-        <img src={circle3} alt="" className="absolute right-24 -bottom-68 " />
+    <div className="relative h-auto  min-h-[34rem] w-full">
+      <div className="absolute -z-30 hidden h-44 w-full bg-black md:block">
+        <img src={circle} alt="" className="absolute -bottom-8 right-8 " />
+        <img src={circle3} alt="" className="-bottom-68 absolute right-24 " />
       </div>
-      <div className="w-full max-w-7xl h-full mx-auto  flex flex-col md:grid md:grid-cols-3 ml:grid-cols-4">
-        <div className="col-span-1 flex flex-col items-center gap-5 md:col-span-1 w-full h-80 p-5 ">
-          <h2 className="font-first-font font-semibold text-3xl md:text-white md:w-full md:max-w-[20rem] md:text-4xl ml:text-5xl">
+      <div className="mx-auto flex h-full w-full  max-w-7xl flex-col md:grid md:grid-cols-3 ml:grid-cols-4">
+        <div className="col-span-1 flex h-80 w-full flex-col items-center gap-5 p-5 md:col-span-1 ">
+          <h2 className=" text-3xl font-semibold md:w-full md:max-w-[20rem] md:text-4xl md:text-white ml:text-5xl">
             Best
-            <span className="text-transparent mx-2 md:block md:mx-0 bg-clip-text bg-gradient-to-r from-blue to-second-color">
+            <span className="mx-2 bg-gradient-to-r from-blue to-second-color bg-clip-text text-transparent md:mx-0 md:block">
               Pro Gaming
             </span>
             Categories
           </h2>
-          <div className="w-full max-w-[20rem]  flex flex-col gap-6">
+          <div className="flex w-full  max-w-[20rem] flex-col gap-6">
             {categories.map((item, index) => {
               return (
                 <button
                   key={item.title}
                   className={`w-full border-[1px] ${
                     index === categorie
-                      ? "text-white bg-gradient-to-r from-blue to-second-color"
-                      : "text-gray-500 bg-transparent"
-                  } border-gray-600 search-bar h-10 text-xs font-semibold flex font-first-font justify-center transition-all items-center gap-1`}
+                      ? "bg-gradient-to-r from-blue to-second-color text-white"
+                      : "bg-transparent text-gray-500"
+                  } border-ellipse flex h-10 items-center justify-center gap-1  border-gray-600 text-xs font-semibold transition-all`}
                   onClick={() => {
                     setCategorie(index);
                     if (index === 0) {
@@ -103,24 +103,24 @@ const HomeBestGaming = () => {
           </div>
           <Link
             to={"/collections/all"}
-            className="uppercase underline font-first-font text-sm text-center text-gray-500"
+            className="text-center text-sm  uppercase text-gray-500 underline"
           >
             show more categories
           </Link>
         </div>
-        <div className="w-full p-3 relative h-[40rem] xs:h-[35rem] md:col-span-2 ml:col-span-3 flex justify-center items-center">
+        <div className="relative flex h-[40rem] w-full items-center justify-center p-3 xs:h-[35rem] md:col-span-2 ml:col-span-3">
           <Swiper
             slidesPerView={!xs ? "1" : !ml ? "2" : "3"}
             spaceBetween={10}
             ref={swiperRef}
             modules={[Navigation]}
             loop={true}
-            className="w-full h-full  "
+            className="h-full w-full  "
           >
             {ctgProduct.map((item) => {
               return (
                 <SwiperSlide
-                  className="w-full h-full p-3 border-[1px] bg-gradient-to-br md:bg-none from-sky-200 to-white border-blue search-bar"
+                  className="border-ellipse h-full w-full border-[1px] border-blue bg-gradient-to-br from-sky-200 to-white p-3 md:bg-none"
                   key={`categorie-product${item.id}`}
                 >
                   <HomeCategoriesProduct {...item} />
@@ -129,7 +129,7 @@ const HomeBestGaming = () => {
             })}
           </Swiper>
           <button
-            className="absolute left-2 z-20 top-0 bottom-0 my-auto text-blue border-2 border-white w-5 h-5 bg-white  flex justify-center items-center"
+            className="absolute bottom-0 left-2 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-blue"
             onClick={() => {
               swiperRef.current.swiper.slideNext();
             }}
@@ -137,7 +137,7 @@ const HomeBestGaming = () => {
             <ArrowCircleLeftRoundedIcon style={{ fontSize: "2.5rem" }} />
           </button>
           <button
-            className="absolute right-2 z-20 top-0 bottom-0 my-auto text-second-color border-2 border-white w-5 h-5 bg-white  flex justify-center items-center"
+            className="absolute bottom-0 right-2 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-second-color"
             onClick={() => {
               swiperRef.current.swiper.slidePrev();
             }}

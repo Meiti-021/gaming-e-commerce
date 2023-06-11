@@ -11,36 +11,36 @@ const BlogPostItem = ({
   id,
 }) => {
   return (
-    <div className="font-first-font h-auto my-4">
-      <figure className="relative h-3/5 overflow-hidden search-bar border-[1px] border-blue">
+    <div className=" my-4 h-auto">
+      <figure className="border-ellipse relative h-3/5 overflow-hidden border-[1px] border-blue">
         <img
           src={`/assets/blogs/${image}`}
           alt=""
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
-        <p className="text-[0.6rem] absolute top-4 right-4 text-white">
+        <p className="absolute right-4 top-4 text-[0.6rem] text-white">
           {date}
         </p>
-        <div className="text-[0.6rem] absolute top-3 left-4 bg-gradient-to-r from-blue to-second-color p-1 px-3 rounded-lg text-white">
+        <div className="absolute left-4 top-3 rounded-lg bg-gradient-to-r from-blue to-second-color p-1 px-3 text-[0.6rem] text-white">
           {categorie}
         </div>
       </figure>
       <p
-        className={`text-[1.33rem] mt-4 ${
+        className={`mt-4 text-[1.33rem] ${
           light ? "text-black" : "text-white"
-        } font-semibold text-ellipsis whitespace-nowrap overflow-hidden`}
+        } overflow-hidden text-ellipsis whitespace-nowrap font-semibold`}
       >
         {title}
       </p>
-      <p className="text-sm text-gray-500 uppercase mt-2">AUTHOR : {author}</p>
+      <p className="mt-2 text-sm uppercase text-gray-500">AUTHOR : {author}</p>
       {light ? (
-        <p className="text-sm mt-3 h-10 overflow-hidden text-ellipsis text-gray-500">
+        <p className="mt-3 h-10 overflow-hidden text-ellipsis text-sm text-gray-500">
           {describe}
         </p>
       ) : undefined}
       <Link
         to={`/blog/${id}`}
-        className="py-3  text-white bg-gradient-to-r from-blue to-second-color search-bar  text-xs font-semibold  mt-5 w-36 flex justify-center items-center pt-3"
+        className="border-ellipse  mt-5 flex w-36 items-center justify-center  bg-gradient-to-r from-blue  to-second-color py-3 pt-3 text-xs font-semibold text-white"
       >
         READ MORE
       </Link>

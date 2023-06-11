@@ -29,14 +29,14 @@ const Login = () => {
     email: "",
   });
   return (
-    <div className="font-first-font ">
+    <div className=" ">
       <PageHero
         title="Sign-in/Sign-up"
         subtitle="Unlock Your Gaming Potential and Dive into the Action!"
         className="h-42 pb-5"
       />
-      <div className="w-full  p-5 py-4 h-[46rem]">
-        <div className="max-w-md w-full mx-auto">
+      <div className="h-[46rem]  w-full p-5 py-4">
+        <div className="mx-auto w-full max-w-md">
           <Tabs
             value={value}
             onChange={(event, newValue) => setValue(newValue)}
@@ -47,7 +47,7 @@ const Login = () => {
           {value === 0 ? (
             <div className="">
               <form
-                className="w-full max-w-md h-auto gap-3 grid grid-cols-1 mt-10"
+                className="mt-10 grid h-auto w-full max-w-md grid-cols-1 gap-3"
                 onSubmit={(e) => {
                   e.preventDefault();
                 }}
@@ -57,7 +57,7 @@ const Login = () => {
                   name=""
                   id=""
                   placeholder="Name :"
-                  className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                  className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                   value={loginForm.name}
                   onChange={(e) => {
                     setLogin({ ...loginForm, name: e.target.value });
@@ -68,7 +68,7 @@ const Login = () => {
                   name=""
                   id=""
                   placeholder="Last Name : "
-                  className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                  className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                   value={loginForm.lastname}
                   onChange={(e) => {
                     setLogin({ ...loginForm, lastname: e.target.value });
@@ -79,13 +79,13 @@ const Login = () => {
                   name=""
                   id=""
                   placeholder="Email :"
-                  className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                  className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                   value={loginForm.email}
                   onChange={(e) => {
                     setLogin({ ...loginForm, email: e.target.value });
                   }}
                 />
-                <div className="flex justify-between items-center relative">
+                <div className="relative flex items-center justify-between">
                   <input
                     type={passOpen.pass ? "text" : "password"}
                     name=""
@@ -98,7 +98,7 @@ const Login = () => {
                         password: e.target.value,
                       });
                     }}
-                    className="border-1 w-full border-border-color text-sm p-4 search-bar h-12"
+                    className="border-ellipse h-12 w-full border-1 border-border-color p-4 text-sm"
                   />
                   <button
                     className="absolute right-4"
@@ -116,7 +116,7 @@ const Login = () => {
                     )}{" "}
                   </button>
                 </div>
-                <div className="flex justify-between items-center relative">
+                <div className="relative flex items-center justify-between">
                   <input
                     type={passOpen.copass ? "text" : "password"}
                     name=""
@@ -129,7 +129,7 @@ const Login = () => {
                         copassword: e.target.value,
                       });
                     }}
-                    className="border-1 w-full border-border-color text-sm p-4 search-bar h-12"
+                    className="border-ellipse h-12 w-full border-1 border-border-color p-4 text-sm"
                   />
                   <button
                     className="absolute right-4"
@@ -148,12 +148,12 @@ const Login = () => {
                   </button>
                 </div>
                 <div className=" my-5 px-2 ">
-                  <p className="text-sm mb-3">Choose an avatar:</p>
+                  <p className="mb-3 text-sm">Choose an avatar:</p>
                   <div className="grid grid-cols-6 gap-3">
                     {avatars.map((avatar, index) => {
                       return (
                         <button
-                          className={`w-16 p-1 rounded-md h-16 overflow-hidden ${
+                          className={`h-16 w-16 overflow-hidden rounded-md p-1 ${
                             loginForm.imageUrl === avatar
                               ? "bg-yellow-300"
                               : undefined
@@ -167,46 +167,46 @@ const Login = () => {
                           <img
                             src={avatar}
                             alt=""
-                            className="w-full rounded-md  h-full object-cover object-center block"
+                            className="block h-full  w-full rounded-md object-cover object-center"
                           />
                         </button>
                       );
                     })}
                   </div>
                 </div>
-                <div className="flex items-center gap-3 mt-1 px-2">
+                <div className="mt-1 flex items-center gap-3 px-2">
                   <input type="checkbox" name="" id="policy" />
                   <label htmlFor="policy" className="text-xs">
                     By checking this box, I agree to the{" "}
-                    <Link to="" className="underline text-blue">
+                    <Link to="" className="text-blue underline">
                       Privacy Policy
                     </Link>
                     {"  "}
                     and
                     {"  "}
-                    <Link to="" className="underline text-blue">
+                    <Link to="" className="text-blue underline">
                       Terms of Service
                     </Link>
                     .
                   </label>
                 </div>
-                <div className="flex items-center gap-3 mb-1 px-2">
+                <div className="mb-1 flex items-center gap-3 px-2">
                   <input type="checkbox" name="" id="cookie" />
                   <label htmlFor="cookie" className="text-xs">
                     Remember Me!
                   </label>
                 </div>
-                <button className="w-full h-12 text-white search-bar bg-gradient-to-r from-blue  to-second-color">
+                <button className="border-ellipse h-12 w-full bg-gradient-to-r from-blue to-second-color  text-white">
                   Create Account
                 </button>
               </form>
-              <p className="mt-5 text-sm text-center">
+              <p className="mt-5 text-center text-sm">
                 Already Have An Acoount?{" "}
                 <span
                   onClick={() => {
                     setValue(1);
                   }}
-                  className="underline text-blue hover:text-second-color cursor-pointer"
+                  className="cursor-pointer text-blue underline hover:text-second-color"
                 >
                   {" "}
                   sign-in here.
@@ -216,7 +216,7 @@ const Login = () => {
           ) : (
             <div>
               <form
-                className="w-full max-w-md h-auto gap-3 grid grid-cols-1 mt-10"
+                className="mt-10 grid h-auto w-full max-w-md grid-cols-1 gap-3"
                 onSubmit={(e) => {
                   e.preventDefault();
                 }}
@@ -226,13 +226,13 @@ const Login = () => {
                   name=""
                   id=""
                   placeholder="Email :"
-                  className="border-1 border-border-color text-sm p-4 search-bar h-12"
+                  className="border-ellipse h-12 border-1 border-border-color p-4 text-sm"
                   value={signup.email}
                   onChange={(e) => {
                     setsignup({ ...signup, email: e.target.value });
                   }}
                 />
-                <div className="flex justify-between items-center relative">
+                <div className="relative flex items-center justify-between">
                   <input
                     type={passOpen.pass ? "text" : "password"}
                     name=""
@@ -245,7 +245,7 @@ const Login = () => {
                         password: e.target.value,
                       });
                     }}
-                    className="border-1 w-full border-border-color text-sm p-4 search-bar h-12"
+                    className="border-ellipse h-12 w-full border-1 border-border-color p-4 text-sm"
                   />
                   <button
                     className="absolute right-4 "
@@ -260,23 +260,23 @@ const Login = () => {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-3 mb-1 px-2">
+                <div className="mb-1 flex items-center gap-3 px-2">
                   <input type="checkbox" name="" id="cookie" />
                   <label htmlFor="cookie" className="text-xs">
                     Remember Me!
                   </label>
                 </div>
-                <button className="w-full h-12 text-white search-bar bg-gradient-to-r from-blue  to-second-color">
+                <button className="border-ellipse h-12 w-full bg-gradient-to-r from-blue to-second-color  text-white">
                   Login
                 </button>
               </form>
-              <p className="mt-5 text-sm text-center">
+              <p className="mt-5 text-center text-sm">
                 Don&#39;t Have An Acoount?{" "}
                 <span
                   onClick={() => {
                     setValue(0);
                   }}
-                  className="underline text-blue hover:text-second-color cursor-pointer"
+                  className="cursor-pointer text-blue underline hover:text-second-color"
                 >
                   {" "}
                   sign-up here.

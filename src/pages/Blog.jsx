@@ -29,7 +29,7 @@ const AllBlogs = () => {
           );
         })}
       </div>
-      <div className="h-20 flex justify-center items-center mb-10 mt-20">
+      <div className="mb-10 mt-20 flex h-20 items-center justify-center">
         <Pagination
           count={
             blogs.length % 4 === 0
@@ -50,7 +50,7 @@ const AllBlogs = () => {
 
 const Blog = () => {
   return (
-    <div className="font-first-font">
+    <div className="">
       <PageHero {...heroData} />
       <PageBody content={<AllBlogs />} title="ALL BLOGS" />
     </div>

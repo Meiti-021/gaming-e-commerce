@@ -23,20 +23,20 @@ const aboutOptions = [
 ];
 const AboutBody = () => {
   return (
-    <div className="w-full h-auto p-5 bg-black font-first-font">
-      <div className="w-full max-w-7xl mx-auto flex flex-col gap-10">
-        <h2 className="text-white text-3xl sm:text-4xl text-center  font-semibold ">
+    <div className="h-auto w-full bg-black p-5 ">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10">
+        <h2 className="text-center text-3xl font-semibold text-white  sm:text-4xl ">
           A Passionate Front-End Web Developer from Tabriz, Iran
         </h2>
-        <div className=" md:grid md:grid-cols-2 gap-10">
-          <p className="text-sm text-gray-400 w-full text-justify">
+        <div className=" gap-10 md:grid md:grid-cols-2">
+          <p className="w-full text-justify text-sm text-gray-400">
             Greetings! I am thrilled to introduce myself as a front-end web
             developer hailing from the enchanting city of Tabriz, nestled in the
             heart of Iran. With a deep passion for technology, gaming, and web
             development, I have embarked on an exciting journey in creating
             cutting-edge gaming accessories.
           </p>
-          <p className="text-sm text-gray-400 w-full mt-2 md:mt-0 text-justify">
+          <p className="mt-2 w-full text-justify text-sm text-gray-400 md:mt-0">
             Since my early years, I have been captivated by the world of gaming.
             The immersive experiences, the adrenaline rush, and the power of
             virtual realms have always fascinated me. This passion, combined
@@ -45,12 +45,12 @@ const AboutBody = () => {
           </p>
         </div>
 
-        <div className="md:grid md:grid-cols-2 gap-10">
-          <div className="flex flex-col gap-4 justify-center w-full">
-            <h2 className="text-white text-3xl  font-semibold">
+        <div className="gap-10 md:grid md:grid-cols-2">
+          <div className="flex w-full flex-col justify-center gap-4">
+            <h2 className="text-3xl font-semibold  text-white">
               a glimpse into mehdi&apos;s life story
             </h2>
-            <p className="text-base text-gray-400 w-full text-justify">
+            <p className="w-full text-justify text-base text-gray-400">
               With determination and perseverance, I honed my skills in
               front-end development, embracing the latest trends and
               technologies in the ever-evolving digital landscape. From HTML and
@@ -71,20 +71,20 @@ const AboutBody = () => {
               potential.
             </p>
           </div>
-          <figure className="w-full h-full mt-5 md:mt-0">
-            <img src={about1} alt="" className="w-full h-full object-contain" />
+          <figure className="mt-5 h-full w-full md:mt-0">
+            <img src={about1} alt="" className="h-full w-full object-contain" />
           </figure>
         </div>
-        <div className="md:grid md:grid-cols-2 gap-10 flex-row-reverse ">
-          <figure className="w-full h-full mb-5 md:mb-0">
-            <img src={about2} alt="" className="w-full h-full object-contain" />
+        <div className="flex-row-reverse gap-10 md:grid md:grid-cols-2 ">
+          <figure className="mb-5 h-full w-full md:mb-0">
+            <img src={about2} alt="" className="h-full w-full object-contain" />
           </figure>
-          <div className="flex flex-col gap-4 justify-center w-full">
-            <h2 className="text-white text-3xl  font-semibold">
+          <div className="flex w-full flex-col justify-center gap-4">
+            <h2 className="text-3xl font-semibold  text-white">
               Keep it short and sweet
             </h2>
 
-            <p className="text-base text-gray-400 w-full text-justify">
+            <p className="w-full text-justify text-base text-gray-400">
               As a front-end web developer, I understand the importance of
               bridging the gap between technology and user experience.
               Therefore, in addition to developing exceptional gaming
@@ -106,29 +106,29 @@ const AboutBody = () => {
             </p>
           </div>
         </div>
-        <h2 className="text-white text-3xl sm:text-4xl  -mb-6 mt-6 text-center  font-semibold">
+        <h2 className="-mb-6 mt-6 text-center  text-3xl font-semibold text-white  sm:text-4xl">
           About our services
         </h2>
-        <p className="text-sm text-gray-400 mx-auto text-center w-full md:w-3/4">
+        <p className="mx-auto w-full text-center text-sm text-gray-400 md:w-3/4">
           The style of an &#34;About Us&#34; page can vary depending on the
           company and its target audience. However, there are some general tips
           that can help you create a well-written and engaging &#34;About
           Us&#34; page.
         </p>
-        <div className=" grid  grid-cols-1  md:grid-cols-3 mt-6 gap-10">
+        <div className=" mt-6  grid  grid-cols-1 gap-10 md:grid-cols-3">
           {aboutOptions.map((item) => {
             return (
               <div
-                className="p-4 w-full  flex flex-col gap-3 bg-gradient-to-r from-blue to-second-color"
+                className="flex w-full  flex-col gap-3 bg-gradient-to-r from-blue to-second-color p-4"
                 key={item.title + "about-options"}
               >
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                   <div className="text-2xl font-semibold text-white">
                     {item.title}
                   </div>
                   <div>{item.icon}</div>
                 </div>
-                <p className="text-gray-100 text-sm">{item.body}</p>
+                <p className="text-sm text-gray-100">{item.body}</p>
               </div>
             );
           })}
