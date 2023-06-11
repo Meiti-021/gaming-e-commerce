@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import BlogPostItem from "../components/BlogPostItem";
 import { useParams } from "react-router-dom";
+import { blogs } from "../features/Blogs";
 const Post = () => {
-  const { blogs } = useSelector((store) => store.blog);
   const { id } = useParams();
   const [data] = useState(blogs.find((item) => item.id === id));
   const [form, setForm] = useState({ name: "", email: "", message: "" });

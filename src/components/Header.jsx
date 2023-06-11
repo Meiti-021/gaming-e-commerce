@@ -11,6 +11,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useEffect, useState, useRef } from "react";
 import CartSideBar from "./CartSideBar";
+import { useSelector } from "react-redux";
 const pages = [
   {
     title: "About US",
@@ -72,6 +73,8 @@ const Header = () => {
   });
   const [sidenav, setSideNav] = useState(false);
   const [isTop, setTop] = useState(true);
+  const [open, setOpen] = useState(false);
+  const { cartItems } = useSelector((store) => store.cart);
   const headerRef = useRef(null);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -294,7 +297,7 @@ const Header = () => {
               </button>
               <button className="relative">
                 <FavoriteBorderOutlinedIcon />
-                <div className="absolute w-4 h-4 rounded-full top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1">
+                <div className="absolute w-5 h-5 rounded-full top-[0.22rem] -right-[0.7rem] flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1">
                   3
                 </div>
               </button>
@@ -302,10 +305,14 @@ const Header = () => {
                 My Cart:
                 <br /> 0.000 USD
               </p>
-              <button className="relative">
+              <button className="relative" onClick={() => setOpen(!open)}>
                 <LocalMallOutlinedIcon />
-                <div className="absolute w-4 h-4 rounded-full top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1">
-                  3
+                <div
+                  className={`absolute w-5 h-5 rounded-full top-[0.22rem] -right-[0.7rem] flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1 ${
+                    cartItems.length === 0 ? "hidden" : undefined
+                  }`}
+                >
+                  {cartItems.length}
                 </div>
               </button>
             </div>
@@ -575,7 +582,7 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        <CartSideBar />
+        <CartSideBar open={open} setOpen={setOpen} />
       </div>
 
       <div className="h-14 w-full top-10 absolute " ref={headerRef}></div>

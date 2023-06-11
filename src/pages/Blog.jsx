@@ -1,7 +1,7 @@
 import PageHero from "../components/PageHero";
 import PageBody from "../components/PageBody";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import {} from "react-redux";
+import { useState } from "react";
 import { Pagination } from "@mui/material";
 import BlogPostItem from "../components/BlogPostItem";
 const heroData = {
@@ -9,16 +9,13 @@ const heroData = {
   subtitle:
     "The process of selecting only the best of the best gaming blogs was challenging. These days, anyone can consider themselves a gaming blogger and expert, so it took some time to separate the wheat from the chaff.",
 };
+import { blogs } from "../features/Blogs";
 
 const AllBlogs = () => {
-  const { blogs } = useSelector((store) => store.blog);
   const [page, setPage] = useState(0);
   const pageHandle = (event, value) => {
     setPage(value - 1);
   };
-  useEffect(() => {
-    console.log(blogs.length);
-  }, [blogs]);
   return (
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ml:grid-cols-4">

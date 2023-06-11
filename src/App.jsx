@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Collections from "./pages/Collections";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
@@ -19,6 +19,7 @@ import Post from "./pages/Post";
 import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   ExpandLessTwoTone,
   ExpandMoreTwoTone,
@@ -28,8 +28,10 @@ import banner7 from "../assets/images/banner-7.jpg";
 import banner8 from "../assets/images/banner-8.jpg";
 import banner9 from "../assets/images/banner-9.jpg";
 import HomeBestProGamingProducts from "../components/HomeBestProGamingProducts";
+import { addToCart, addAmount, removeAmount } from "../features/cartSlice";
 import { useParams } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
+import Loading from "../assets/images/loading.gif";
 const banners = [
   banner1,
   banner2,
@@ -47,13 +49,14 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 
 const Info = () => {
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
   const productID = useParams();
   const [form, setForm] = useState({ name: "", message: "", rate: null });
   const { products, cartItems } = useSelector((store) => store.cart);
-  const [currentProduct, setCurrentProduct] = useState(
-    products.find((item) => item.id === productID.id)
-  );
+  const [currentProduct, setCurrentProduct] = useState(undefined);
   const [isOpen, setIsOpen] = useState(false);
+  const [isInside, setIsInside] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
@@ -61,19 +64,40 @@ const Info = () => {
   const swiperRef = useRef(null);
   const smSwiperRef = useRef(null);
   const modalSwiperRef = useRef(null);
+  const dispatch = useDispatch();
   const { users } = useSelector((store) => store.user);
   useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, [location]);
+  useEffect(() => {
+    if (
+      swiperRef.current == null &&
+      smSwiperRef.current == null &&
+      modalSwiperRef.current == null
+    ) {
+      return;
+    }
     swiperRef.current.swiper.slideTo(swiperIndex);
     smSwiperRef.current.swiper.slideTo(swiperIndex);
     modalSwiperRef.current.swiper.slideTo(swiperIndex);
   }, [swiperIndex]);
 
   useEffect(() => {
+    setCurrentProduct(undefined);
+    setIsInCart(false);
     const pro = cartItems.find((item) => item.id === productID.id);
+    const production = products.find((item) => item.id === productID.id);
+
     if (pro !== undefined) {
       setCurrentProduct(pro);
+      setIsInCart(true);
+    } else {
+      setCurrentProduct(production);
     }
-  }, [productID, products, cartItems]);
+  }, [productID, products, cartItems, location]);
 
   const addIndex = () => {
     if (swiperIndex === currentProduct.images.length - 1) {
@@ -92,6 +116,17 @@ const Info = () => {
   const handleChange = (event, newValue) => {
     setTabIndex(newValue);
   };
+
+  if (loading) {
+    return (
+      <div className="w-full h-screen flex justify-center items-center bg-black">
+        <img src={Loading} className=" object-contain bg-black" />
+      </div>
+    );
+  }
+  if (currentProduct === undefined) {
+    return <p className="h-screen">hello</p>;
+  }
 
   return (
     <div className="relative">
@@ -255,7 +290,7 @@ const Info = () => {
                           quantity: currentProduct.quantity + 1,
                         });
                       } else {
-                        undefined;
+                        dispatch(addAmount(currentProduct));
                       }
                     }}
                   >
@@ -270,7 +305,7 @@ const Info = () => {
                           quantity: currentProduct.quantity - 1,
                         });
                       } else {
-                        undefined;
+                        dispatch(removeAmount(currentProduct));
                       }
                     }}
                   >
@@ -279,13 +314,22 @@ const Info = () => {
                 </div>
               </div>
             </div>
-            <button className="search-bar text-sm h-8 w-32 bg-gradient-to-r from-blue to-second-color text-white">
-              Add to cart
+            <button
+              className={`search-bar text-sm h-8 w-32   ${
+                currentProduct.stock
+                  ? "text-white bg-gradient-to-r from-blue to-second-color"
+                  : "text-gray-300 cursor-not-allowed pointer-events-none border-2 border-gray-400"
+              }`}
+              onClick={() => {
+                dispatch(addToCart(currentProduct));
+              }}
+            >
+              {currentProduct.stock ? " Add to cart" : "Not Exist"}
             </button>
           </div>
           <div className="sm:grid sm:grid-cols-8 sm:gap-3">
             <div className="sm:col-span-1 hidden  h-[30.5rem] sm:flex flex-col gap-3 ">
-              <div className="h-64 overflow-hidden ">
+              <div className="h-72 overflow-hidden ">
                 <Swiper
                   slidesPerView={"1"}
                   ref={smSwiperRef}
@@ -339,7 +383,15 @@ const Info = () => {
                 </button>
               </div>
             </div>
-            <div className="relative h-[30.5rem] sm:col-span-7">
+            <div
+              className="relative h-[30.5rem] sm:col-span-7"
+              onMouseEnter={() => {
+                setIsInside(true);
+              }}
+              onMouseLeave={() => {
+                setIsInside(false);
+              }}
+            >
               <Swiper
                 slidesPerView={"1"}
                 ref={swiperRef}
@@ -363,7 +415,9 @@ const Info = () => {
                         />
 
                         <button
-                          className="text-white cursor-pointer pointer-events-auto w-20 search-bar h-12 bg-gradient-to-r from-blue absolute to-second-color"
+                          className={`${
+                            isInside ? "block" : "hidden"
+                          } text-white  cursor-pointer pointer-events-auto w-20 search-bar h-12 bg-gradient-to-r from-blue absolute to-second-color`}
                           onClick={() => {
                             setIsModalOpen(true);
                           }}
@@ -398,8 +452,8 @@ const Info = () => {
       <div className="bg-white p-5  text-black font-first-font">
         <div className="w-full max-w-7xl mx-auto mt-8">
           <Tabs value={tabIndex} onChange={handleChange}>
-            <Tab label="Reviews" />
-            <Tab label="Description" />
+            <Tab label="Reviews" sx={{ fontFamily: "Outfit" }} />
+            <Tab label="Description" sx={{ fontFamily: "Outfit" }} />
           </Tabs>
           <div className="">
             {tabIndex === 1 ? (

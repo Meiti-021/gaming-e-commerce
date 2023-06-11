@@ -4,14 +4,14 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from "@mui/icons-material/Delete";
 const CartItem = ({ id, name, price, quantity, images, options, option }) => {
   return (
-    <div className="p-3 border-1 font-first-font border-border-color w-full flex gap-2">
+    <div className="p-3 border-1 h-36 font-first-font border-border-color w-full flex gap-2">
       <img
         src={`/assets/products/${images[option]}`}
         alt=""
-        className="w-2/6 h-full p-2 object-contain object-center"
+        className="w-20 h-full p-2 object-contain object-center"
       />
       <div className="w-4/6 flex flex-col justify-between gap-1">
-        <p className="text-base  overflow-hidden text-ellipsis whitespace-nowrap">
+        <p className="text-lg  overflow-hidden text-ellipsis whitespace-nowrap">
           {name}
         </p>
         <p className="text-sm">

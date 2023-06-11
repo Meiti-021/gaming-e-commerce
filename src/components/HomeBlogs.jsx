@@ -2,18 +2,18 @@ import { Link } from "react-router-dom";
 import { SportsEsportsOutlined } from "@mui/icons-material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
-import { useSelector } from "react-redux";
+
 import BlogPostItem from "./BlogPostItem";
 import { useMediaQuery } from "@mui/material";
 import { useRef } from "react";
 import "swiper/css/autoplay";
+import { blogs } from "../features/Blogs";
 const HomeBlogs = () => {
   const xs = useMediaQuery("(min-width:575px)");
   const md = useMediaQuery("(min-width:768px)");
   const lg = useMediaQuery("(min-width:1024px)");
   const swiper1 = useRef(null);
   const swiper2 = useRef(null);
-  const { blogs } = useSelector((store) => store.blog);
   return (
     <div className="bg-black mt-10 pb-16">
       <div className="w-full max-w-7xl p-5 mt-8 mx-auto">

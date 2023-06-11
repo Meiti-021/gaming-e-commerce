@@ -1,6 +1,7 @@
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const HomeCategoriesProduct = ({
   type,
   name,
@@ -88,15 +89,16 @@ const HomeCategoriesProduct = ({
             <sup className="text-xs">USD</sup>
           </p>
         </div>
-        <button
-          className={`search-bar text-sm pt-[0.15rem] w-36 h-9  bg-gradient-to-r from-blue to-second-color font-first-font ${
+        <Link
+          to={`/product/${id}`}
+          className={`search-bar flex justify-center items-center text-sm pt-[0.15rem] w-36 h-9  bg-gradient-to-r from-blue to-second-color font-first-font ${
             stock
               ? "cursor-pointer text-white"
               : "cursor-not-allowed text-gray-700"
           }`}
         >
           {stock ? "Add To Cart" : "Sold Out"}
-        </button>
+        </Link>
       </div>
     </div>
   );
