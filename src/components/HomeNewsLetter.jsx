@@ -1,5 +1,9 @@
+import { useState } from "react";
 import image from "../assets/images/subscribe-img.png";
+import { useSnackbar } from "notistack";
 const HomeNewsLetter = () => {
+  const { enqueueSnackbar } = useSnackbar();
+  const [email, setEmail] = useState("");
   return (
     <div className="w-full p-5 gap-5 lg:gap-7 max-w-7xl flex md:flex-row-reverse md:items-center flex-col mt-7 h-[35rem] mx-auto">
       <img
@@ -26,10 +30,32 @@ const HomeNewsLetter = () => {
             type="email"
             name=""
             id=""
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
             placeholder="Enter enail address.."
             className="w-5/6 h-2/4 lg:w-4/6  text-xs p-4 font-first-font border-none focus:outline-none "
           />
-          <button className="w-1/4 lg:w-2/6 h-full text-white font-semibold font-first-font text-sm bg-gradient-to-r from-blue to-second-color ">
+          <button
+            className="w-1/4 lg:w-2/6 h-full text-white font-semibold font-first-font text-sm bg-gradient-to-r from-blue to-second-color "
+            onClick={() => {
+              if (email !== "") {
+                enqueueSnackbar({
+                  variant: "success",
+                  message: "You have seccessfully subscribed to out newsletter",
+                  className: "capitalize font-first-font",
+                });
+              } else {
+                enqueueSnackbar({
+                  variant: "error",
+                  message:
+                    "The email section is empty or your email format is incorrect!",
+                  className: "capitalize font-first-font",
+                });
+              }
+            }}
+          >
             Subscribe
           </button>
         </div>

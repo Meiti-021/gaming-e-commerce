@@ -2,7 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { FreeMode, Navigation } from "swiper";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper";
 import logo from "../assets/images/client-logo.png";
 import ArrowCircleRightRoundedIcon from "@mui/icons-material/ArrowCircleRightRounded";
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
@@ -25,7 +26,8 @@ const HomeBrandSwiper = () => {
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode, Navigation]}
+          autoplay={true}
+          modules={[Autoplay]}
           loop={true}
           className="w-full py-10 h-full "
         >

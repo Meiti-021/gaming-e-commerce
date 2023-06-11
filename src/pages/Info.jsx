@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { enqueueSnackbar } from "notistack";
 import {
   ExpandLessTwoTone,
   ExpandMoreTwoTone,
@@ -12,6 +13,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SearchIcon from "@mui/icons-material/Search";
@@ -28,7 +30,13 @@ import banner7 from "../assets/images/banner-7.jpg";
 import banner8 from "../assets/images/banner-8.jpg";
 import banner9 from "../assets/images/banner-9.jpg";
 import HomeBestProGamingProducts from "../components/HomeBestProGamingProducts";
-import { addToCart, addAmount, removeAmount } from "../features/cartSlice";
+import {
+  addToCart,
+  addAmount,
+  removeAmount,
+  addToWishList,
+  removeWhisItem,
+} from "../features/cartSlice";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Loading from "../assets/images/loading.gif";
@@ -43,22 +51,25 @@ const banners = [
   banner8,
   banner9,
 ];
+import { useNavigate } from "react-router-dom";
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
 });
 
 const Info = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [loading, setLoading] = useState(false);
   const productID = useParams();
   const [form, setForm] = useState({ name: "", message: "", rate: null });
-  const { products, cartItems } = useSelector((store) => store.cart);
+  const { products, cartItems, wishList } = useSelector((store) => store.cart);
   const [currentProduct, setCurrentProduct] = useState(undefined);
   const [isOpen, setIsOpen] = useState(false);
   const [isInside, setIsInside] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
+  const [exist, setExist] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
   const [swiperIndex, setSwiperIndex] = useState(0);
   const swiperRef = useRef(null);
@@ -72,6 +83,13 @@ const Info = () => {
       setLoading(false);
     }, 1000);
   }, [location]);
+
+  useEffect(() => {
+    wishList.find((item) => item.id === productID.id)
+      ? setExist(true)
+      : setExist(false);
+  }, [productID.id, wishList]);
+
   useEffect(() => {
     if (
       swiperRef.current == null &&
@@ -194,7 +212,12 @@ const Info = () => {
       <div className="bg-black h-20 sm:h-40"></div>
       <div className="w-full bg-black py-14">
         <div className="flex max-w-7xl items-center p-5 bg-black gap-2 w-full mx-auto ">
-          <button className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white">
+          <button
+            className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
             &#8592;
           </button>
           <p className="text-white text-xs font-semibold">Back to categories</p>
@@ -205,8 +228,41 @@ const Info = () => {
               <div className="w-auto h-6 mr-3 bg-gradient-to-r from-blue to-second-color text-xs p-2 px-3 font-first-font rounded-[0.25rem] text-white pt-[0.3rem]">
                 {currentProduct.type}
               </div>
-              <FavoriteBorderOutlined />
-              <p className="text-sm">Add to wishlist</p>
+              <button
+                onClick={() => {
+                  if (exist) {
+                    dispatch(removeWhisItem(productID.id));
+                    setExist(false);
+                    enqueueSnackbar({
+                      variant: "info",
+                      message: "Item seccesfuly removed from your wishlist!",
+                      className: "font-first-font",
+                    });
+                  } else {
+                    dispatch(addToWishList(currentProduct));
+                    setExist(true);
+                    enqueueSnackbar({
+                      variant: "info",
+                      message: "Item seccesfuly added to your wishlist!",
+                      className: "font-first-font",
+                    });
+                  }
+                }}
+              >
+                {exist ? (
+                  <FavoriteIcon style={{ color: "red" }} />
+                ) : (
+                  <FavoriteBorderOutlined />
+                )}
+              </button>
+              <p
+                className="text-sm cursor-pointer"
+                onClick={() => {
+                  dispatch(addToWishList(currentProduct));
+                }}
+              >
+                Add to wishlist
+              </p>
             </div>
             <div className="flex gap-2">
               <Rating
@@ -215,6 +271,11 @@ const Info = () => {
                 readOnly
                 size="small"
                 sx={{ color: "white", fontSize: "1.3rem" }}
+                emptyIcon={
+                  <StarBorderIcon
+                    style={{ fontSize: "inherit", color: "white" }}
+                  />
+                }
               />
               <p>({currentProduct.seller})</p>
               <button className="text-sm flex items-center gap-1">
@@ -223,8 +284,8 @@ const Info = () => {
               </button>
             </div>
             <h1 className="text-3xl font-semibold">{currentProduct.name}</h1>
-            <p className="text-sm text-gray-400 flex gap-4">
-              <span>TYPE: {currentProduct.type}</span>
+            <p className="text-sm text-gray-400 flex gap-4 uppercase">
+              <span>BRAND: {currentProduct.brand}</span>
               <span>SKU: {currentProduct.sku}</span>
             </p>
             <p className="text-sm text-gray-400">
@@ -322,6 +383,19 @@ const Info = () => {
               }`}
               onClick={() => {
                 dispatch(addToCart(currentProduct));
+                if (cartItems.find((item) => item.id === currentProduct.id)) {
+                  enqueueSnackbar({
+                    variant: "error",
+                    message: "This product is already exist in your cart!",
+                    className: "capitalize font-first-font",
+                  });
+                } else {
+                  enqueueSnackbar({
+                    variant: "success",
+                    message: "Product seccessfuly added to your cart!",
+                    className: "capitalize font-first-font",
+                  });
+                }
               }}
             >
               {currentProduct.stock ? " Add to cart" : "Not Exist"}
@@ -512,7 +586,17 @@ const Info = () => {
                   })}
                 </div>
                 <div className="w-full h-full relative">
-                  <form className="border-1 sticky top-14 search-bar pt-5 border-border-color max-w-md flex flex-col gap-4 p-3">
+                  <form
+                    className="border-1 sticky top-14 search-bar pt-5 border-border-color max-w-md flex flex-col gap-4 p-3"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      enqueueSnackbar({
+                        variant: "error",
+                        message:
+                          "Sorry! You can't leave a comment until you're logged into your account.Please log-in first!",
+                      });
+                    }}
+                  >
                     <p className="text-2xl font-semibold flex justify-between items-center">
                       Write a Review
                       <Rating
@@ -561,7 +645,6 @@ const Info = () => {
                     <p className="text-xs text-red-500 px-3 w-full hidden">
                       alert!
                     </p>
-
                     <button className="w-full h-12 search-bar text-white font-semibold bg-gradient-to-r from-blue to-second-color">
                       Post Review
                     </button>

@@ -1,7 +1,15 @@
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
-import { useState } from "react";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { enqueueSnackbar } from "notistack";
+import { addToWishList, removeWhisItem } from "../features/cartSlice";
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 const HomeCategoriesProduct = ({
   type,
   name,
@@ -9,11 +17,17 @@ const HomeCategoriesProduct = ({
   options,
   id,
   price,
-  stock,
   light,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [option, setOption] = useState(0);
+  const { wishList, products } = useSelector((store) => store.cart);
+  const product = products.find((item) => item.id === id);
+  const [exist, setExist] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    wishList.find((item) => item.id === id) && setExist(true);
+  }, [id, wishList]);
   return (
     <div
       className={`h-full w-full ${
@@ -26,7 +40,33 @@ const HomeCategoriesProduct = ({
         <div className="w-auto h-6 bg-gradient-to-r from-blue to-white text-xs p-2 px-3 font-first-font rounded-[0.25rem] text-white pt-[0.3rem]">
           {type}
         </div>
-        <FavoriteBorderOutlined />
+        <button
+          onClick={() => {
+            if (exist) {
+              dispatch(removeWhisItem(product.id));
+              setExist(false);
+              enqueueSnackbar({
+                variant: "info",
+                message: "Item seccesfuly removed from your wishlist!",
+                className: "font-first-font",
+              });
+            } else {
+              dispatch(addToWishList(product));
+              setExist(true);
+              enqueueSnackbar({
+                variant: "info",
+                message: "Item seccesfuly added to your wishlist!",
+                className: "font-first-font z-20",
+              });
+            }
+          }}
+        >
+          {exist ? (
+            <FavoriteIcon style={{ color: "red" }} />
+          ) : (
+            <FavoriteBorderOutlined style={{ color: "gray" }} />
+          )}
+        </button>
       </div>
       <p
         className={`text-2xl h-14 xs:h-10 ${
@@ -80,7 +120,7 @@ const HomeCategoriesProduct = ({
       <div className="h-14 md:h-24  mt-3 flex md:flex-col justify-between p-3 items-center">
         <div className="flex flex-col gap-1">
           <p className="text-lg font-semibold">
-            {price}.00 <sup className="text-xs">USD</sup>
+            {formatter.format(price)} <sup className="text-xs">USD</sup>
           </p>
           <p className="text-sm md:hidden font-semibold text-gray-600">
             <span className="line-through">
@@ -91,13 +131,9 @@ const HomeCategoriesProduct = ({
         </div>
         <Link
           to={`/product/${id}`}
-          className={`search-bar flex justify-center items-center text-sm pt-[0.15rem] w-36 h-9  bg-gradient-to-r from-blue to-second-color font-first-font ${
-            stock
-              ? "cursor-pointer text-white"
-              : "cursor-not-allowed text-gray-700"
-          }`}
+          className={`search-bar flex justify-center items-center text-sm pt-[0.15rem] w-36 h-9 text-white bg-gradient-to-r from-blue to-second-color font-first-font`}
         >
-          {stock ? "Add To Cart" : "Sold Out"}
+          View More
         </Link>
       </div>
     </div>

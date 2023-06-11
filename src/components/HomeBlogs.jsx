@@ -31,8 +31,8 @@ const HomeBlogs = () => {
             constituting a Gaming Business.
           </p>
           <Link
-            to=""
-            className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center items-center p-2 gap-2 border-[1px] search-bar border-[rgba(255,255,255,0.6)] text-xs font-first-font text-[rgba(255,255,255,0.6)] transition-all"
+            to="/blog"
+            className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center items-center p-2 gap-2 border-[1px] search-bar border-[rgba(255,255,255,0.6)] text-xs font-first-font text-[rgba(255,255,255,0.6)] transition-all hover:text-white hover:border-none hover:bg-gradient-to-r hover:from-blue hover:to-second-color"
           >
             Show More
             <SportsEsportsOutlined />

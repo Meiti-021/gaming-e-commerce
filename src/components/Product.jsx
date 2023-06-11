@@ -1,7 +1,8 @@
 import { ExpandMoreTwoTone } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-const Product = ({ type, name, images, options, id, price, stock }) => {
+import { Link } from "react-router-dom";
+const Product = ({ type, name, images, options, id, price }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [option, setOption] = useState(0);
   useEffect(() => {
@@ -68,15 +69,12 @@ const Product = ({ type, name, images, options, id, price, stock }) => {
             <sup className="text-xs">USD</sup>
           </p>
         </div>
-        <button
-          className={`search-bar text-sm pt-[0.15rem] w-32 h-9  bg-gradient-to-r from-blue to-second-color font-first-font ${
-            stock
-              ? "cursor-pointer text-white"
-              : "cursor-not-allowed text-gray-700"
-          }`}
+        <Link
+          to={`/product/${id}`}
+          className={`search-bar flex justify-center items-center text-white text-sm pt-[0.15rem] w-32 h-9  bg-gradient-to-r from-blue to-second-color font-first-font `}
         >
-          {stock ? "Add To Cart" : "Sold Out"}
-        </button>
+          View More
+        </Link>
       </div>
     </div>
   );

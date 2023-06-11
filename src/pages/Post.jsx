@@ -6,7 +6,10 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import BlogPostItem from "../components/BlogPostItem";
 import { useParams } from "react-router-dom";
 import { blogs } from "../features/Blogs";
+import { useNavigate } from "react-router-dom";
+import { enqueueSnackbar } from "notistack";
 const Post = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [data] = useState(blogs.find((item) => item.id === id));
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -14,7 +17,12 @@ const Post = () => {
     return (
       <div className="py-40 px-5 font-first-font">
         <div className="flex items-center gap-2 mb-5">
-          <button className=" w-9 h-9 rounded-full border-1 text-black text-lg pb-[0.1rem] border-black">
+          <button
+            className=" w-9 h-9 rounded-full border-1 text-black text-lg pb-[0.1rem] border-black"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
             &#8592;
           </button>
           <p className="text-black text-xs font-semibold">Back to home</p>
@@ -29,7 +37,12 @@ const Post = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.6)]"></div>
         <div className="w-full  mt-56 h-80 md:h-72 z-10 relative flex-col justify-end pb-10 flex gap-7 max-w-7xl mx-auto ">
           <div className="flex items-center gap-2">
-            <button className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white">
+            <button
+              className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               &#8592;
             </button>
             <p className="text-white text-xs font-semibold">Back to home</p>
@@ -115,7 +128,17 @@ const Post = () => {
                 );
               })}
             </div>
-            <form className="border-1 search-bar pt-5 border-border-color flex flex-col gap-4 p-3">
+            <form
+              className="border-1 search-bar pt-5 border-border-color flex flex-col gap-4 p-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                enqueueSnackbar({
+                  variant: "error",
+                  message:
+                    "Sorry! You can't leave a comment until you're logged into your account. Please Login first.",
+                });
+              }}
+            >
               <p className="text-2xl font-semibold">Leave a Comment</p>
               <input
                 type="text"

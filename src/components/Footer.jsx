@@ -31,16 +31,16 @@ const Footer = () => {
               <Link>Search</Link>
             </li>
             <li>
-              <Link>All Collections</Link>
+              <Link to="/collections/all">All Collections</Link>
             </li>
             <li>
-              <Link>All Products</Link>
+              <Link to="/collections/all">All Products</Link>
             </li>
             <li>
-              <Link>Article Page</Link>
+              <Link to="/blog">Article Page</Link>
             </li>
             <li>
-              <Link>Blog Page</Link>
+              <Link to="/blog">Blog Page</Link>
             </li>
           </ul>
         </div>
@@ -48,19 +48,22 @@ const Footer = () => {
           <p className="text-base mt-10  uppercase font-semibold">About Us::</p>
           <ul className="text-sm flex flex-col gap-2">
             <li>
-              <Link>About Us</Link>
+              <Link to="/about">About Us</Link>
             </li>
             <li>
-              <Link>Contact With Us</Link>
+              <Link to="/contact">Contact With Us</Link>
             </li>
             <li>
-              <Link>FAQ&#39;s</Link>
+              <Link to="/faqs">FAQ&#39;s</Link>
             </li>
             <li>
-              <Link>Privacy & Policy</Link>
+              <Link to="/pages/privacy-policy">Privacy & Policy</Link>
             </li>
             <li>
-              <Link>Terms & Conditions</Link>
+              <Link to="/pages/terms-conditions">Terms & Conditions</Link>
+            </li>
+            <li>
+              <Link to="/pages/shiping-delivery">Shipping & Delivery</Link>
             </li>
           </ul>
         </div>

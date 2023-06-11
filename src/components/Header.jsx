@@ -12,6 +12,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useEffect, useState, useRef } from "react";
 import CartSideBar from "./CartSideBar";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 const pages = [
   {
     title: "About US",
@@ -64,6 +65,7 @@ const sideNavOpt = {
   blog: false,
 };
 const Header = () => {
+  const location = useLocation();
   const [sideMenu, setSideMenu] = useState(sideNavOpt);
   const [menu, setMenu] = useState(false);
   const [otherMenus, SetOtherMenus] = useState({
@@ -74,8 +76,12 @@ const Header = () => {
   const [sidenav, setSideNav] = useState(false);
   const [isTop, setTop] = useState(true);
   const [open, setOpen] = useState(false);
-  const { cartItems } = useSelector((store) => store.cart);
+  const { cartItems, wishList } = useSelector((store) => store.cart);
   const headerRef = useRef(null);
+  useEffect(() => {
+    setOpen(false);
+    setSideNav(false);
+  }, [location]);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (headerRef.current.getBoundingClientRect().top < 40) {
@@ -87,29 +93,42 @@ const Header = () => {
   }, []);
   return (
     <>
-      <div className="h-auto z-50 fixed w-full  ">
-        <div className="absolute w-full h-full -z-10 "></div>
-        <div className="md:hidden w-full h-14 p-3 flex items-center justify-between bg-black ">
-          <img src={logo} alt="logo" className="h-7 object-contain" />
+      <div className="h-auto z-50 fixed w-full">
+        <div className="absolute w-full h-full -z-10"></div>
+        <div className="md:hidden w-full h-14 p-3  flex items-center justify-between bg-black ">
+          <Link to="/" className="block">
+            <img src={logo} alt="logo" className="h-7 object-contain" />
+          </Link>
           <div className="flex text-white  gap-4 items-center">
             <Link>
               <SearchOutlinedIcon style={{ fontSize: "22px" }} />
             </Link>
-            <Link>
+            <Link to="login">
               <AccountCircleOutlinedIcon style={{ fontSize: "22px" }} />
             </Link>
-            <Link className="relative">
-              <div className="absolute w-4 h-4 rounded-full -top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1">
-                3
+            <Link
+              to="/wishlist"
+              className="relative flex justify-center items-center"
+            >
+              <div
+                className={`${
+                  wishList.length === 0 ? "hidden" : undefined
+                } absolute w-4 h-4 rounded-full -top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1`}
+              >
+                {wishList.length}
               </div>
               <FavoriteBorderOutlinedIcon style={{ fontSize: "22px" }} />
             </Link>
-            <Link className="relative">
-              <div className="absolute w-4 h-4 rounded-full -top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1">
-                3
+            <button className="relative" onClick={() => setOpen(!open)}>
+              <div
+                className={`${
+                  cartItems.length === 0 && "hidden"
+                } absolute w-4 h-4 rounded-full -top-1 -right-2 flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1`}
+              >
+                {cartItems.length}
               </div>
               <LocalMallOutlinedIcon style={{ fontSize: "22px" }} />
-            </Link>
+            </button>
 
             <button
               onClick={() => {
@@ -127,12 +146,15 @@ const Header = () => {
         >
           <div
             aria-label="mid-header"
-            className={`flex justify-between transition-all duration-200 items-center p-4 w-full  mx-auto max-w-7xl ${
+            className={`flex justify-between transition-all duration-200 items-center  w-full  mx-auto max-w-7xl ${
               isTop ? "h-20" : "h-14"
             }`}
           >
             <nav className="flex gap-4 items-center">
-              <img src={logo} className="object-contain lg:hidden" alt="" />
+              <Link to="/" className="block">
+                <img src={logo} className="object-contain lg:hidden" alt="" />
+              </Link>
+
               <ul className="list-none list-outside flex gap-4 items-center">
                 <li
                   className="relative font-first-font flex  font-semibold text-white  cursor-pointer nav-item"
@@ -248,11 +270,13 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-            <img
-              src={logo}
-              className="object-contain hidden lg:block  "
-              alt=""
-            />
+            <Link className="block" to="/">
+              <img
+                src={logo}
+                className="object-contain hidden lg:block  "
+                alt=""
+              />
+            </Link>
             <div className="flex gap-4 text-white ">
               <button
                 className="nav-item relative"
@@ -295,12 +319,19 @@ const Header = () => {
                   </div>
                 </div>
               </button>
-              <button className="relative">
+              <Link
+                to="/wishlist"
+                className="relative flex justify-center items-center"
+              >
                 <FavoriteBorderOutlinedIcon />
-                <div className="absolute w-5 h-5 rounded-full top-[0.22rem] -right-[0.7rem] flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1">
-                  3
+                <div
+                  className={`${
+                    wishList.length === 0 ? "hidden" : undefined
+                  } absolute w-5 h-5 rounded-full top-[0.22rem] -right-[0.7rem] flex justify-center items-center bg-gradient-to-r from-second-color to-blue font-first-font text-[0.7rem] pt-1`}
+                >
+                  {wishList.length}
                 </div>
-              </button>
+              </Link>
               <p className="font-first-font font-semibold text-sm text-right">
                 My Cart:
                 <br /> 0.000 USD

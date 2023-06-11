@@ -21,7 +21,10 @@ const HomeBestSellers = () => {
         className="absolute -top-32 z-0 right-0 left-0 mx-auto"
       />
       <div className="flex-col relative  w-full z-40">
-        <SectionHeader title="Bestsellers of the week" address="" />
+        <SectionHeader
+          title="Bestsellers of the week"
+          address="/collections/all"
+        />
         <div className="">
           <Swiper
             slidesPerView={"auto"}

@@ -2,7 +2,11 @@ import PropTypes from "prop-types";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useDispatch } from "react-redux";
+import { removeItem } from "../features/cartSlice";
+import { enqueueSnackbar } from "notistack";
 const CartItem = ({ id, name, price, quantity, images, options, option }) => {
+  const dispatch = useDispatch();
   return (
     <div className="p-3 border-1 h-36 font-first-font border-border-color w-full flex gap-2">
       <img
@@ -30,7 +34,17 @@ const CartItem = ({ id, name, price, quantity, images, options, option }) => {
               <RemoveIcon style={{ fontSize: "1rem", color: "gray" }} />
             </button>
           </div>
-          <button className="text-gray-400">
+          <button
+            className="text-gray-400"
+            onClick={() => {
+              dispatch(removeItem(id));
+              enqueueSnackbar({
+                variant: "info",
+                message: "Item seccessfully removed from your cart !",
+                className: "capitalize font-first-font",
+              });
+            }}
+          >
             <DeleteIcon />
           </button>
         </div>
@@ -39,7 +53,7 @@ const CartItem = ({ id, name, price, quantity, images, options, option }) => {
   );
 };
 
-CartItem.proptypes = {
+CartItem.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,

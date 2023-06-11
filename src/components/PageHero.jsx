@@ -1,5 +1,8 @@
 import Proptypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+
 const PageHero = ({ title, subtitle, className = "h-72 pb-10" }) => {
+  const navigate = useNavigate();
   return (
     <div className={`bg-black p-10 font-first-font`}>
       <div className="w-full h-40 bg-black "></div>
@@ -7,7 +10,12 @@ const PageHero = ({ title, subtitle, className = "h-72 pb-10" }) => {
         className={`w-full sm:px-5  bg-black flex-col justify-end  flex gap-7 max-w-7xl mx-auto ${className}`}
       >
         <div className="flex items-center gap-2">
-          <button className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white">
+          <button
+            className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
             &#8592;
           </button>
           <p className="text-white text-xs font-semibold">Back to home</p>

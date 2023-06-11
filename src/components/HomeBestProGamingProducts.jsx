@@ -31,8 +31,8 @@ const HomeBestProGamingProducts = () => {
             constituting a Gaming Business.
           </p>
           <Link
-            to="#"
-            className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center items-center p-2 gap-2 border-[1px] search-bar border-gray-500 text-xs font-first-font text-gray-500 transition-all"
+            to="/collections/all"
+            className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center items-center p-2 gap-2 border-[1px] search-bar border-gray-500 text-xs font-first-font text-gray-500 transition-all hover:text-white hover:border-none hover:bg-gradient-to-r hover:from-blue hover:to-second-color"
           >
             Show More
             <SportsEsportsOutlined />

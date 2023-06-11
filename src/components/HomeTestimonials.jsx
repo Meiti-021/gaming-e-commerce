@@ -2,7 +2,7 @@ import { SportsEsportsOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
-import { Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import ArrowCircleRightRoundedIcon from "@mui/icons-material/ArrowCircleRightRounded";
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
 import { useSelector } from "react-redux";
@@ -25,8 +25,8 @@ const HomeTestimonials = () => {
             game controller.
           </p>
           <Link
-            to="#"
-            className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center items-center p-2 gap-2 border-[1px] search-bar border-gray-500 text-xs font-first-font text-gray-500 transition-all"
+            to="collections/all"
+            className="flex h-10 xs:h-12 w-36 xs:w-44 justify-center hover:text-white hover:border-none hover:bg-gradient-to-r hover:from-blue hover:to-second-color items-center p-2 gap-2 border-[1px] search-bar border-gray-500 text-xs font-first-font text-gray-500 transition-all"
           >
             Show More
             <SportsEsportsOutlined />
@@ -37,7 +37,10 @@ const HomeTestimonials = () => {
             slidesPerView={lg ? "2" : "1"}
             spaceBetween={30}
             ref={swiperRef}
-            modules={[Navigation]}
+            autoplay={{
+              delay: 5000,
+            }}
+            modules={[Navigation, Autoplay]}
             loop={true}
             className="w-full py-10 h-full "
           >

@@ -101,7 +101,10 @@ const HomeBestGaming = () => {
               );
             })}
           </div>
-          <Link className="uppercase underline font-first-font text-sm text-center text-gray-500">
+          <Link
+            to={"/collections/all"}
+            className="uppercase underline font-first-font text-sm text-center text-gray-500"
+          >
             show more categories
           </Link>
         </div>

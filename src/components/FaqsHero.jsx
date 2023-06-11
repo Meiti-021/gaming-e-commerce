@@ -1,10 +1,17 @@
+import { useNavigate } from "react-router-dom";
 const FaqsHero = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black p-10 font-first-font">
       <div className="w-full h-40 bg-black "></div>
       <div className="w-full h-72 bg-black flex-col justify-end pb-10 flex gap-7 max-w-7xl mx-auto ">
         <div className="flex items-center gap-2">
-          <button className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white">
+          <button
+            className=" w-9 h-9 rounded-full border-1 text-white text-lg pb-[0.1rem] border-white"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
             &#8592;
           </button>
           <p className="text-white text-xs font-semibold">Back to home</p>

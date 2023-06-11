@@ -25,18 +25,18 @@ const AboutBody = () => {
   return (
     <div className="w-full h-auto p-5 bg-black font-first-font">
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-10">
-        <h2 className="text-white text-3xl sm:text-4xl text-center  font-semibold">
+        <h2 className="text-white text-3xl sm:text-4xl text-center  font-semibold ">
           A Passionate Front-End Web Developer from Tabriz, Iran
         </h2>
         <div className=" md:grid md:grid-cols-2 gap-10">
-          <p className="text-sm text-gray-400 w-full">
+          <p className="text-sm text-gray-400 w-full text-justify">
             Greetings! I am thrilled to introduce myself as a front-end web
             developer hailing from the enchanting city of Tabriz, nestled in the
             heart of Iran. With a deep passion for technology, gaming, and web
             development, I have embarked on an exciting journey in creating
             cutting-edge gaming accessories.
           </p>
-          <p className="text-sm text-gray-400 w-full mt-2 md:mt-0">
+          <p className="text-sm text-gray-400 w-full mt-2 md:mt-0 text-justify">
             Since my early years, I have been captivated by the world of gaming.
             The immersive experiences, the adrenaline rush, and the power of
             virtual realms have always fascinated me. This passion, combined

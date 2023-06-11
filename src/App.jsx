@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Collections from "./pages/Collections";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Faqs from "./pages/Faqs";
@@ -20,6 +20,7 @@ import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import ScrollToTop from "./components/ScrollToTop";
+import WishList from "./pages/WishList";
 
 function App() {
   useEffect(() => {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/product/:id" element={<Info />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<WishList />} />
         </Routes>
         <Footer />
       </Router>

@@ -8,6 +8,7 @@ import circle4 from "../assets/images/round-img-small.png";
 import circle5 from "../assets/images/full-bluthooth.png";
 import herostar from "../assets/images/top-star.png";
 import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
+import { Link } from "react-router-dom";
 const HomeHero = () => {
   return (
     <div className="relative">
@@ -80,18 +81,24 @@ const HomeHero = () => {
                 and much more.
               </p>
               <div className="flex gap-3 h-10 w-72 transition-all xs:w-[26rem] xs:h-[3rem]">
-                <button className="w-1/2 transition-all  h-full search-bar  bg-gradient-to-r from-blue to-second-color text-xs font-first-font text-white ">
+                <Link
+                  to={"/collections/all"}
+                  className="w-1/2 transition-all flex justify-center items-center  h-full search-bar  bg-gradient-to-r from-blue to-second-color  text-white   text-xs  font-first-font "
+                >
                   Show products
                   <SportsEsportsOutlinedIcon
                     style={{ fontSize: "20px", marginLeft: "2px" }}
                   />
-                </button>
-                <button className="w-1/2 transition-all  h-full search-bar border-[1px] border-[rgba(255,255,255,0.4)] text-xs font-first-font text-[rgba(255,255,255,0.4)]">
+                </Link>
+                <Link
+                  to={"/collections/all"}
+                  className="w-1/2 transition-all flex justify-center items-center h-full search-bar border-[1px] border-[rgba(255,255,255,0.4)] text-xs font-first-font text-[rgba(255,255,255,0.4)] hover:text-white hover:border-blue hover:bg-gradient-to-r hover:from-blue hover:to-second-color"
+                >
                   Show Collections
                   <SportsEsportsOutlinedIcon
                     style={{ fontSize: "20px", marginLeft: "2px" }}
                   />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

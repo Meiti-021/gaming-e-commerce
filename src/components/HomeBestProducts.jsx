@@ -5,10 +5,25 @@ import circle1 from "../assets/images/design-circle-3.png";
 import circle2 from "../assets/images/gaming-products.png";
 import circle3 from "../assets/images/gaming-products-1.png";
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useDispatch, useSelector } from "react-redux";
+import { enqueueSnackbar } from "notistack";
+import { addToWishList, removeWhisItem } from "../features/cartSlice";
 const HomeBestProducts = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [option, setOption] = useState(0);
+  const { wishList, products } = useSelector((store) => store.cart);
+  const product = products.find(
+    (item) => item.id === "kd-dmtr-gaming-desktop-pc"
+  );
+  const [exist, setExist] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    wishList.find((item) => item.id === "kd-dmtr-gaming-desktop-pc") &&
+      setExist(true);
+  }, [wishList]);
   return (
     <div className="h-auto  py-5 bg-black relative mt-10">
       <div className="absolute w-full h-full ">
@@ -29,7 +44,10 @@ const HomeBestProducts = () => {
         />
       </div>
 
-      <SectionHeader title="Best Pro Gaming Products" address="" />
+      <SectionHeader
+        title="Best Pro Gaming Products"
+        address="/collections/GamePCs"
+      />
       <div className="w-full -mt-10 lg:-mt-40 relative z-10 p-3 h-[60rem] flex flex-col gap-5 md:flex-row md:items-center justify-between">
         <img
           src={cpu}
@@ -46,8 +64,32 @@ const HomeBestProducts = () => {
               <div className="h-[1.3rem] bg-gradient-to-r from-blue to-dark-blue text-xs flex justify-between items-center p-[0.8rem] pt-[0.9rem] rounded-md min-w-[4rem] text-white ">
                 GamePCs
               </div>
-              <button className="h-full">
-                <FavoriteBorderOutlined style={{ color: "white" }} />
+              <button
+                onClick={() => {
+                  if (exist) {
+                    dispatch(removeWhisItem(product.id));
+                    setExist(false);
+                    enqueueSnackbar({
+                      variant: "info",
+                      message: "Item seccesfuly removed from your wishlist!",
+                      className: "font-first-font",
+                    });
+                  } else {
+                    dispatch(addToWishList(product));
+                    setExist(true);
+                    enqueueSnackbar({
+                      variant: "info",
+                      message: "Item seccesfuly added to your wishlist!",
+                      className: "font-first-font",
+                    });
+                  }
+                }}
+              >
+                {exist ? (
+                  <FavoriteIcon style={{ color: "red" }} />
+                ) : (
+                  <FavoriteBorderOutlined style={{ color: "white" }} />
+                )}
               </button>
             </div>
             <p className="text-[1.35rem] text-white font-semibold my-4">
@@ -104,14 +146,12 @@ const HomeBestProducts = () => {
                   865.00 <sup className="text-xs">USD</sup>
                 </p>
               </div>
-              <button
-                className={`search-bar text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font 
-                 
-                    "cursor-pointer text-white"
-                `}
+              <Link
+                to={"/product/kd-dmtr-gaming-desktop-pc"}
+                className={`search-bar flex justify-center cursor-pointer text-white  items-center text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font `}
               >
-                Add To Cart
-              </button>
+                View More
+              </Link>
             </div>
           </div>
         </div>

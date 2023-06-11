@@ -8,6 +8,7 @@ const BlogPostItem = ({
   date,
   light,
   describe,
+  id,
 }) => {
   return (
     <div className="font-first-font h-auto my-4">
@@ -37,7 +38,10 @@ const BlogPostItem = ({
           {describe}
         </p>
       ) : undefined}
-      <Link className="py-3  text-white bg-gradient-to-r from-blue to-second-color search-bar  text-xs font-semibold  mt-5 w-36 flex justify-center items-center pt-3">
+      <Link
+        to={`/blog/${id}`}
+        className="py-3  text-white bg-gradient-to-r from-blue to-second-color search-bar  text-xs font-semibold  mt-5 w-36 flex justify-center items-center pt-3"
+      >
         READ MORE
       </Link>
     </div>
@@ -46,6 +50,7 @@ const BlogPostItem = ({
 
 BlogPostItem.propTypes = {
   title: PropTypes.string,
+  id: PropTypes.string,
   categorie: PropTypes.string,
   image: PropTypes.string,
   author: PropTypes.string,

@@ -1,7 +1,16 @@
 /* eslint-disable react/prop-types */
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
-import { useState } from "react";
+import { enqueueSnackbar } from "notistack";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useDispatch, useSelector } from "react-redux";
+import { addToWishList, removeWhisItem } from "../features/cartSlice";
 const BestSellerSlider = ({
   isActive,
   type,
@@ -9,10 +18,17 @@ const BestSellerSlider = ({
   images,
   options,
   price,
-  stock,
+  id,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [option, setOption] = useState(0);
+  const { wishList, products } = useSelector((store) => store.cart);
+  const product = products.find((item) => item.id === id);
+  const [exist, setExist] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    wishList.find((item) => item.id === id) && setExist(true);
+  }, [id, wishList]);
   return (
     <div
       className={`w-full search-bar h-full ${
@@ -23,8 +39,32 @@ const BestSellerSlider = ({
         <div className="h-[1.3rem] bg-gradient-to-r from-blue to-dark-blue text-xs flex justify-between items-center p-[0.8rem] pt-[0.9rem] rounded-md min-w-[4rem] ">
           {type}
         </div>
-        <button className="h-full">
-          <FavoriteBorderOutlined />
+        <button
+          onClick={() => {
+            if (exist) {
+              dispatch(removeWhisItem(product.id));
+              setExist(false);
+              enqueueSnackbar({
+                variant: "info",
+                message: "Item seccesfuly removed from your wishlist!",
+                className: "font-first-font",
+              });
+            } else {
+              dispatch(addToWishList(product));
+              setExist(true);
+              enqueueSnackbar({
+                variant: "info",
+                message: "Item seccesfuly added to your wishlist!",
+                className: "font-first-font",
+              });
+            }
+          }}
+        >
+          {exist ? (
+            <FavoriteIcon style={{ color: "red" }} />
+          ) : (
+            <FavoriteBorderOutlined />
+          )}
         </button>
       </div>
       <p className="text-[1.35rem] font-semibold my-4">{name}</p>
@@ -72,7 +112,8 @@ const BestSellerSlider = ({
       <div className="h-14 mt-3 flex justify-between p-3 items-center">
         <div className="flex flex-col gap-1">
           <p className="text-lg font-semibold">
-            {price}.00 <sup className="text-xs">USD</sup>
+            {formatter.format(price)}
+            <sup className="text-xs">USD</sup>
           </p>
           <p className="text-sm font-semibold text-gray-600">
             <span className="line-through">
@@ -81,15 +122,12 @@ const BestSellerSlider = ({
             <sup className="text-xs">USD</sup>
           </p>
         </div>
-        <button
-          className={`search-bar text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font ${
-            stock
-              ? "cursor-pointer text-white"
-              : "cursor-not-allowed text-gray-700"
-          }`}
+        <Link
+          to={`/product/${id}`}
+          className="search-bar flex justify-center items-center text-sm pt-[0.15rem] w-36 h-9 bg-gradient-to-r from-blue to-second-color font-first-font"
         >
-          {stock ? "Add To Cart" : "Sold Out"}
-        </button>
+          View more
+        </Link>
       </div>
     </div>
   );
@@ -98,6 +136,7 @@ const BestSellerSlider = ({
 BestSellerSlider.propTypes = {
   isActive: PropTypes.bool,
   type: PropTypes.string,
+  id: PropTypes.string,
   name: PropTypes.string,
   images: PropTypes.array,
   options: PropTypes.array,

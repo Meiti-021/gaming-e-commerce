@@ -5,13 +5,21 @@ import { useState, useEffect } from "react";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, addAmount, removeAmount } from "../features/cartSlice";
+import { enqueueSnackbar } from "notistack";
+import {
+  clearCart,
+  addAmount,
+  removeAmount,
+  removeItem,
+} from "../features/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
 });
 const Cart = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((store) => store.cart);
   const [total, setTotal] = useState(0);
@@ -100,7 +108,18 @@ const Cart = () => {
                       </div>
                     </div>
                     <div className="text-base font-semibold flex justify-center capitalize w-1/12  px-3 py-1  items-center">
-                      <button className="text-gray-400">
+                      <button
+                        className="text-gray-400"
+                        onClick={() => {
+                          dispatch(removeItem(item.id));
+                          enqueueSnackbar({
+                            variant: "info",
+                            message:
+                              "Item seccessfully removed from your cart !",
+                            className: "capitalize font-first-font",
+                          });
+                        }}
+                      >
                         <DeleteIcon />
                       </button>
                     </div>
@@ -111,7 +130,12 @@ const Cart = () => {
           ) : (
             <div className="flex flex-col gap-2 justify-center items-center p-5">
               <div className="flex max-w-7xl items-center p-5  gap-2 w-full mx-auto ">
-                <button className=" w-9 h-9 rounded-full border-1 text-black text-lg pb-[0.1rem] border-black">
+                <button
+                  className=" w-9 h-9 rounded-full border-1 text-black text-lg pb-[0.1rem] border-black"
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                >
                   &#8592;
                 </button>
                 <p className="text-black text-xs font-semibold">
