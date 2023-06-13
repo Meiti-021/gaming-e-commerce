@@ -60,12 +60,16 @@ const HomeHero = () => {
         <div className="absolute z-40 h-full  w-full pt-14 backdrop-brightness-75">
           <div className="mx-auto h-full w-full max-w-7xl ">
             <div className=" flex h-full w-full flex-col justify-center gap-5 p-5 md:mt-14 xl:w-[34rem] ">
-              <div className="flex h-11 w-full max-w-sm items-center gap-1 rounded-full bg-dark-blue p-2 transition-all xs:h-12 ">
+              <div className="flex h-11 w-full max-w-sm items-center  gap-1 overflow-hidden text-ellipsis whitespace-nowrap rounded-full bg-dark-blue px-1 py-2 transition-all xs:h-12 xs:p-2 ">
                 <div className="flex h-full w-20 items-center rounded-s-full  bg-gradient-to-r  from-blue to-dark-blue px-2 pt-[0.1rem] text-xs text-white">
                   Featured
                 </div>
-                <p className="text-xs text-white">New featured collection \</p>
-                <p className="text-xs text-blue">Gaming Collector</p>
+                <p className="overflow-hidden text-ellipsis whitespace-nowrap text-[0.7rem] text-white xs:text-xs ">
+                  New featured collection \
+                </p>
+                <p className="overflow-hidden text-ellipsis whitespace-nowrap text-[0.7rem] text-blue xs:text-xs ">
+                  Gaming Collector
+                </p>
               </div>
               <h1 className=" text-4xl font-semibold text-white lg:text-5xl xl:text-6xl">
                 Best

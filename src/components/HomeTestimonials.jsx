@@ -49,18 +49,20 @@ const HomeTestimonials = () => {
                 <SwiperSlide
                   key={`testimonal-comments-${item.comment.id}-${index}`}
                 >
-                  <div className="border-ellipse flex h-[26.5rem] flex-col border-[1px] border-second-color bg-gradient-to-br from-sky-200 via-white to-white p-5 px-10 xs:h-64 xs:flex-row xs:items-center">
+                  <div className="border-ellipse flex  h-[25rem] flex-col border-[1px] border-second-color bg-gradient-to-br from-sky-200 via-white to-white p-5 px-5 xxs:h-[27rem] xxs:px-10 xs:h-64 xs:flex-row xs:items-center">
                     <img
                       src={`./assets/products/${item.comment.productImage}`}
                       alt=""
-                      className="block h-36 w-full object-contain drop-shadow-2xl xs:w-60"
+                      className="block h-28 w-full object-contain drop-shadow-2xl xxs:h-36 xs:w-60"
                     />
                     <div className="mt-10 flex flex-col gap-3 xs:mt-0 ">
                       <p className="text-2xl font-semibold">
                         {item.comment.title}
                       </p>
-                      <p className="text-sm ">{item.comment.caption}</p>
-                      <div className="flex items-center justify-between ">
+                      <p className="line-clamp-5  text-sm ">
+                        {item.comment.caption}
+                      </p>
+                      <div className=" flex items-center justify-between">
                         <div className="flex items-center gap-4">
                           <img
                             src={`./assets/users/${item.image}`}
@@ -76,7 +78,7 @@ const HomeTestimonials = () => {
                           <img
                             src={star}
                             alt=""
-                            className="w-20 object-contain"
+                            className="hidden w-20 object-contain xxs:block"
                           />
                           <p className="hidden text-xs font-bold text-blue xs:block">
                             4.5 <span className="text-black">/ 5.0</span>
@@ -90,7 +92,7 @@ const HomeTestimonials = () => {
             })}
           </Swiper>
           <button
-            className="absolute bottom-0 left-2 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-blue"
+            className="absolute -left-2 bottom-2 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-blue"
             onClick={() => {
               swiperRef.current.swiper.slideNext();
             }}
@@ -98,7 +100,7 @@ const HomeTestimonials = () => {
             <ArrowCircleLeftRoundedIcon style={{ fontSize: "2.5rem" }} />
           </button>
           <button
-            className="absolute bottom-0 right-2 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-second-color"
+            className="absolute -right-2 bottom-0 top-0 z-20 my-auto flex h-5 w-5 items-center justify-center border-2  border-white bg-white text-second-color"
             onClick={() => {
               swiperRef.current.swiper.slidePrev();
             }}

@@ -47,7 +47,7 @@ const HomeBestGaming = () => {
         <img src={circle} alt="" className="absolute -bottom-8 right-8 " />
         <img src={circle3} alt="" className="-bottom-68 absolute right-24 " />
       </div>
-      <div className="mx-auto flex h-full w-full  max-w-7xl flex-col md:grid md:grid-cols-3 ml:grid-cols-4">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col gap-5 xs:gap-0 md:grid md:grid-cols-3 ml:grid-cols-4">
         <div className="col-span-1 flex h-80 w-full flex-col items-center gap-5 p-5 md:col-span-1 ">
           <h2 className=" text-3xl font-semibold md:w-full md:max-w-[20rem] md:text-4xl md:text-white ml:text-5xl">
             Best
@@ -56,7 +56,7 @@ const HomeBestGaming = () => {
             </span>
             Categories
           </h2>
-          <div className="flex w-full  max-w-[20rem] flex-col gap-6">
+          <div className="my-2 flex w-full max-w-[20rem] flex-col gap-3 xxs:my-0 xxs:gap-6">
             {categories.map((item, index) => {
               return (
                 <button
@@ -65,7 +65,7 @@ const HomeBestGaming = () => {
                     index === categorie
                       ? "bg-gradient-to-r from-blue to-second-color text-white"
                       : "bg-transparent text-gray-500"
-                  } border-ellipse flex h-10 items-center justify-center gap-1  border-gray-600 text-xs font-semibold transition-all`}
+                  } border-ellipse  flex h-12 items-center justify-center gap-1 border-gray-600  text-xs font-semibold transition-all `}
                   onClick={() => {
                     setCategorie(index);
                     if (index === 0) {
@@ -108,7 +108,7 @@ const HomeBestGaming = () => {
             show more categories
           </Link>
         </div>
-        <div className="relative flex h-[40rem] w-full items-center justify-center p-3 xs:h-[35rem] md:col-span-2 ml:col-span-3">
+        <div className="relative flex h-[28rem] w-full items-center justify-center p-3 xxs:h-[35rem] md:col-span-2 ml:col-span-3">
           <Swiper
             slidesPerView={!xs ? "1" : !ml ? "2" : "3"}
             spaceBetween={10}

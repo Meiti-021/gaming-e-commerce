@@ -33,9 +33,9 @@ const Post = () => {
   }
   return (
     <div>
-      <div className="relative bg-[url(../assets/bg/navbar.png)] bg-cover bg-no-repeat p-10 ">
+      <div className="relative bg-[url(../assets/bg/navbar.png)] bg-cover bg-center bg-no-repeat p-10 ">
         <div className="absolute left-0 top-0 h-full w-full bg-[rgba(0,0,0,0.6)]"></div>
-        <div className="relative  z-10 mx-auto mt-56 flex h-80 w-full max-w-7xl flex-col justify-end gap-7 pb-10 md:h-72 ">
+        <div className="relative  z-10 mx-auto mt-56 flex h-40 w-full max-w-7xl flex-col justify-end gap-7 pb-10 xs:h-80 md:h-72 ">
           <div className="flex items-center gap-2">
             <button
               className=" h-9 w-9 rounded-full border-1 border-white pb-[0.1rem] text-lg text-white"
@@ -47,7 +47,7 @@ const Post = () => {
             </button>
             <p className="text-xs font-semibold text-white">Back to home</p>
           </div>
-          <div className="flex w-full max-w-lg items-center gap-10 text-sm text-white">
+          <div className="hidden w-full  max-w-lg items-center gap-10 text-sm text-white xs:flex">
             <div className="h-7 w-auto rounded-xl bg-gradient-to-r  from-blue to-second-color p-1 px-4 pt-[0.3rem]">
               Featured
             </div>
@@ -59,7 +59,7 @@ const Post = () => {
               Date: <span className="text-xs font-normal">{data.date}</span>{" "}
             </p>
           </div>
-          <h1 className=" w-full bg-gradient-to-r from-blue  to-second-color  to-25% bg-clip-text text-[2.6rem]  font-semibold capitalize text-transparent">
+          <h1 className=" w-full bg-gradient-to-r from-blue  to-second-color  to-25% bg-clip-text text-[1.8rem] font-semibold capitalize  leading-normal text-transparent xxs:text-[2.6rem] xxs:leading-none">
             {data.title}
           </h1>
           <p className="w-full max-w-xl text-sm text-white">{data.describe}</p>
@@ -83,7 +83,7 @@ const Post = () => {
                 Date: <span className="text-xs font-normal">{data.date}</span>{" "}
               </p>
             </div>
-            <h1 className=" w-full bg-gradient-to-r from-blue  to-second-color  to-25% bg-clip-text text-[2.6rem]  font-semibold capitalize text-transparent">
+            <h1 className=" w-full bg-gradient-to-r from-blue  to-second-color  to-25% bg-clip-text text-[1.8rem] font-semibold capitalize  text-transparent xxs:text-[2rem] xs:text-[2.6rem]">
               {data.title}
             </h1>
             <img

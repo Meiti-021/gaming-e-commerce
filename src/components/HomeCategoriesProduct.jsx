@@ -76,7 +76,7 @@ const HomeCategoriesProduct = ({
         {name}
       </p>
       <p className="text-xs  font-semibold text-gray-500">TYPE : {type}</p>
-      <figure className=" h-3/5 p-10  xs:h-[14rem]">
+      <figure className=" h-[9rem] p-1 xxs:my-5 xxs:h-[14rem] xxs:p-10">
         <img
           src={`/assets/products/${images[option]}`}
           alt=""
@@ -120,7 +120,7 @@ const HomeCategoriesProduct = ({
           <p className="text-lg font-semibold">
             {formatter.format(price)} <sup className="text-xs">USD</sup>
           </p>
-          <p className="text-sm font-semibold text-gray-600 md:hidden">
+          <p className="hidden text-sm font-semibold text-gray-600 xxs:block md:hidden">
             <span className="line-through">
               {(price - (price * 20) / 100).toFixed(2)}
             </span>

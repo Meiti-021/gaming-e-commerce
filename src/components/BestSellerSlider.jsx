@@ -67,13 +67,15 @@ const BestSellerSlider = ({
           )}
         </button>
       </div>
-      <p className="my-4 text-[1.35rem] font-semibold">{name}</p>
+      <p className="my-4 overflow-hidden text-ellipsis whitespace-nowrap  text-xl font-semibold xs:overflow-visible xs:whitespace-normal xs:text-[1.35rem]">
+        {name}
+      </p>
       <p className="-my-2 text-sm font-semibold text-gray-500">TYPE: {type}</p>
       <img
         src={`./assets/products/${images[option]}`}
         alt={name}
         title={name}
-        className=" my-5  block h-52 w-full object-contain "
+        className=" my-2 block  h-32 w-full object-contain xxs:h-48  xs:my-5 xs:h-52 "
       />
       <p className="text-xs capitalize">{options[0]} :</p>
       <div
@@ -109,13 +111,13 @@ const BestSellerSlider = ({
         </div>
       </div>
 
-      <div className="mt-3 flex h-14 items-center justify-between p-3">
-        <div className="flex flex-col gap-1">
-          <p className="text-lg font-semibold">
+      <div className="mt-3 flex h-14 items-center justify-between gap-4 p-3 xxs:gap-0">
+        <div className="gap flex flex-col xxs:gap-1">
+          <p className="text-sm font-semibold xxs:text-lg">
             {formatter.format(price)}
             <sup className="text-xs">USD</sup>
           </p>
-          <p className="text-sm font-semibold text-gray-600">
+          <p className="text-xs font-semibold text-gray-600 xxs:text-sm">
             <span className="line-through">
               {(price - (price * 20) / 100).toFixed(2)}
             </span>
@@ -124,7 +126,7 @@ const BestSellerSlider = ({
         </div>
         <Link
           to={`/product/${id}`}
-          className="border-ellipse flex h-9 w-36 items-center justify-center bg-gradient-to-r from-blue to-second-color pt-[0.15rem] text-sm "
+          className="border-ellipse flex h-9 w-28 items-center justify-center bg-gradient-to-r from-blue to-second-color pt-[0.15rem] text-xs xs:w-36 xs:text-sm "
         >
           View more
         </Link>

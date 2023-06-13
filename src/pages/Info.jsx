@@ -154,7 +154,7 @@ const Info = () => {
         }`}
       >
         <button
-          className="absolute right-10 top-10 h-12 w-32 text-white "
+          className="absolute right-0 top-20 z-50 h-12 w-32 text-white "
           onClick={() => {
             setIsModalOpen(false);
           }}
@@ -374,7 +374,7 @@ const Info = () => {
               </div>
             </div>
             <button
-              className={`border-ellipse h-8 w-32 text-sm   ${
+              className={`border-ellipse h-10 w-32 text-sm   ${
                 currentProduct.stock
                   ? "bg-gradient-to-r from-blue to-second-color text-white"
                   : "pointer-events-none cursor-not-allowed border-2 border-gray-400 text-gray-300"
@@ -456,7 +456,7 @@ const Info = () => {
               </div>
             </div>
             <div
-              className="relative h-[30.5rem] sm:col-span-7"
+              className="relative h-[25rem] xxs:h-[30.5rem] sm:col-span-7"
               onMouseEnter={() => {
                 setIsInside(true);
               }}

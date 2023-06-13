@@ -34,7 +34,7 @@ const CartSideBar = ({ open = false, setOpen }) => {
           return <CartItem {...item} key={item.id + "cart-item" + index} />;
         })}
       </div>
-      <div className="absolute bottom-0  flex h-60 w-full flex-col  justify-center border-l-1 border-t-1 border-border-color bg-white  p-8">
+      <div className="absolute bottom-0  flex h-40 w-full flex-col justify-center  border-l-1 border-t-1 border-border-color bg-white p-3 xs:h-60  xs:p-8">
         <div className="flex items-center justify-between ">
           <p className="text-2xl font-semibold">Total Price</p>
           <p className="text-xl font-semibold">
@@ -42,7 +42,7 @@ const CartSideBar = ({ open = false, setOpen }) => {
           </p>
         </div>
 
-        <button className="border-ellipse my-4 flex h-12 w-full items-center  justify-center gap-2 bg-gradient-to-r from-blue to-second-color text-white">
+        <button className="border-ellipse my-2 flex h-12 w-full items-center justify-center  gap-2 bg-gradient-to-r from-blue to-second-color text-white xs:my-4">
           Proceed to checkout
           <LocalMallOutlinedIcon />
         </button>

@@ -13,6 +13,7 @@ import {
   removeItem,
 } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
+import CartItem from "../components/CartItem";
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -32,10 +33,10 @@ const Cart = () => {
   }, [cartItems]);
   return (
     <div className="min-h-screen ">
-      <div className="h-36 w-full bg-black"></div>
+      <div className="h-14  w-full bg-black sm:h-36"></div>
       <div className="w-full px-5 py-10">
-        <div className="mx-auto w-full max-w-7xl">
-          <div className="flex border-b-1 border-border-color">
+        <div className="mx-auto hidden w-full max-w-7xl sm:block">
+          <div className=" flex border-b-1 border-border-color">
             <p className="flex w-2/12 justify-center border-r-1 border-x-border-color px-3 py-1   text-base font-semibold capitalize text-gray-500">
               image
             </p>
@@ -168,6 +169,51 @@ const Cart = () => {
             <button className="border-ellipse my-1 flex h-12 w-full max-w-md items-center justify-center gap-2 border-1 border-none  bg-gradient-to-r from-blue to-second-color text-white transition-all">
               Proceed to checkout
               <LocalMallOutlinedIcon />
+            </button>
+          </div>
+        </div>
+        <div className="mx-auto  max-w-7xl sm:hidden">
+          {cartItems.length ? (
+            <div className="grid-col-1 grid h-full gap-1  ">
+              {cartItems.map((item, index) => {
+                return (
+                  <CartItem {...item} key={item.id + "cart-item" + index} />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="relative mt-14 flex min-h-[22rem] flex-col items-center justify-center gap-5 text-black">
+              <p className="text-3xl">Your Cart is Empty!</p>
+              <button
+                className=" h-9 w-9 rounded-full border-1 border-black pb-[0.1rem] text-lg text-black"
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                &#8592;
+              </button>
+            </div>
+          )}
+          <div className=" mt-40  flex h-60 w-full flex-col  justify-center border-t-1 border-border-color bg-white  p-8">
+            <div className="flex items-center justify-between ">
+              <p className="text-2xl font-semibold">Total Price</p>
+              <p className="text-xl font-semibold">
+                {total},00 <span className="align-super text-sm">USD</span>
+              </p>
+            </div>
+
+            <button className="border-ellipse mt-4 flex h-12 w-full items-center  justify-center gap-2 bg-gradient-to-r from-blue to-second-color text-white">
+              Proceed to checkout
+              <LocalMallOutlinedIcon />
+            </button>
+            <button
+              className="border-ellipse my-1 mt-4 flex h-12 w-full max-w-md items-center justify-center gap-2 border-1 border-border-color bg-gradient-to-r text-gray-500 transition-all hover:border-none hover:from-blue hover:to-second-color hover:text-white"
+              onClick={() => {
+                dispatch(clearCart());
+              }}
+            >
+              Clear Cart
+              <DeleteIcon />
             </button>
           </div>
         </div>

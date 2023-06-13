@@ -10,6 +10,7 @@ import {
   addToCart,
 } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
+import WishListItem from "../components/WishListItem";
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -21,9 +22,9 @@ const WishList = () => {
   const { wishList } = useSelector((store) => store.cart);
   return (
     <div className="min-h-screen ">
-      <div className="h-36 w-full bg-black"></div>
+      <div className="h-14 w-full bg-black md:h-36"></div>
       <div className="w-full px-5 py-10">
-        <div className="mx-auto w-full max-w-7xl">
+        <div className="mx-auto hidden w-full max-w-7xl sm:block">
           <div className="flex border-b-1 border-border-color">
             <p className="flex w-2/12 justify-center border-r-1 border-x-border-color px-3 py-1   text-base font-semibold capitalize text-gray-500">
               image
@@ -43,7 +44,7 @@ const WishList = () => {
               <span className="md:hidden">Del</span>
             </p>
           </div>
-          {wishList.length > 0 ? (
+          {wishList.length ? (
             <div className="-mt-5 py-5">
               {wishList.map((item, index) => {
                 return (
@@ -107,7 +108,7 @@ const WishList = () => {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center gap-2 p-5">
-              <div className="mx-auto flex w-full max-w-7xl  items-center gap-2 p-5 ">
+              <div className="mx-auto flex w-full max-w-7xl  items-center gap-2 py-5 ">
                 <button
                   className=" h-9 w-9 rounded-full border-1 border-black pb-[0.1rem] text-lg text-black"
                   onClick={() => {
@@ -123,6 +124,49 @@ const WishList = () => {
               <p className="flex h-80 items-center justify-center py-12 text-3xl">
                 Your wishList Is Empty!{" "}
               </p>
+            </div>
+          )}
+          <div className=" flex w-full flex-col items-center justify-start   gap-1 bg-white  p-8">
+            <button
+              className="border-ellipse my-1 mt-4 flex h-12 w-full max-w-md items-center justify-center gap-2 border-1 border-border-color bg-gradient-to-r text-gray-500 transition-all hover:border-none hover:from-blue hover:to-second-color hover:text-white"
+              onClick={() => {
+                dispatch(clearWishList());
+              }}
+            >
+              Clear wishList
+              <DeleteIcon />
+            </button>
+            <button
+              className="border-ellipse my-1 flex h-12 w-full max-w-md items-center justify-center gap-2 border-1 border-none  bg-gradient-to-r from-blue to-second-color text-white transition-all"
+              onClick={() => {
+                dispatch(addAllToCart());
+              }}
+            >
+              Add All To Cart
+              <LocalMallOutlinedIcon />
+            </button>
+          </div>
+        </div>
+        <div className="mx-auto  max-w-7xl sm:hidden">
+          {wishList.length ? (
+            <div className="grid-col-1 grid h-full gap-1  ">
+              {wishList.map((item, index) => {
+                return (
+                  <WishListItem {...item} key={item.id + "cart-item" + index} />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="relative mt-14 flex min-h-[22rem] flex-col items-center justify-center gap-5 text-black">
+              <p className="text-center text-3xl">Your Wish List is Empty!</p>
+              <button
+                className=" h-9 w-9 rounded-full border-1 border-black pb-[0.1rem] text-lg text-black"
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                &#8592;
+              </button>
             </div>
           )}
           <div className=" flex w-full flex-col items-center justify-start   gap-1 bg-white  p-8">

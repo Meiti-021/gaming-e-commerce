@@ -17,6 +17,7 @@ export default {
         "dark-blue": "#12103E",
       },
       screens: {
+        xxs: "375px",
         xs: "575px",
         ml: "1200px",
       },

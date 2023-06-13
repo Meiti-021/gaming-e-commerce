@@ -38,7 +38,7 @@ const HomeNewsLetter = () => {
             className="h-2/4 w-5/6 border-none  p-4 text-xs  focus:outline-none lg:w-4/6 "
           />
           <button
-            className="h-full w-1/4 bg-gradient-to-r from-blue to-second-color  text-sm font-semibold text-white lg:w-2/6 "
+            className="h-full w-1/4 bg-gradient-to-r from-blue to-second-color text-xs  font-semibold text-white xxs:text-sm lg:w-2/6 "
             onClick={() => {
               if (email !== "") {
                 enqueueSnackbar({

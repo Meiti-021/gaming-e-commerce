@@ -102,7 +102,7 @@ const Header = () => {
         className={`${
           !searchOpen
             ? "hidden"
-            : "fixed z-30 flex h-screen w-full items-center justify-center bg-black p-5"
+            : "fixed z-30 flex h-screen w-full items-center justify-center bg-black p-5 "
         }`}
       >
         <form
@@ -139,7 +139,7 @@ const Header = () => {
           </button>
         </form>
       </div>
-      <div className="fixed z-50 h-auto w-full">
+      <div className="fixed z-50 h-auto w-full  ">
         <div className="absolute -z-10 h-full w-full"></div>
         <div className="flex h-14 w-full items-center  justify-between bg-black p-3 md:hidden ">
           <Link to="/" className="block">
@@ -190,7 +190,7 @@ const Header = () => {
           </div>
         </div>
         <div
-          className={`hidden w-full flex-col md:flex ${
+          className={`hidden w-full flex-col px-5 md:flex ${
             isTop ? undefined : "bg-black"
           }`}
         >
@@ -402,7 +402,7 @@ const Header = () => {
         <div className="absolute bottom-0 h-[1px] w-full bg-gradient-to-r from-second-color via-blue to-blue md:hidden "></div>
         <div className="absolute bottom-16 hidden h-[1px] w-full bg-[rgba(255,255,255,0.2)] md:block "></div>
         <div
-          className={`hidden h-16  w-full  border-b-[1px] border-[rgba(255,255,255,0.2)] transition-all md:block  ${
+          className={`hidden  border-b-[1px]  border-[rgba(255,255,255,0.2)] transition-all md:block  ${
             isTop ? undefined : "header-sc "
           }`}
         >

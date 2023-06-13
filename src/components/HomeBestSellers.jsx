@@ -25,7 +25,7 @@ const HomeBestSellers = () => {
           title="Bestsellers of the week"
           address="/collections/all"
         />
-        <div className="">
+        <div>
           <Swiper
             slidesPerView={"auto"}
             spaceBetween={"0px"}
@@ -38,7 +38,7 @@ const HomeBestSellers = () => {
             loop={true}
             modules={[Pagination]}
             centeredSlides={true}
-            className="mySwiper h-[40rem] w-[21rem] overflow-visible text-white"
+            className="mySwiper h-[33rem] w-[100%] overflow-visible p-4 text-white xxs:h-[40rem] xxs:w-[21rem] xs:p-0"
           >
             {products
               .slice(0, 8)
@@ -47,7 +47,7 @@ const HomeBestSellers = () => {
                 return (
                   <SwiperSlide
                     key={`home-best-seller-${product.id}`}
-                    className="h-[35.5rem] p-4"
+                    className="h-[27rem] p-4 xxs:h-[31.5rem] xs:h-[35.5rem]"
                   >
                     {({ isActive }) => (
                       <BestSellerSlider {...product} isActive={isActive} />
