@@ -1,5 +1,8 @@
 # Gaming E-commerce Front-End Project
 
+
+![preview](./public/preview.png)
+
 This is an advanced front-end project for a gaming e-commerce website, built using React, Tailwind CSS, Material-UI, Swiper.js, and Notistack libraries. The project is fully responsive, user-friendly, and developed by Mahdi Dehgani, an intermediate front-end developer.
 
 ## Project Overview
