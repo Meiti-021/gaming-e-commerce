@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: Outfit;
+  src: url(./assets/fonts/Outfit.ttf);
+}
+
 .nav-arrow {
   transition: transform 0.3s;
 }
@@ -49,9 +54,4 @@
   height: 3px !important;
   background: #0098ff !important;
   border-radius: 0 !important;
-}
-
-@font-face {
-  font-family: Outfit;
-  src: url(./assets/fonts/Outfit.ttf);
 }
