@@ -142,7 +142,7 @@ const Header = () => {
       <div className="fixed z-50 h-auto w-full  ">
         <div className="absolute -z-10 h-full w-full"></div>
         <div className="flex h-14 w-full items-center  justify-between bg-black p-3 md:hidden ">
-          <Link to="/" className="block">
+          <Link to="/" className="block" aria-label="navigate to home">
             <img src={logo} alt="logo" className="h-7 object-contain" />
           </Link>
           <div className="flex items-center  gap-4 text-white">
@@ -160,6 +160,7 @@ const Header = () => {
             <Link
               to="/wishlist"
               className="relative flex items-center justify-center"
+              aria-label="navigate to wishlist"
             >
               <div
                 className={`${
@@ -207,7 +208,7 @@ const Header = () => {
             }`}
           >
             <nav className="flex items-center gap-4">
-              <Link to="/" className="block">
+              <Link to="/" className="block" aria-label="navigate to home">
                 <img src={logo} className="object-contain lg:hidden" alt="" />
               </Link>
 
@@ -379,6 +380,7 @@ const Header = () => {
               <Link
                 to="/wishlist"
                 className="relative flex items-center justify-center"
+                aria-label="navigate to wishlist page"
               >
                 <FavoriteBorderOutlinedIcon />
                 <div
