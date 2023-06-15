@@ -74,6 +74,7 @@ const Footer = () => {
               className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
               href="www.facebook.com/meiti-021"
               aria-label="external link to developer's social media accounts"
+              rel="nofollow"
             >
               <FacebookIcon style={{ fontSize: "20px" }} />
             </a>
@@ -81,6 +82,7 @@ const Footer = () => {
               className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
               href="www.instagram.com/meiti-021"
               aria-label="external link to developer's social media accounts"
+              rel="nofollow"
             >
               <InstagramIcon style={{ fontSize: "20px" }} />
             </a>
@@ -88,6 +90,7 @@ const Footer = () => {
               className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
               href="www.linkedin.com/in/mahdi-dehgani"
               aria-label="external link to developer's social media accounts"
+              rel="nofollow"
             >
               <LinkedInIcon style={{ fontSize: "20px" }} />
             </a>
@@ -95,6 +98,7 @@ const Footer = () => {
               className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
               href="www.github.com/meiti-021"
               aria-label="external link to developer's social media accounts"
+              rel="nofollow"
             >
               <GitHubIcon style={{ fontSize: "20px" }} />
             </a>
