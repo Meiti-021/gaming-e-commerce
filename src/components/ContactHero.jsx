@@ -11,6 +11,7 @@ const ContactHero = () => {
             onClick={() => {
               navigate(-1);
             }}
+            aria-label="back to previous page"
           >
             &#8592;
           </button>

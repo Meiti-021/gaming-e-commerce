@@ -22,6 +22,7 @@ const Post = () => {
             onClick={() => {
               navigate(-1);
             }}
+            aria-label="navigates to previous page"
           >
             &#8592;
           </button>
@@ -42,6 +43,7 @@ const Post = () => {
               onClick={() => {
                 navigate(-1);
               }}
+              aria-label="navigates to previous page"
             >
               &#8592;
             </button>
@@ -101,16 +103,28 @@ const Post = () => {
             <div className="flex items-center gap-1">
               <p className="mr-3 text-lg">Share this post: </p>
 
-              <button className="h-7 w-7 rounded-full bg-second-color  text-white ">
+              <button
+                className="h-7 w-7 rounded-full bg-second-color  text-white "
+                aria-label="share post in external apps"
+              >
                 <FacebookIcon style={{ fontSize: "20px" }} />
               </button>
-              <button className="h-7 w-7 rounded-full bg-second-color  text-white">
+              <button
+                className="h-7 w-7 rounded-full bg-second-color  text-white"
+                aria-label="share post in external apps"
+              >
                 <InstagramIcon style={{ fontSize: "20px" }} />
               </button>
-              <button className="h-7 w-7 rounded-full bg-second-color  text-white">
+              <button
+                className="h-7 w-7 rounded-full bg-second-color  text-white"
+                aria-label="share post in external apps"
+              >
                 <LinkedInIcon style={{ fontSize: "20px" }} />
               </button>
-              <button className="h-7 w-7 rounded-full bg-second-color  text-white">
+              <button
+                className="h-7 w-7 rounded-full bg-second-color  text-white"
+                aria-label="share post in external apps"
+              >
                 <GitHubIcon style={{ fontSize: "20px" }} />
               </button>
             </div>

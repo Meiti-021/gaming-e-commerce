@@ -121,6 +121,7 @@ const HomeBrandSwiper = () => {
           onClick={() => {
             swiperRef.current.swiper.slideNext();
           }}
+          aria-label="swipes the slider to next slide"
         >
           <ArrowCircleLeftRoundedIcon style={{ fontSize: "2.5rem" }} />
         </button>
@@ -129,6 +130,7 @@ const HomeBrandSwiper = () => {
           onClick={() => {
             swiperRef.current.swiper.slidePrev();
           }}
+          aria-label="swipes the slider to previous slide"
         >
           <ArrowCircleRightRoundedIcon style={{ fontSize: "2.5rem" }} />
         </button>

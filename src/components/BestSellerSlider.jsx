@@ -59,6 +59,7 @@ const BestSellerSlider = ({
               });
             }
           }}
+          aria-label="add or remove product from wishlist"
         >
           {exist ? (
             <FavoriteIcon style={{ color: "red" }} />
@@ -103,6 +104,7 @@ const BestSellerSlider = ({
                   setOption(index);
                   setIsOpen(false);
                 }}
+                aria-label="change product option "
               >
                 {item}
               </button>

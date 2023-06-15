@@ -15,6 +15,7 @@ const PageHero = ({ title, subtitle, className = "h-72 pb-10" }) => {
             onClick={() => {
               navigate(-1);
             }}
+            aria-label="navigates to previous page"
           >
             &#8592;
           </button>

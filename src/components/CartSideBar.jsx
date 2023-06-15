@@ -25,7 +25,7 @@ const CartSideBar = ({ open = false, setOpen }) => {
     >
       <div className="flex h-16 items-center justify-between bg-gradient-to-r from-blue to-second-color p-5 text-2xl text-white ">
         MyCart
-        <button onClick={() => setOpen(!open)}>
+        <button onClick={() => setOpen(!open)} aria-label="close sidebar cart">
           <CloseIcon />
         </button>
       </div>

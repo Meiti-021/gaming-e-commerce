@@ -55,6 +55,7 @@ const HomeNewsLetter = () => {
                 });
               }
             }}
+            aria-label="subscribes to newsletter"
           >
             Subscribe
           </button>

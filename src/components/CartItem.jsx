@@ -26,11 +26,11 @@ const CartItem = ({ id, name, price, quantity, images, options, option }) => {
         </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between gap-5 rounded-sm border-1 border-border-color p-1 text-sm">
-            <button>
+            <button aria-label="add amount to product in cart">
               <AddIcon style={{ fontSize: "1rem", color: "gray" }} />
             </button>
             <p className="pt-1">{quantity}</p>
-            <button>
+            <button aria-label="remove amount from product in cart">
               <RemoveIcon style={{ fontSize: "1rem", color: "gray" }} />
             </button>
           </div>
@@ -44,6 +44,7 @@ const CartItem = ({ id, name, price, quantity, images, options, option }) => {
                 className: "capitalize ",
               });
             }}
+            aria-label="remove product from cart"
           >
             <DeleteIcon />
           </button>

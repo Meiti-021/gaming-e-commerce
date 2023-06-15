@@ -113,7 +113,7 @@ const Header = () => {
             setQuery("");
           }}
         >
-          <button type="submit">
+          <button type="submit" aria-label="submit search">
             <SearchOutlinedIcon style={{ color: "#fff" }} />{" "}
           </button>
           <input
@@ -150,6 +150,7 @@ const Header = () => {
               onClick={() => {
                 setSearchOpen(true);
               }}
+              aria-label="opens the search bar"
             >
               <SearchOutlinedIcon style={{ fontSize: "22px" }} />
             </button>
@@ -169,7 +170,11 @@ const Header = () => {
               </div>
               <FavoriteBorderOutlinedIcon style={{ fontSize: "22px" }} />
             </Link>
-            <button className="relative" onClick={() => setOpen(!open)}>
+            <button
+              className="relative"
+              onClick={() => setOpen(!open)}
+              aria-label="open the side cart"
+            >
               <div
                 className={`${
                   cartItems.length === 0 && "hidden"
@@ -184,6 +189,7 @@ const Header = () => {
               onClick={() => {
                 setSideNav(true);
               }}
+              aria-label="opens the side nav"
             >
               <MenuOutlinedIcon />
             </button>
@@ -334,6 +340,7 @@ const Header = () => {
                   setMenu(false);
                   SetOtherMenus({ pages: false, blogs: false, account: true });
                 }}
+                aria-label="opens account drop down menu on hover"
               >
                 <AccountCircleOutlinedIcon />
                 <div
@@ -386,7 +393,11 @@ const Header = () => {
                 My Cart:
                 <br /> 0.000 USD
               </p>
-              <button className="relative" onClick={() => setOpen(!open)}>
+              <button
+                className="relative"
+                onClick={() => setOpen(!open)}
+                aria-label="opens the side cart"
+              >
                 <LocalMallOutlinedIcon />
                 <div
                   className={`absolute -right-[0.7rem] top-[0.22rem] flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-second-color to-blue  pt-1 text-[0.7rem] ${
@@ -421,7 +432,10 @@ const Header = () => {
                 setQuery("");
               }}
             >
-              <button type="submit">
+              <button
+                type="submit"
+                aria-label="submites the search product input"
+              >
                 <SearchOutlinedIcon style={{ color: "#fff" }} />{" "}
               </button>
               <input
@@ -453,7 +467,7 @@ const Header = () => {
           }}
         >
           <ul className=" flex w-1/4 flex-col gap-3 p-2">
-            <p className=" font-semibold">Pro Gaming</p>
+            <li className=" font-semibold">Pro Gaming</li>
             <li className="border-black hover:border-b-2">
               <Link to={`/collections/Console`} onClick={() => setMenu(false)}>
                 Game Console
@@ -486,7 +500,7 @@ const Header = () => {
             </li>
           </ul>
           <ul className=" flex w-1/4 flex-col gap-3 p-2">
-            <p className="font-semibold">New Accessories</p>
+            <li className="font-semibold">New Accessories</li>
             <li className="border-black hover:border-b-2">
               <Link to="/product/alien-ware-monitor-t-46">
                 Alien ware Monitor
@@ -531,7 +545,7 @@ const Header = () => {
             </li>
           </ul>
           <ul className=" flex w-1/4 flex-col  gap-3 p-2">
-            <p className="font-semibold">Master Game</p>
+            <li className="font-semibold">Master Game</li>
             <li className="border-black hover:border-b-2">
               <Link
                 to="/product/colossus-ergonomic-gaming-office-chair"
@@ -595,6 +609,7 @@ const Header = () => {
               onClick={() => {
                 setSideNav(false);
               }}
+              aria-label="close the side nav"
             >
               <CloseIcon style={{ color: "#fff" }} />
             </button>

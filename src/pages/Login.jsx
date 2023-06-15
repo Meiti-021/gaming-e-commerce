@@ -108,6 +108,7 @@ const Login = () => {
                         pass: !passOpen.pass,
                       });
                     }}
+                    aria-label="changes visibility of password input"
                   >
                     {passOpen.pass ? (
                       <VisibilityIcon style={{ color: "gray" }} />
@@ -139,6 +140,7 @@ const Login = () => {
                         copass: !passOpen.copass,
                       });
                     }}
+                    aria-label="changes visibility of password input"
                   >
                     {passOpen.copass ? (
                       <VisibilityIcon style={{ color: "gray" }} />
@@ -163,6 +165,7 @@ const Login = () => {
                           onClick={() => {
                             setLogin({ ...loginForm, imageUrl: avatar });
                           }}
+                          aria-label="choose the account avatar"
                         >
                           <img
                             src={avatar}
@@ -255,6 +258,7 @@ const Login = () => {
                         pass: !passOpen.pass,
                       });
                     }}
+                    aria-label="changes visibility of password input"
                   >
                     {passOpen.pass ? <VisibilityIcon /> : <VisibilityOffIcon />}{" "}
                   </button>

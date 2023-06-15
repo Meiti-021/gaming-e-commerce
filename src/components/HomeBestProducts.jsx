@@ -84,6 +84,9 @@ const HomeBestProducts = () => {
                     });
                   }
                 }}
+                aria-label={
+                  exist ? "removes item from wishlist" : "adds item to wishlist"
+                }
               >
                 {exist ? (
                   <FavoriteIcon style={{ color: "red" }} />
@@ -132,6 +135,7 @@ const HomeBestProducts = () => {
                         setOption(index);
                         setIsOpen(false);
                       }}
+                      aria-label="changes product's option"
                     >
                       {item}
                     </button>

@@ -69,20 +69,36 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-3">
           <p className="mt-10 text-base  font-semibold uppercase">Share::</p>
-          <ul className="flex gap-2  text-sm">
-            <button className="h-8 w-8 rounded-lg bg-white text-black ">
+          <div className="flex gap-2  text-sm">
+            <a
+              className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
+              href="www.facebook.com/meiti-021"
+              aria-label="external link to developer's social media accounts"
+            >
               <FacebookIcon style={{ fontSize: "20px" }} />
-            </button>
-            <button className="h-8 w-8 rounded-lg bg-white text-black">
+            </a>
+            <a
+              className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
+              href="www.instagram.com/meiti-021"
+              aria-label="external link to developer's social media accounts"
+            >
               <InstagramIcon style={{ fontSize: "20px" }} />
-            </button>
-            <button className="h-8 w-8 rounded-lg bg-white text-black">
+            </a>
+            <a
+              className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
+              href="www.linkedin.com/in/mahdi-dehgani"
+              aria-label="external link to developer's social media accounts"
+            >
               <LinkedInIcon style={{ fontSize: "20px" }} />
-            </button>
-            <button className="h-8 w-8 rounded-lg bg-white text-black">
+            </a>
+            <a
+              className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black"
+              href="www.github.com/meiti-021"
+              aria-label="external link to developer's social media accounts"
+            >
               <GitHubIcon style={{ fontSize: "20px" }} />
-            </button>
-          </ul>
+            </a>
+          </div>
         </div>
       </div>
       <p className="w-ful3 mx-auto mt-10 max-w-7xl text-base">

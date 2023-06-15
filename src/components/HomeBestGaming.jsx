@@ -133,6 +133,7 @@ const HomeBestGaming = () => {
             onClick={() => {
               swiperRef.current.swiper.slideNext();
             }}
+            aria-label="swips slider to next slide"
           >
             <ArrowCircleLeftRoundedIcon style={{ fontSize: "2.5rem" }} />
           </button>
@@ -141,6 +142,7 @@ const HomeBestGaming = () => {
             onClick={() => {
               swiperRef.current.swiper.slidePrev();
             }}
+            aria-label="swips slider to previous slide"
           >
             <ArrowCircleRightRoundedIcon style={{ fontSize: "2.5rem" }} />
           </button>

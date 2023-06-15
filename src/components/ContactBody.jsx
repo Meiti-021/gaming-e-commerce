@@ -1,3 +1,4 @@
+import { enqueueSnackbar } from "notistack";
 import { useState } from "react";
 
 const ContactBody = () => {
@@ -107,7 +108,18 @@ const ContactBody = () => {
                 }}
               ></textarea>
             </div>
-            <button className="border-ellipse h-11 w-52 bg-gradient-to-r from-blue to-second-color text-sm  font-semibold text-white">
+            <button
+              type="submit"
+              className="border-ellipse h-11 w-52 bg-gradient-to-r from-blue to-second-color text-sm  font-semibold text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                enqueueSnackbar({
+                  variant: "warning",
+                  message:
+                    "This webpage is a demo version and does not collect or send any data to server!",
+                });
+              }}
+            >
               Send Message <span className="ml-3">&#8594;</span>
             </button>
           </div>

@@ -98,6 +98,7 @@ const WishList = () => {
                             className: "capitalize ",
                           });
                         }}
+                        aria-label="removes product from wishlist"
                       >
                         <DeleteIcon />
                       </button>
@@ -114,6 +115,7 @@ const WishList = () => {
                   onClick={() => {
                     navigate(-1);
                   }}
+                  aria-label="navigates to previous page"
                 >
                   &#8592;
                 </button>
@@ -164,6 +166,7 @@ const WishList = () => {
                 onClick={() => {
                   navigate(-1);
                 }}
+                aria-label="navigates to previous page"
               >
                 &#8592;
               </button>

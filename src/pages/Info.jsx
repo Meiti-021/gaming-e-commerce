@@ -164,6 +164,7 @@ const Info = () => {
           onClick={() => {
             setIsModalOpen(false);
           }}
+          aria-label="closes modal"
         >
           <CloseIcon style={{ fontSize: "3rem" }} />
         </button>
@@ -199,6 +200,7 @@ const Info = () => {
             onClick={() => {
               addIndex();
             }}
+            aria-label="adds amount to product in cart"
           >
             <ArrowForwardIosIcon style={{ fontSize: "3rem" }} />
           </button>
@@ -207,6 +209,7 @@ const Info = () => {
             onClick={() => {
               minusIndex();
             }}
+            aria-label="removes amount of product in cart"
           >
             <ArrowBackIosIcon style={{ fontSize: "3rem" }} />
           </button>
@@ -221,6 +224,7 @@ const Info = () => {
             onClick={() => {
               navigate(-1);
             }}
+            aria-label="navigate to previous page"
           >
             &#8592;
           </button>
@@ -252,6 +256,7 @@ const Info = () => {
                     });
                   }
                 }}
+                aria-label="add or removes item from wishlist"
               >
                 {exist ? (
                   <FavoriteIcon style={{ color: "red" }} />
@@ -329,6 +334,7 @@ const Info = () => {
                             option: index,
                           });
                         }}
+                        aria-label="changes product option"
                       >
                         {item}
                       </button>
@@ -358,6 +364,7 @@ const Info = () => {
                         dispatch(addAmount(currentProduct));
                       }
                     }}
+                    aria-label="changes the quantity of product"
                   >
                     <AddIcon style={{ fontSize: "1rem" }} />
                   </button>
@@ -373,6 +380,7 @@ const Info = () => {
                         dispatch(removeAmount(currentProduct));
                       }
                     }}
+                    aria-label="changes the quantity of product"
                   >
                     <RemoveIcon style={{ fontSize: "1rem" }} />
                   </button>
@@ -448,6 +456,7 @@ const Info = () => {
                   onClick={() => {
                     minusIndex();
                   }}
+                  aria-label="changes the quantity"
                 >
                   <ExpandLessTwoTone style={{ fontSize: "2rem" }} />
                 </button>
@@ -456,6 +465,7 @@ const Info = () => {
                   onClick={() => {
                     addIndex();
                   }}
+                  aria-label="changes the quantity"
                 >
                   <ExpandMoreTwoTone style={{ fontSize: "2rem" }} />
                 </button>
@@ -499,6 +509,7 @@ const Info = () => {
                           onClick={() => {
                             setIsModalOpen(true);
                           }}
+                          aria-label="opens slider modal"
                         >
                           <SearchIcon />
                         </button>
@@ -512,6 +523,7 @@ const Info = () => {
                 onClick={() => {
                   addIndex();
                 }}
+                aria-label="changes the amount of product"
               >
                 &#8594;
               </button>
@@ -520,6 +532,7 @@ const Info = () => {
                 onClick={() => {
                   minusIndex();
                 }}
+                aria-label="changes the amount of product"
               >
                 &#8592;
               </button>

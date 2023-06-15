@@ -443,6 +443,7 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             onClick={() => {
               setSideFilter(false);
             }}
+            aria-label="close sidebar filter section"
           >
             <CloseIcon />
           </button>
@@ -470,7 +471,18 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
-                <button className="text-sm font-normal">Reset</button>
+                <button
+                  className="text-sm font-normal"
+                  onClick={() => {
+                    setFilter({
+                      ...filter,
+                      availability: false,
+                      nonAvailability: false,
+                    });
+                  }}
+                >
+                  Reset
+                </button>
               </div>
               <div className="mt-4 flex flex-col gap-1">
                 <div className="flex items-center justify-between">
@@ -534,7 +546,18 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             >
               <div className="flex items-center justify-between font-normal">
                 <p className="text-sm">The highest price is 900.00</p>
-                <button className="text-sm font-normal">Reset</button>
+                <button
+                  className="text-sm font-normal"
+                  onClick={() => {
+                    setFilter({
+                      ...filter,
+                      maxPrice: 1000.0,
+                      minPrice: 0,
+                    });
+                  }}
+                >
+                  Reset
+                </button>
               </div>
               <div className="mt-4 flex flex-col">
                 <div className="flex items-center justify-between">
@@ -604,7 +627,28 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
-                <button className="text-sm font-normal">Reset</button>
+                <button
+                  className="text-sm font-normal"
+                  onClick={() => {
+                    setFilter({
+                      ...filter,
+                      brands: {
+                        samsung: false,
+                        acer: false,
+                        HyperX: false,
+                        "Kepler Brooks": false,
+                        "Sony PS5": false,
+                        Electrobot: false,
+                        Lenovo: false,
+                        XFX: false,
+                        KandE: false,
+                        Vulture: false,
+                      },
+                    });
+                  }}
+                >
+                  Reset
+                </button>
               </div>
               <div className="mt-4 flex flex-col">
                 {allBrands.map((item) => {
@@ -681,7 +725,37 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
-                <button className="text-sm font-normal">Reset</button>
+                <button
+                  className="text-sm font-normal"
+                  onClick={() => {
+                    setFilter({
+                      ...filter,
+                      sizes: {
+                        "32-inches": false,
+                        "28-inches": false,
+                        "21.5-inches": false,
+                        "25-inches": false,
+                        "30 inches": false,
+                        "32.5 inches": false,
+                        "128 GB": false,
+                        "256 GB": false,
+                        "50D x 66W x 131H": false,
+                        "52D x 66W x 131H": false,
+                        "236 GB": false,
+                        "365 GB": false,
+                        "50D x 65W x 130H": false,
+                        "3 GB": false,
+                        "6 GB": false,
+                        "RX 750": false,
+                        "364 GB": false,
+                        "18 x 11.5 x 11": false,
+                        "20 x 12.5 x 13": false,
+                      },
+                    });
+                  }}
+                >
+                  Reset
+                </button>
               </div>
               <div className="mt-4 flex flex-col">
                 {allSizes.map((item) => {
@@ -755,7 +829,24 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm">0 selected</p>
-                <button className="text-sm font-normal">Reset</button>
+                <button
+                  className="text-sm font-normal"
+                  onClick={() => {
+                    setFilter({
+                      ...filter,
+                      colors: {
+                        red: false,
+                        black: false,
+                        white: false,
+                        green: false,
+                        gray: false,
+                        blue: false,
+                      },
+                    });
+                  }}
+                >
+                  Reset
+                </button>
               </div>
               <div className="mt-4 flex flex-col gap-4">
                 {allColors.map((item) => {
@@ -843,7 +934,18 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               >
                 <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
-                  <button className="text-sm font-normal">Reset</button>
+                  <button
+                    className="text-sm font-normal"
+                    onClick={() => {
+                      setFilter({
+                        ...filter,
+                        availability: false,
+                        nonAvailability: false,
+                      });
+                    }}
+                  >
+                    Reset
+                  </button>
                 </div>
                 <div className="mt-4 flex flex-col gap-1">
                   <div className="flex items-center justify-between">
@@ -909,7 +1011,18 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               >
                 <div className="flex items-center justify-between font-normal">
                   <p className="text-sm">The highest price is 900.00</p>
-                  <button className="text-sm font-normal">Reset</button>
+                  <button
+                    className="text-sm font-normal"
+                    onClick={() => {
+                      setFilter({
+                        ...filter,
+                        maxPrice: 1000.0,
+                        minPrice: 0,
+                      });
+                    }}
+                  >
+                    Reset
+                  </button>
                 </div>
                 <div className="mt-4 flex flex-col">
                   <div className="flex items-center justify-between">
@@ -981,7 +1094,28 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               >
                 <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
-                  <button className="text-sm font-normal">Reset</button>
+                  <button
+                    className="text-sm font-normal"
+                    onClick={() => {
+                      setFilter({
+                        ...filter,
+                        brands: {
+                          samsung: false,
+                          acer: false,
+                          HyperX: false,
+                          "Kepler Brooks": false,
+                          "Sony PS5": false,
+                          Electrobot: false,
+                          Lenovo: false,
+                          XFX: false,
+                          KandE: false,
+                          Vulture: false,
+                        },
+                      });
+                    }}
+                  >
+                    Reset
+                  </button>
                 </div>
                 <div className="mt-4 flex flex-col">
                   {allBrands.map((item) => {
@@ -1060,7 +1194,37 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               >
                 <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
-                  <button className="text-sm font-normal">Reset</button>
+                  <button
+                    className="text-sm font-normal"
+                    onClick={() => {
+                      setFilter({
+                        ...filter,
+                        sizes: {
+                          "32-inches": false,
+                          "28-inches": false,
+                          "21.5-inches": false,
+                          "25-inches": false,
+                          "30 inches": false,
+                          "32.5 inches": false,
+                          "128 GB": false,
+                          "256 GB": false,
+                          "50D x 66W x 131H": false,
+                          "52D x 66W x 131H": false,
+                          "236 GB": false,
+                          "365 GB": false,
+                          "50D x 65W x 130H": false,
+                          "3 GB": false,
+                          "6 GB": false,
+                          "RX 750": false,
+                          "364 GB": false,
+                          "18 x 11.5 x 11": false,
+                          "20 x 12.5 x 13": false,
+                        },
+                      });
+                    }}
+                  >
+                    Reset
+                  </button>
                 </div>
                 <div className="mt-4 flex flex-col">
                   {allSizes.map((item) => {
@@ -1136,7 +1300,24 @@ const CollectionsBody = ({ collections = [], type = "all" }) => {
               >
                 <div className="flex items-center justify-between">
                   <p className="text-sm">0 selected</p>
-                  <button className="text-sm font-normal">Reset</button>
+                  <button
+                    className="text-sm font-normal"
+                    onClick={() => {
+                      setFilter({
+                        ...filter,
+                        colors: {
+                          red: false,
+                          black: false,
+                          white: false,
+                          green: false,
+                          gray: false,
+                          blue: false,
+                        },
+                      });
+                    }}
+                  >
+                    Reset
+                  </button>
                 </div>
                 <div className="mt-4 flex flex-col gap-4">
                   {allColors.map((item) => {

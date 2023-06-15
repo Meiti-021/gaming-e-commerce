@@ -34,11 +34,11 @@ const WishListItem = ({
         </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between gap-5 rounded-sm border-1 border-border-color p-1 text-sm">
-            <button>
+            <button aria-label="adds amount in wishlist">
               <AddIcon style={{ fontSize: "1rem", color: "gray" }} />
             </button>
             <p className="pt-1">{quantity}</p>
-            <button>
+            <button aria-label="removes amount in wishlist">
               <RemoveIcon style={{ fontSize: "1rem", color: "gray" }} />
             </button>
           </div>
@@ -52,6 +52,7 @@ const WishListItem = ({
                 className: "capitalize ",
               });
             }}
+            aria-label="removes product from wishlist"
           >
             <DeleteIcon />
           </button>

@@ -50,6 +50,7 @@ const Product = ({ type, name, images, options, id, price }) => {
                 onClick={() => {
                   setOption(index);
                 }}
+                aria-label="changes the products option"
               >
                 {item}
               </button>

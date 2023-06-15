@@ -91,6 +91,7 @@ const Cart = () => {
                           onClick={() => {
                             dispatch(addAmount(item));
                           }}
+                          aria-label="adds to amount of product in cart"
                         >
                           <AddIcon
                             style={{ fontSize: "1rem", color: "gray" }}
@@ -101,6 +102,7 @@ const Cart = () => {
                           onClick={() => {
                             dispatch(removeAmount(item));
                           }}
+                          aria-label="removes the amount from product in cart"
                         >
                           <RemoveIcon
                             style={{ fontSize: "1rem", color: "gray" }}
@@ -120,6 +122,7 @@ const Cart = () => {
                             className: "capitalize ",
                           });
                         }}
+                        aria-label="removes product from cart"
                       >
                         <DeleteIcon />
                       </button>
@@ -136,6 +139,7 @@ const Cart = () => {
                   onClick={() => {
                     navigate(-1);
                   }}
+                  aria-label="navigates to previous page"
                 >
                   &#8592;
                 </button>
@@ -189,6 +193,7 @@ const Cart = () => {
                 onClick={() => {
                   navigate(-1);
                 }}
+                aria-label="navigate to previous page"
               >
                 &#8592;
               </button>
