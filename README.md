@@ -33,17 +33,17 @@ The gaming e-commerce front-end project aims to create an engaging and intuitive
 ## Installation and Usage
 
 1. Clone the repository: `git clone https://github.com/mahdi-dehgani/gaming-ecommerce-project.git`
-2. Navigate to the project directory: `cd gaming-ecommerce-project`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm run dev`
-5. Open the project in your preferred web browser: `http://localhost:5173`
+
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. Open the project in your preferred web browser: `http://localhost:5173`
 
 Feel free to explore the different pages, interact with the features, and test the responsiveness on various devices.
 
 ## Contact Information
 
 - Developer: Mahdi Dehgani
-- Email: meiti.edu@gmail.com
+- Email: dev.meiti@gmail.com
 
 ## License
 
