@@ -5,6 +5,8 @@
 
 This is an advanced front-end project for a gaming e-commerce website, built using React, Tailwind CSS, Material-UI, Swiper.js, and Notistack libraries. The project is fully responsive, user-friendly, and developed by Mahdi Dehgani, an intermediate front-end developer.
 
+- To view the live demo of this website, (click here)[https://meiti-gaming-accessorie.netlify.app/].
+
 ## Project Overview
 
 The gaming e-commerce front-end project aims to create an engaging and intuitive user experience for an online gaming store. The website showcases various gaming products, allows users to browse through different categories, view product details, add items to their cart, and proceed with the checkout process.
