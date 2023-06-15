@@ -4,7 +4,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper";
-import logo from "../assets/images/client-logo.png";
+import logo from "../assets/images/client-logo.webp";
 import ArrowCircleRightRoundedIcon from "@mui/icons-material/ArrowCircleRightRounded";
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
 import { useMediaQuery } from "@mui/material";

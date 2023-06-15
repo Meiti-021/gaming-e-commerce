@@ -1,12 +1,12 @@
-import heroBgLeft from "../assets/images/Half-bluthooth.png";
-import heroBgRight from "../assets/images/Half-bluthooth-right.png";
-import circle2 from "../assets/images/design-circle-2.png";
-import circle1 from "../assets/images/design-circle-1.png";
-import joystick from "../assets/images/main-conent-games.png";
-import circle3 from "../assets/images/round-img-big.png";
-import circle4 from "../assets/images/round-img-small.png";
-import circle5 from "../assets/images/full-bluthooth.png";
-import herostar from "../assets/images/top-star.png";
+import heroBgLeft from "../assets/images/Half-bluthooth.webp";
+import heroBgRight from "../assets/images/Half-bluthooth-right.webp";
+import circle2 from "../assets/images/design-circle-2.webp";
+import circle1 from "../assets/images/design-circle-1.webp";
+import joystick from "../assets/images/main-conent-games.webp";
+import circle3 from "../assets/images/round-img-big.webp";
+import circle4 from "../assets/images/round-img-small.webp";
+import circle5 from "../assets/images/full-bluthooth.webp";
+import herostar from "../assets/images/top-star.webp";
 import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
 import { Link } from "react-router-dom";
 const HomeHero = () => {

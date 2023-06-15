@@ -1,4 +1,4 @@
-import circle6 from "../assets/images/design-circle-3.png";
+import circle6 from "../assets/images/design-circle-3.webp";
 import SectionHeader from "../components/SectionHeader";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

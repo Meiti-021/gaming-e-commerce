@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "../assets/images/subscribe-img.png";
+import image from "../assets/images/subscribe-img.webp";
 import { useSnackbar } from "notistack";
 const HomeNewsLetter = () => {
   const { enqueueSnackbar } = useSnackbar();

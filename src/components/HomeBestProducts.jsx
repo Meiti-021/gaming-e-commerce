@@ -1,9 +1,9 @@
 import SectionHeader from "./SectionHeader";
 import cpu from "../assets/images/product-cpu.webp";
-import cpu2 from "../assets/images/double.cpu.png";
-import circle1 from "../assets/images/design-circle-3.png";
-import circle2 from "../assets/images/gaming-products.png";
-import circle3 from "../assets/images/gaming-products-1.png";
+import cpu2 from "../assets/images/double.cpu.webp";
+import circle1 from "../assets/images/design-circle-3.webp";
+import circle2 from "../assets/images/gaming-products.webp";
+import circle3 from "../assets/images/gaming-products-1.webp";
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

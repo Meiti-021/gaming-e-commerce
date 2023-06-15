@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 const avatars = [
-  "/assets/users/avatar1.png",
-  "/assets/users/avatar2.png",
-  "/assets/users/avatar3.png",
-  "/assets/users/avatar4.png",
-  "/assets/users/avatar5.png",
-  "/assets/users/avatar6.png",
+  "/assets/users/avatar1.webp",
+  "/assets/users/avatar2.webp",
+  "/assets/users/avatar3.webp",
+  "/assets/users/avatar4.webp",
+  "/assets/users/avatar5.webp",
+  "/assets/users/avatar6.webp",
 ];
 const Login = () => {
   const [value, setValue] = useState(0);
@@ -21,7 +21,7 @@ const Login = () => {
     copassword: "",
     lastname: "",
     email: "",
-    imageUrl: "/assets/users/avatar1.png",
+    imageUrl: "/assets/users/avatar1.webp",
   });
 
   const [signup, setsignup] = useState({

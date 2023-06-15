@@ -1,5 +1,5 @@
-import circle from "../assets/images/main-conent-games.png";
-import circle3 from "../assets/images/design-circle-3.png";
+import circle from "../assets/images/main-conent-games.webp";
+import circle3 from "../assets/images/design-circle-3.webp";
 import SpeakerRoundedIcon from "@mui/icons-material/SpeakerRounded";
 import BoltRoundedIcon from "@mui/icons-material/BoltRounded";
 import SportsEsportsRoundedIcon from "@mui/icons-material/SportsEsportsRounded";

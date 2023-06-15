@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "nyc --reporter=lcov --reporter=text mocha"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -16,10 +17,10 @@
     "@mui/material": "^5.13.2",
     "@reduxjs/toolkit": "^1.9.5",
     "fontfaceobserver": "^2.3.0",
+    "lottie-react": "^2.4.0",
     "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
     "swiper": "^9.3.2"

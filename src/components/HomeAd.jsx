@@ -1,5 +1,5 @@
-import headset from "../assets/images/full-width-bluthhoth.png";
-import doubleHeadset from "../assets/images/double-bluthoth.png";
+import headset from "../assets/images/full-width-bluthhoth.webp";
+import doubleHeadset from "../assets/images/double-bluthoth.webp";
 
 import { ExpandMoreTwoTone, FavoriteBorderOutlined } from "@mui/icons-material";
 import { useState, useEffect } from "react";

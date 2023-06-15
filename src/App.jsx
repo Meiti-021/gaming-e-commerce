@@ -23,7 +23,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import WishList from "./pages/WishList";
 import "./assets/fonts/Outfit.ttf";
 import FontFaceObserver from "fontfaceobserver";
-import Loading from "./assets/images/loading.gif";
+import Lottie from "lottie-react";
+import animationData from "./assets/animation/loading.json";
 function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -43,7 +44,12 @@ function App() {
   if (loading)
     return (
       <div className="flex h-screen w-full items-center justify-center bg-black">
-        <img src={Loading} alt="" className="block  object-contain" />
+        <Lottie
+          animationData={animationData}
+          height={"14rem"}
+          width={"75%"}
+          loop={true}
+        />
       </div>
     );
 

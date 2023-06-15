@@ -7,7 +7,7 @@ import ArrowCircleRightRoundedIcon from "@mui/icons-material/ArrowCircleRightRou
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "@mui/material";
-import star from "../assets/images/star.png";
+import star from "../assets/images/star.webp";
 const HomeTestimonials = () => {
   const swiperRef = useRef(null);
   const lg = useMediaQuery("(min-width:1024px)");

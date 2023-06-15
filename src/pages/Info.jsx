@@ -19,16 +19,16 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import star from "../assets/images/star.png";
-import banner1 from "../assets/images/banner-1.jpg";
-import banner2 from "../assets/images/banner-2.jpg";
-import banner3 from "../assets/images/banner-3.jpg";
-import banner4 from "../assets/images/banner-4.jpg";
-import banner5 from "../assets/images/banner-5.jpg";
-import banner6 from "../assets/images/banner-6.jpg";
-import banner7 from "../assets/images/banner-7.jpg";
-import banner8 from "../assets/images/banner-8.jpg";
-import banner9 from "../assets/images/banner-9.jpg";
+import star from "../assets/images/star.webp";
+import banner1 from "../assets/images/banner-1.webp";
+import banner2 from "../assets/images/banner-2.webp";
+import banner3 from "../assets/images/banner-3.webp";
+import banner4 from "../assets/images/banner-4.webp";
+import banner5 from "../assets/images/banner-5.webp";
+import banner6 from "../assets/images/banner-6.webp";
+import banner7 from "../assets/images/banner-7.webp";
+import banner8 from "../assets/images/banner-8.webp";
+import banner9 from "../assets/images/banner-9.webp";
 import HomeBestProGamingProducts from "../components/HomeBestProGamingProducts";
 import {
   addToCart,
@@ -39,7 +39,8 @@ import {
 } from "../features/cartSlice";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Loading from "../assets/images/loading.gif";
+import Lottie from "lottie-react";
+import animationData from "../assets/animation/loading.json";
 const banners = [
   banner1,
   banner2,
@@ -138,7 +139,12 @@ const Info = () => {
   if (loading) {
     return (
       <div className="flex h-screen w-full items-center justify-center bg-black">
-        <img src={Loading} className=" bg-black object-contain" />
+        <Lottie
+          animationData={animationData}
+          height={"14rem"}
+          width={"75%"}
+          loop={true}
+        />
       </div>
     );
   }
