@@ -402,7 +402,7 @@ const Header = () => {
         <div className="absolute bottom-0 h-[1px] w-full bg-gradient-to-r from-second-color via-blue to-blue md:hidden "></div>
         <div className="absolute bottom-16 hidden h-[1px] w-full bg-[rgba(255,255,255,0.2)] md:block "></div>
         <div
-          className={`hidden  border-b-[1px]  border-[rgba(255,255,255,0.2)] transition-all md:block  ${
+          className={`hidden  h-16 border-b-[1px] border-[rgba(255,255,255,0.2)]  transition-all md:block  ${
             isTop ? undefined : "header-sc "
           }`}
         >
@@ -586,7 +586,7 @@ const Header = () => {
           </div>
         </div>
         <div
-          className={`absolute top-0 h-screen w-screen bg-white transition-all ${
+          className={`absolute  h-screen w-screen bg-white transition-all ${
             sidenav ? "left-0" : "left-full"
           } flex flex-col`}
         >
